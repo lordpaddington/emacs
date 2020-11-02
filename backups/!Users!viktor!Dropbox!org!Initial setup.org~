@@ -42,14 +42,12 @@ Az van, hogy kurvára összezavarnak a vim bindingek, szerintem vimmereken kív�
 ** DONE Fix the M-w mapping to Copy or make Cua standard.
 ** TODO Valami normális témát belőni
 Egyébként valszeg a Solarized lesz a jó irány, de customizálni kell erősen, mert pl. az is a elkúrja a headingeket Orgmodeban. Nézd meg a régi windowsos configot, abban van egy csomó jó on-the-fly customization!!!!
+*** Tango Edits
+**** TODO Make headlines bold
+**** TODO Change DONE headlines to gray
+**** TODO Tweak the background color
 ** TODO Rendberakni az Org Capture templatest
 ** TODO Display time in the Modeline
-
-* Mi idegesít a Doom-ban, ami miatt megfontolnám a Vanillát?
-1. TODO coloring.
-2. M-w, a faszomért zárja be az ablakot copy helyett?
-3. A kibaszott sok kavarás, amitől a configfájlok nem úgy működnek, ahogy kellene... Sokkal egyszerűbb felpakolni, inicializálni és konfigurálni a csomagokat egyetlen init fájlból, mint addig szeparálni a concerneket, amíg senkinek semmi fogalma nincs már hogy mi és miért történik.
-4. Hogy nem lehet a témákat konfigolni, mert fingom nincs, hova teszi ez a szar!!!
 
 * Mi az, amiben a Doom jobb, mint a Vanilla?
 - [ ] A témák szebbek

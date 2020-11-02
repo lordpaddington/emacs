@@ -10,6 +10,11 @@
        (add-to-list 'default-frame-alist '(ns-appearance . light))
        (setq org-directory "~/Dropbox/org")))
 
+;;WINDOWS SPECIFIC:
+(cond ((eq system-type 'windows-nt)
+       (setq org-directory "~/Dropbox/org")
+       (menu-bar-mode -1)
+       ))
 
 
 ;;set up package management
