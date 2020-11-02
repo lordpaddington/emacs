@@ -49,7 +49,6 @@ Egyébként valszeg a Solarized lesz a jó irány, de customizálni kell erősen
 3. A kibaszott sok kavarás, amitől a configfájlok nem úgy működnek, ahogy kellene... Sokkal egyszerűbb felpakolni, inicializálni és konfigurálni a csomagokat egyetlen init fájlból, mint addig szeparálni a concerneket, amíg senkinek semmi fogalma nincs már hogy mi és miért történik.
 4. Hogy nem lehet a témákat konfigolni, mert fingom nincs, hova teszi ez a szar!!!
 
-
 * Mi az, amiben a Doom jobb, mint a Vanilla?
 - [ ] A témák szebbek
 - [ ] Általában az ivy config, hogy az M-x az utolsó parancsot mutatja, a bufferváltásnál van extra infó, stb.

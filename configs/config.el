@@ -116,6 +116,11 @@
 (setq deft-directory "~/Dropbox/org")
 (use-package deft)
 
+;;MAGIT
+(use-package magit)
+
+
+
 ;;ORG Setup
 ;;=========
 (setq org-startup-indented t
