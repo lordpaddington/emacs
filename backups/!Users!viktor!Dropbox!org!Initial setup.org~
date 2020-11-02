@@ -23,6 +23,8 @@ Az van, hogy kurvára összezavarnak a vim bindingek, szerintem vimmereken kív�
 ** DONE Make deft work
 
 ** TODO Miafaszért kér knofirmációt a Monokai miatt a betöltéskor?
+
+** TODO Setup magit!
 ** TODO Install org-roam
 [[https://www.orgroam.com/manual/][Org-roam manual]]
 *** DONE Fix the initial config (see the installation docs: https://www.orgroam.com/manual/index.html

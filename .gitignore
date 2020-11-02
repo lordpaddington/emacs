@@ -4,6 +4,7 @@ doc/*
 backup
 backups
 backup.*
+elpa
 eshell
 recentf
 tmp
