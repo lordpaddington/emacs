@@ -1,6 +1,3 @@
-;;Debug
-(message "Hello-world -- this is my init.el file loading!")
-
 
 ;;MAC SPECIFIC - put it in an ifmac
 (cond ((eq system-type 'darwin)       
@@ -32,6 +29,8 @@
 (use-package auto-compile
   :config (auto-compile-on-load-mode))
 (setq load-prefer-newer t)
+(setq custom-safe-themes t) ;;UNSAFE! Set every theme as safe, so there is no confirmation!
+
 
 (use-package restart-emacs
   :ensure t
@@ -65,15 +64,18 @@
 (set-face-attribute 'default nil :font "Consolas 17")
 ;;(set-face-attribute 'mode-line nil :font "Courier-13") - faszért nem működik rendesen?!?!?
 
+;;THEMES
 ;;(use-package solarized-theme)
 ;;(setq solarized-use-variable-pitch nil)
 ;;(setq solarized-scale-org-headlines nil)
 ;;(setq x-underline-at-descent-line t)
 ;;(setq solarized-high-contrast-mode-line t)
 ;;(load-theme 'solarized-light-high-contrast t)
-(load-theme 'tango)
+(use-package doom-themes)
+(load-theme 'doom-opera-light)
 (set-face-attribute 'fringe nil :background nil)
 (tool-bar-mode -1)
+
 
 
 ;;Easy switch windows
@@ -88,6 +90,8 @@
 (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
 (fset 'yes-or-no-p 'y-or-n-p)
 
+
+(use-package term)
 
 ;; Show keybindings!!!!
 (use-package which-key

@@ -16,21 +16,19 @@ Ezesetben a legegszerűbb fix kitörölni az összes autosave szart az .emacs.d/
 Az van, hogy kurvára összezavarnak a vim bindingek, szerintem vimmereken kívül ennek nem sok értelme van.
 ** DONE Learn to use DEFT
 ** DONE Fix the Org capture templates, valamiért az enyémek nem működnek. Lehet kellene egy After az egésznek?
-** DONE Valamiért a Deft furán listázza a fájlneveket...
-** DONE Copy the Org Config!
+** DONE Valamiért a Deft furán listázza a fájlneveket..** DONE Copy the Org Config!
 *** DONE Faszért nem működik az agenda config?!
-
 ** DONE Make deft work
+** DONE Miafaszért kér knofirmációt a Monokai miatt a betöltéskor?
+Rejtély. Akkor is csinálja, amikor elvileg kibasztam az initből a safe témákat...
 
-** TODO Miafaszért kér knofirmációt a Monokai miatt a betöltéskor?
-
-** TODO Setup magit!
+** DONE Setup magit!
 ** TODO Install org-roam
 [[https://www.orgroam.com/manual/][Org-roam manual]]
 *** DONE Fix the initial config (see the installation docs: https://www.orgroam.com/manual/index.html
 *** TODO Kitalálni, hogy miért bassza el a save buffert.
-** TODO Általában kitalálni, hogy hogyan lehet gitre felkúrni a configot
-** TODO Setup the Mac/Windows Switch
+** DONE Általában kitalálni, hogy hogyan lehet gitre felkúrni a configot
+** DONE Setup the Mac/Windows Switch
 ** DONE Set up the capture templates
 ** DONE Map M-left/right to line start/end.
 ** DONE Kurvára nyomni egy vanilla instalt, bassza meg a Doom, elegem van belőle.
@@ -47,6 +45,7 @@ Egyébként valszeg a Solarized lesz a jó irány, de customizálni kell erősen
 **** TODO Change DONE headlines to gray
 **** TODO Tweak the background color
 ** TODO Rendberakni az Org Capture templatest
+** TODO Felrakni valami terminalt
 ** TODO Display time in the Modeline
 
 * Mi az, amiben a Doom jobb, mint a Vanilla?
@@ -77,6 +76,8 @@ Ugyanakkor viszont, a Doom egy csomó kibaszottul alap dolgot beállít, amit a 
 - [X] Deft működik
 - [ ] Roam működik
 - [ ] Windowson is működik az egész szar.
+  - Majdnem ott vagyunk, de csak majdnem... :(
+  
 
 ** Org-roam notes:
 Mappelni kell a saját buffer switchet és akkor nem zavar össze az ID-velúrja el a jegyzeteket!!!
@@ -84,7 +85,7 @@ Mappelni kell a saját buffer switchet és akkor nem zavar össze az ID-velúrja
 
 ** Themes
 *** FlatWhite
-Vállalható világos téma, de át kell kicsit konfigolni a színeket.
+Vállalható világos téma, de át kell kicsit konfigolni a színeket, hogy kontrasztosabb legyen.
 *** Nord-light
 Szintén világos, ahhoz hasonlít, amit a vanilla konfigomban használtam.
 *** Opera-light
