@@ -1,0 +1,276 @@
+;; My Custom configurations
+;; Add this to init.el to load this file: (load-file "configs/initialize.el")
+
+(add-to-list 'load-path "~/.emacs.d/stuff/")
+
+
+(global-visual-line-mode t)
+(desktop-save-mode 1)
+(scroll-bar-mode 0)
+(global-set-key (kbd "C-c q") 'auto-fill-mode)
+
+
+
+;;(use-package centered-window :ensure t)
+
+;; Centered Window mode
+;; Doesn't resize with the frame, so disable if you hate it.
+;;(centered-window-mode t)
+;;(setq cwm-use-vertical-padding t)
+
+
+;; Package Sources
+;; ===============
+(require 'package)
+(unless (assoc-default "melpa" package-archives)
+  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+  (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/")))
+(unless (assoc-default "org" package-archives)
+  (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t))
+
+
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.org/packages/") t)
+
+
+
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+(require 'use-package)
+(setq use-package-verbose t)
+(setq use-package-always-ensure t)
+(use-package auto-compile
+>  :config (auto-compile-on-load-mode))
+(setq load-prefer-newer t)
+
+(use-package dash
+  :ensure t)
+
+(require 'deft)
+(require 'zetteldeft)
+
+(use-package restart-emacs
+  :ensure t
+  :bind* (("C-x M-c" . restart-emacs)))
+
+;; Autofill mode:
+;;(add-hook 'text-mode-hook 'turn-on-auto-fill)
+;;(add-hook 'org-mode-hook 'turn-on-auto-fill)
+;; Disabled this so that I can easily export stuff into Text/Onenote, if I decide to go back.
+
+
+;; Other Shit
+(display-time-mode 1)
+(setq display-time-string-forms
+       '((propertize (concat " " 24-hours ":" minutes " ")
+ 		    'face 'egoge-display-time)))
+
+
+(setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
+(prefer-coding-system 'utf-8)
+
+;; Moving windows naturally:
+(use-package windmove
+  :bind
+  (("<f2> <right>" . windmove-right)
+   ("<f2> <left>" . windmove-left)
+   ("<f2> <up>" . windmove-up)
+   ("<f2> <down>" . windmove-down)
+   ))
+
+;;Theme
+;; Specified in the system-dependent config files.
+
+;;Center window:
+(use-package centered-window)
+
+
+;; Mode line
+(use-package smart-mode-line)
+
+
+;; Change yes or no to y or n
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; READING MODE:
+(defun xah-toggle-margin-right ()
+  "Toggle the right margin between `fill-column' or window width.
+This command is convenient when reading novel, documentation."
+  (interactive)
+  (if (eq (cdr (window-margins)) nil)
+      (set-window-margins nil 0 (- (window-body-width) fill-column))
+    (set-window-margins nil 0 0)))
+
+;; Strike through DONE:
+(setq org-fontify-done-headline t)
+(custom-set-faces
+ '(org-done ((t (:foreground "PaleGreen"
+                 :weight normal
+                 :strike-through t))))
+ '(org-headline-done
+            ((((class color) (min-colors 16) (background dark))
+               (:foreground "LightSalmon" :strike-through t)))))
+
+;; Don't blink the cursor
+(blink-cursor-mode -1)
+
+(use-package centered-cursor-mode)
+(centered-cursor-mode)
+
+;; Show keybindings!!!!
+(use-package which-key
+  :ensure t
+  :defer t
+  :diminish which-key-mode
+  :init
+  (setq which-key-sort-order 'which-key-key-order-alpha)
+  :bind* (("M-m ?" . which-key-show-top-level))
+  :config
+  (which
+   -key-mode)
+  (which-key-add-key-based-replacements
+    "M-m ?" "top level bindings"))
+
+;;smex is an amazing program that helps order the M-x commands based on usage and recent items.
+(use-package smex
+  :ensure t
+  :config
+  (smex-initialize))
+
+
+;;Neotree is basically a directory drawer that is popular in all the modern text editors.
+(use-package neotree
+  :ensure t
+  :bind* (("M-m SPC n". neotree-toggle))
+  :init
+  (setq neo-smart-open t))
+
+;; Magit:
+(use-package magit
+  :ensure t
+  :bind* (("M-m SPC e" . magit-status)
+          ("M-m g b"   . magit-blame)))
+
+
+;; ORG Tweaks
+;; ----------
+(setq org-hide-emphasis-markers t)
+(setq org-image-actual-width '(300))
+
+;; Drag and drop images into org!
+(use-package org-download
+  :ensure t
+  :defer 2)
+
+
+;; Org-roam
+(use-package org-roam
+      :ensure t
+      :hook
+      (after-init . org-roam-mode)
+      :custom
+      (org-roam-directory "/path/to/org-files/")
+      :bind (:map org-roam-mode-map
+              (("C-c n l" . org-roam)
+               ("C-c n f" . org-roam-find-file)
+               ("C-c n g" . org-roam-graph))
+              :map org-mode-map
+              (("C-c n i" . org-roam-insert))
+              (("C-c n I" . org-roam-insert-immediate))))
+
+
+
+;; Org Bullets:
+;(use-package org-bullets
+;  :ensure t
+;  :config
+;  (progn
+;    (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))))
+
+
+;; Ez behúzza a headlineket, és elrejti a csillagokat!!!
+(setq org-startup-indented t
+      org-hide-leading-stars t)
+
+; Undo and redo window configurations
+(use-package winner                     
+  :init (winner-mode))
+
+;; HELM
+(use-package helm
+  :ensure t
+  :demand t
+  :diminish helm-mode
+  :init
+  (progn
+    (require 'helm-config)
+    (setq helm-candidate-number-limit 100)
+    ;; From https://gist.github.com/antifuchs/9238468
+    (setq helm-idle-delay 0.0 ; update fast sources immediately (doesn't).
+          helm-input-idle-delay 0.01  ; this actually updates things
+                                        ; reeeelatively quickly.
+          helm-yas-display-key-on-candidate t
+          helm-quick-update t
+          helm-M-x-requires-pattern nil
+          helm-ff-skip-boring-files t)
+    (helm-mode))
+  :bind (("C-c h" . helm-mini)
+         ("C-h a" . helm-apropos)
+         ("C-x C-b" . helm-buffers-list)
+         ("C-x b" . helm-buffers-list)
+         ("M-y" . helm-show-kill-ring)
+         ("M-x" . helm-M-x)
+         ("C-x c o" . helm-occur)
+         ("C-x c s" . helm-swoop)
+         ("C-x c y" . helm-yas-complete)
+         ("C-x c Y" . helm-yas-create-snippet-on-region)
+         ("C-x c b" . my/helm-do-grep-book-notes)
+         ("C-x c SPC" . helm-all-mark-rings)))
+
+(use-package helm-descbinds
+  :defer t
+  :bind (("C-h b" . helm-descbinds)
+         ("C-h w" . helm-descbinds)))
+
+
+;; Org-roam
+
+;; Spaceline:
+;; Consider moving this to Windows only...
+(use-package spaceline
+  :ensure t
+  :demand t
+  :init
+  (setq powerline-default-separator 'arrow-fade)
+  :config
+  (require 'spaceline-config)
+  (spaceline-spacemacs-theme)
+  (spaceline-helm-mode))
+
+;; Battery status
+(use-package fancy-battery
+  :ensure t
+  :init
+  (setq fancy-battery-show-percentage t)
+  :config
+  (fancy-battery-mode))
+
+;; Duplicate line with C-d
+(global-set-key "\C-c\C-d" "\C-a\C- \C-n\M-w\C-y")
+
+
+;; ==========================
+;; Load my other config files
+;; ==========================
+
+;; Win or Mac specific config
+(cond ((eq system-type 'windows-nt)
+       (load-file "~/.emacs.d/configs/cfg_win.el")
+       )
+      ((eq system-type 'darwin)
+       (load-file "~/.emacs.d/configs/cfg_mac.el")
+       ))
+
+;; Other layers
+(load-file "~/.emacs.d/configs/orgmode.el")

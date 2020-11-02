@@ -1,0 +1,46 @@
+;;Debug
+(message "Hello-world -- this is my init.el file loading!")
+
+;;BASIC SHIT
+(global-visual-line-mode t)
+(desktop-save-mode 1)
+(scroll-bar-mode 0)
+
+;;MAC SPECIFIC - put it in an ifmac
+(setq mac-command-modifier 'meta)
+(setq mac-option-modifier 'none)
+
+;;set up package management
+(require 'package)
+(unless (assoc-default "melpa" package-archives)
+  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+  (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/")))
+(unless (assoc-default "org" package-archives)
+  (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t))
+
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+(require 'use-package)
+(setq use-package-verbose t)
+(setq use-package-always-ensure t)
+(use-package auto-compile
+  :config (auto-compile-on-load-mode))
+(setq load-prefer-newer t)
+
+(use-package restart-emacs
+  :ensure t
+  :bind* (("C-x M-c" . restart-emacs)))
+
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages '(auto-compile restart-emacs use-package)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
