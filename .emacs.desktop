@@ -2,47 +2,71 @@
 ;; --------------------------------------------------------------------------
 ;; Desktop File for Emacs
 ;; --------------------------------------------------------------------------
-;; Created Mon Nov  2 20:58:52 2020
+;; Created Mon Nov  2 21:15:08 2020
 ;; Desktop file format version 208
 ;; Emacs version 27.1
 
 ;; Global section:
-(setq desktop-saved-frameset [frameset 1 (24480 25852 241952 0) (desktop . "208") "viktor@Das-MacBook.fritz.box" nil nil ((((minibuffer . t) (fontsize . 0) (font . "-*-Consolas-normal-normal-normal-*-17-*-*-*-m-0-iso10646-1") (border-width . 0) (internal-border-width . 2) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars) (horizontal-scroll-bars) (foreground-color . "#2e3436") (background-color . "#eeeeec") (line-spacing) (left-fringe . 10) (right-fringe . 10) (no-special-glyphs) (undecorated) (ns-appearance . light) (ns-transparent-titlebar) (z-group) (no-focus-on-map) (no-accept-focus) (menu-bar-lines . 1) (tool-bar-lines . 0) (title) (icon-type) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 15) (scroll-bar-height . 15) (alpha) (fullscreen . fullboth) (display-type . color) (background-mode . light) (cursor-color . "#204a87") (environment) (mouse-color . "#F8F8F2") (powerline-cache) (last-focus-update . t) (frameset--id . "59E6-BCF3-C7E1-49C0") (frameset--mini t . t) (modeline . t) (unsplittable) (icon-name) (display . "Das-MacBook.fritz.box") (explicit-name) (tool-bar-position . top) (fullscreen-restore) (visibility . t) (height . 71) (width . 281) (left . 3) (top . 8)) ((min-height . 4) (min-width . 20) (min-height-ignore . 2) (min-width-ignore . 10) (min-height-safe . 1) (min-width-safe . 4) (min-pixel-height . 80) (min-pixel-width . 180) (min-pixel-height-ignore . 40) (min-pixel-width-ignore . 90) (min-pixel-height-safe . 20) (min-pixel-width-safe . 36)) hc (pixel-width . 2549) (pixel-height . 1400) (total-width . 283) (total-height . 70) (normal-height . 1.0) (normal-width . 1.0) (combination-limit) (leaf (pixel-width . 1267) (pixel-height . 1400) (total-width . 141) (total-height . 70) (normal-height . 1.0) (normal-width . 0.496551724137931) (buffer "config.el" (selected . t) (hscroll . 0) (fringes 10 10 nil nil) (margins nil) (scroll-bars nil 0 t nil 0 t nil) (vscroll . 0) (dedicated) (point . 2217) (start . 1195)) (prev-buffers ("config.el" 3288 3529) ("init.el" 1 22) ("Initial setup.org" 701 1776))) (leaf (last . t) (pixel-width . 1282) (pixel-height . 1400) (total-width . 142) (total-height . 70) (normal-height . 1.0) (normal-width . 0.503448275862069) (buffer "cfg_win.el" (selected) (hscroll . 0) (fringes 10 10 nil nil) (margins nil) (scroll-bars nil 0 t nil 0 t nil) (vscroll . 0) (dedicated) (point . 1074) (start . 1)) (prev-buffers ("initialize.el" 6028 6715) ("configs" 1 443) ("cfg_win.el" 1 143) ("Emacs Config Backups" 1 253) ("Initial setup.org" 1 867) ("Emacs" 1 358) ("config.el" 1912 2865)))))])
+(setq desktop-saved-frameset [frameset 1 (24480 26828 950978 0) (desktop . "208") "Viktor@DESKTOP-57LS20S" nil nil ((((minibuffer . t) (undecorated) (skip-taskbar) (font . "-outline-Consolas-normal-normal-normal-mono-23-*-*-*-c-*-iso8859-1") (border-width . 0) (internal-border-width . 2) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars) (horizontal-scroll-bars) (foreground-color . "#2e3436") (background-color . "#eeeeec") (mouse-color . "#F8F8F2") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 10) (right-fringe . 10) (no-focus-on-map) (no-accept-focus) (no-special-glyphs) (alpha) (menu-bar-lines . 0) (tab-bar-lines . 0) (height . 39) (tool-bar-lines . 0) (title) (icon-type) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 15) (scroll-bar-height . 15) (fullscreen . fullboth) (z-group) (visibility . t) (display-type . color) (background-mode . light) (cursor-color . "#204a87") (environment) (fontsize . 0) (ns-appearance . light) (ns-transparent-titlebar) (powerline-cache) (last-focus-update . t) (frameset--id . "59E6-BCF3-C7E1-49C0") (frameset--mini t . t) (modeline . t) (unsplittable) (icon-name) (display . "w32") (explicit-name) (tool-bar-position . top) (fullscreen-restore) (width . 145) (left . 0) (top . 0)) ((min-height . 4) (min-width . 10) (min-height-ignore . 2) (min-width-ignore . 4) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 108) (min-pixel-width . 130) (min-pixel-height-ignore . 54) (min-pixel-width-ignore . 52) (min-pixel-height-safe . 27) (min-pixel-width-safe . 26)) leaf (pixel-width . 1916) (pixel-height . 1049) (total-width . 147) (total-height . 38) (normal-height . 1.0) (normal-width . 1.0) (buffer "configs<.emacs.d>" (selected . t) (hscroll . 0) (fringes 10 10 nil nil) (margins nil) (scroll-bars nil 0 t nil 0 t nil) (vscroll . 0) (dedicated) (point . 316) (start . 1)) (prev-buffers ("configs<.emacs.d>" 1 306) (".emacs.d" 1 420) ("cfg_win.el" 1 520) ("initialize.el" 6028 6715) ("configs<Emacs Config Backups>" 1 443) ("Emacs Config Backups" 1 253) ("Emacs" 1 358))))])
 (setq desktop-missing-file-warning nil)
 (setq tags-file-name nil)
 (setq tags-table-list nil)
-(setq search-ring '(#("magit" 0 5 (isearch-case-fold-search t isearch-regexp-function nil)) #("tango" 0 5 (isearch-regexp-function nil isearch-case-fold-search t)) #("p" 0 1 (isearch-regexp-function nil isearch-case-fold-search t)) #("mono" 0 4 (isearch-regexp-function nil isearch-case-fold-search t)) #("theme" 0 5 (isearch-regexp-function nil isearch-case-fold-search t)) #("org-" 0 4 (isearch-regexp-function nil isearch-case-fold-search t)) #("deft" 0 4 (isearch-case-fold-search t isearch-regexp-function nil)) #("agenda" 0 6 (isearch-case-fold-search t isearch-regexp-function nil)) #("center" 0 6 (isearch-case-fold-search t isearch-regexp-function nil)) #("org-done" 0 8 (isearch-regexp-function nil isearch-case-fold-search t)) #("title" 0 5 (isearch-regexp-function nil isearch-case-fold-search t)) #("doom" 0 4 (isearch-case-fold-search t isearch-regexp-function nil)) #("list" 0 4 (isearch-case-fold-search t isearch-regexp-function nil)) #("fontr" 0 5 (isearch-regexp-function nil isearch-case-fold-search t)) #("comment" 0 7 (isearch-regexp-function nil isearch-case-fold-search t)) #("org-head" 0 8 (isearch-case-fold-search t isearch-regexp-function nil))))
+(setq search-ring '(#("deft" 0 4 (isearch-regexp-function nil isearch-case-fold-search t)) #("magit" 0 5 (isearch-regexp-function nil isearch-case-fold-search t)) #("tango" 0 5 (isearch-case-fold-search t isearch-regexp-function nil)) #("p" 0 1 (isearch-case-fold-search t isearch-regexp-function nil)) #("mono" 0 4 (isearch-case-fold-search t isearch-regexp-function nil)) #("theme" 0 5 (isearch-case-fold-search t isearch-regexp-function nil)) #("org-" 0 4 (isearch-case-fold-search t isearch-regexp-function nil)) #("agenda" 0 6 (isearch-regexp-function nil isearch-case-fold-search t)) #("center" 0 6 (isearch-regexp-function nil isearch-case-fold-search t)) #("org-done" 0 8 (isearch-case-fold-search t isearch-regexp-function nil)) #("title" 0 5 (isearch-case-fold-search t isearch-regexp-function nil)) #("doom" 0 4 (isearch-regexp-function nil isearch-case-fold-search t)) #("list" 0 4 (isearch-regexp-function nil isearch-case-fold-search t)) #("fontr" 0 5 (isearch-case-fold-search t isearch-regexp-function nil)) #("comment" 0 7 (isearch-case-fold-search t isearch-regexp-function nil)) #("org-head" 0 8 (isearch-regexp-function nil isearch-case-fold-search t))))
 (setq regexp-search-ring nil)
 (setq register-alist nil)
-(setq file-name-history '(#("/Users/viktor/Dropbox/Emacs/Emacs Config Backups/" 0 49 (ivy-index 3)) #("/Users/viktor/.emacs.d/.gitignore" 0 33 (ivy-index 10)) #("/Users/viktor/.emacs.d/" 0 23 (ivy-index 1)) #("/Users/viktor/Dropbox/Emacs/" 0 28 (ivy-index 0)) #("/Users/viktor/Dropbox/org/Windows Setup.org" 0 43 (ivy-index 0)) #("/Users/viktor/.emacs.d/themes/basic-theme.el" 0 44 (ivy-index 0)) #("/Users/viktor/.emacs.d/themes/template-theme.el" 0 47 (ivy-index 3)) #("/Users/viktor/Dropbox/org/" 0 26 (ivy-index 0)) #("/Users/viktor/Dropbox/org/Notepad.org" 0 37 (ivy-index 6)) #("/Users/viktor/Dropbox/Emacs/Doom backups/" 0 41 (ivy-index 2)) #("/Users/viktor/.emacs.d/init.el" 0 30 (ivy-index 9)) #("/Users/viktor/Dropbox/org/Initial setup.org" 0 43 (ivy-index 0)) #("/Users/viktor/Dropbox/" 0 22 (ivy-index 0)) #("/Users/viktor/Dropbox/Emacs/Emacs Config Backups/configs/cfg_mac.el" 0 67 (ivy-index 3)) #("/" 0 1 (ivy-index 0)) #("/Users/viktor/.emacs.d/configs/" 0 31 (ivy-index 0)) "~/Dropbox/Emacs/Emacs Config Backups/configs/" "~/" "~/Dropbox/Emacs/Emacs Config Backups/configs/" "~/"))
+(setq file-name-history '(#("c:/Users/Viktor/AppData/Roaming/.emacs.d/" 0 41 (ivy-index 0)) #("/Users/viktor/Dropbox/Emacs/Emacs Config Backups/" 0 49 (ivy-index 3)) #("/Users/viktor/.emacs.d/.gitignore" 0 33 (ivy-index 10)) #("/Users/viktor/.emacs.d/" 0 23 (ivy-index 1)) #("/Users/viktor/Dropbox/Emacs/" 0 28 (ivy-index 0)) #("/Users/viktor/Dropbox/org/Windows Setup.org" 0 43 (ivy-index 0)) #("/Users/viktor/.emacs.d/themes/basic-theme.el" 0 44 (ivy-index 0)) #("/Users/viktor/.emacs.d/themes/template-theme.el" 0 47 (ivy-index 3)) #("/Users/viktor/Dropbox/org/" 0 26 (ivy-index 0)) #("/Users/viktor/Dropbox/org/Notepad.org" 0 37 (ivy-index 6)) #("/Users/viktor/Dropbox/Emacs/Doom backups/" 0 41 (ivy-index 2)) #("/Users/viktor/.emacs.d/init.el" 0 30 (ivy-index 9)) #("/Users/viktor/Dropbox/org/Initial setup.org" 0 43 (ivy-index 0)) #("/Users/viktor/Dropbox/" 0 22 (ivy-index 0)) #("/Users/viktor/Dropbox/Emacs/Emacs Config Backups/configs/cfg_mac.el" 0 67 (ivy-index 3)) #("/" 0 1 (ivy-index 0)) #("/Users/viktor/.emacs.d/configs/" 0 31 (ivy-index 0)) "~/Dropbox/Emacs/Emacs Config Backups/configs/" "~/" "~/Dropbox/Emacs/Emacs Config Backups/configs/" "~/"))
 
 ;; Buffer section -- buffers listed in same order as in buffer list:
 (desktop-create-buffer 208
-  "/Users/viktor/.emacs.d/configs/config.el"
-  "config.el"
-  'emacs-lisp-mode
-  '(visual-line-mode eldoc-mode override-global-mode auto-compile-on-load-mode ivy-mode auto-revert-mode magit-file-mode which-key-mode)
-  2217
-  '(517 nil)
   nil
-  nil
-  '((buffer-display-time 24480 25235 598161 0) (buffer-file-coding-system . utf-8-unix) (truncate-lines))
-  '((mark-ring (509 473 437 3148 2523 1543 861 2521 2434 2185 4264 4225 3444 3690 3782 5006))))
+  "configs"
+  'dired-mode
+  '(visual-line-mode override-global-mode auto-compile-on-load-mode ivy-mode which-key-mode)
+  316
+  '(nil nil)
+  t
+  '("c:/Users/Viktor/AppData/Roaming/.emacs.d/configs/")
+  '((buffer-display-time 24480 26820 959196 0) (truncate-lines))
+  '((mark-ring nil)))
 
 (desktop-create-buffer 208
-  "/Users/viktor/Dropbox/Emacs/Emacs Config Backups/configs/cfg_win.el"
+  nil
+  ".emacs.d"
+  'dired-mode
+  '(visual-line-mode override-global-mode auto-compile-on-load-mode ivy-mode which-key-mode)
+  420
+  '(nil nil)
+  t
+  '("c:/Users/Viktor/AppData/Roaming/.emacs.d/")
+  '((buffer-display-time 24480 26615 494302 0) (truncate-lines))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "c:/Users/Viktor/Dropbox/Emacs/Emacs Config Backups/configs/cfg_win.el"
   "cfg_win.el"
   'emacs-lisp-mode
   '(visual-line-mode eldoc-mode override-global-mode auto-compile-on-load-mode ivy-mode which-key-mode)
-  1074
+  520
   '(624 nil)
   nil
   nil
-  '((buffer-display-time 24480 25236 659687 0) (buffer-file-coding-system . prefer-utf-8-unix) (truncate-lines))
+  '((buffer-display-time 24480 26548 497207 0) (buffer-file-coding-system . prefer-utf-8-unix) (truncate-lines))
   '((mark-ring (37))))
 
 (desktop-create-buffer 208
-  "/Users/viktor/Dropbox/Emacs/Emacs Config Backups/configs/initialize.el"
+  "c:/Users/Viktor/.emacs.d/init.el"
+  "init.el"
+  'emacs-lisp-mode
+  '(visual-line-mode eldoc-mode override-global-mode auto-compile-on-load-mode ivy-mode auto-revert-mode magit-file-mode which-key-mode)
+  22
+  '(nil nil)
+  nil
+  nil
+  '((buffer-display-time 24480 26433 708381 0) (buffer-file-coding-system . prefer-utf-8-unix) (truncate-lines))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "c:/Users/Viktor/Dropbox/Emacs/Emacs Config Backups/configs/initialize.el"
   "initialize.el"
   'emacs-lisp-mode
   '(visual-line-mode eldoc-mode override-global-mode auto-compile-on-load-mode ivy-mode which-key-mode)
@@ -50,7 +74,7 @@
   '(6687 nil)
   nil
   nil
-  '((buffer-display-time 24480 25235 598162 0) (buffer-file-coding-system . utf-8-unix) (truncate-lines))
+  '((buffer-display-time 24480 25262 750164 0) (buffer-file-coding-system . utf-8-unix) (truncate-lines))
   '((mark-ring nil)))
 
 (desktop-create-buffer 208
@@ -61,8 +85,8 @@
   443
   '(nil nil)
   t
-  '("/Users/viktor/Dropbox/Emacs/Emacs Config Backups/configs/")
-  '((buffer-display-time 24480 25208 962023 0) (truncate-lines))
+  '("c:/Users/Viktor/Dropbox/Emacs/Emacs Config Backups/configs/")
+  '((buffer-display-time 24480 25236 132427 0) (truncate-lines))
   '((mark-ring nil)))
 
 (desktop-create-buffer 208
@@ -73,21 +97,9 @@
   253
   '(nil nil)
   t
-  '("/Users/viktor/Dropbox/Emacs/Emacs Config Backups/")
-  '((buffer-display-time 24480 25184 493574 0) (truncate-lines))
+  '("c:/Users/Viktor/Dropbox/Emacs/Emacs Config Backups/")
+  '((buffer-display-time 24480 25211 677807 0) (truncate-lines))
   '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/Users/viktor/Dropbox/org/Initial setup.org"
-  "Initial setup.org"
-  'org-mode
-  '(visual-line-mode override-global-mode auto-compile-on-load-mode ivy-mode which-key-mode centered-cursor-mode org-indent-mode)
-  867
-  '(2401 nil)
-  nil
-  nil
-  '((indent-tabs-mode) (buffer-display-time 24480 25177 240205 0) (buffer-file-coding-system . utf-8-unix) (fill-column . 70) (truncate-lines))
-  '((mark-ring (943))))
 
 (desktop-create-buffer 208
   nil
@@ -97,24 +109,12 @@
   358
   '(nil nil)
   t
-  '("/Users/viktor/Dropbox/Emacs/")
-  '((buffer-display-time 24480 24078 932599 714000) (truncate-lines))
+  '("c:/Users/Viktor/Dropbox/Emacs/")
+  '((buffer-display-time 24480 24116 407225 714000) (truncate-lines))
   '((mark-ring nil)))
 
 (desktop-create-buffer 208
-  "/Users/viktor/.emacs.d/init.el"
-  "init.el"
-  'emacs-lisp-mode
-  '(visual-line-mode eldoc-mode override-global-mode auto-compile-on-load-mode ivy-mode auto-revert-mode magit-file-mode which-key-mode)
-  22
-  '(nil nil)
-  nil
-  nil
-  '((buffer-display-time 24480 23757 798665 703000) (buffer-file-coding-system . prefer-utf-8-unix) (truncate-lines))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/Users/viktor/Dropbox/org/20201031130502-book_club_voting.org"
+  "c:/Users/Viktor/Dropbox/org/20201031130502-book_club_voting.org"
   "20201031130502-book_club_voting.org"
   'org-mode
   '(visual-line-mode override-global-mode auto-compile-on-load-mode ivy-mode which-key-mode org-indent-mode)
@@ -122,11 +122,11 @@
   '(nil nil)
   nil
   nil
-  '((indent-tabs-mode) (buffer-display-time 24480 23045 628534 671000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
+  '((indent-tabs-mode) (buffer-display-time 24480 23084 207749 671000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
   '((mark-ring nil)))
 
 (desktop-create-buffer 208
-  "/Users/viktor/Dropbox/org/20201031085928-link_target.org"
+  "c:/Users/Viktor/Dropbox/org/20201031085928-link_target.org"
   "20201031085928-link_target.org"
   'org-mode
   '(visual-line-mode override-global-mode auto-compile-on-load-mode ivy-mode which-key-mode org-indent-mode)
@@ -134,11 +134,11 @@
   '(nil nil)
   nil
   nil
-  '((indent-tabs-mode) (buffer-display-time 24480 23131 869132 759000) (buffer-file-coding-system . utf-8-unix) (truncate-lines))
+  '((indent-tabs-mode) (buffer-display-time 24480 23170 680622 759000) (buffer-file-coding-system . utf-8-unix) (truncate-lines))
   '((mark-ring nil)))
 
 (desktop-create-buffer 208
-  "/Users/viktor/Dropbox/org/20201031090050-link_source.org"
+  "c:/Users/Viktor/Dropbox/org/20201031090050-link_source.org"
   "20201031090050-link_source.org"
   'org-mode
   '(visual-line-mode override-global-mode auto-compile-on-load-mode ivy-mode which-key-mode org-indent-mode)
@@ -146,11 +146,11 @@
   '(nil nil)
   nil
   nil
-  '((indent-tabs-mode) (buffer-display-time 24480 23132 80285 759000) (buffer-file-coding-system . utf-8-unix) (truncate-lines))
+  '((indent-tabs-mode) (buffer-display-time 24480 23171 164130 759000) (buffer-file-coding-system . utf-8-unix) (truncate-lines))
   '((mark-ring nil)))
 
 (desktop-create-buffer 208
-  "/Users/viktor/Dropbox/org/Notepad.org"
+  "c:/Users/Viktor/Dropbox/org/Notepad.org"
   "Notepad.org"
   'org-mode
   '(visual-line-mode override-global-mode auto-compile-on-load-mode ivy-mode which-key-mode org-indent-mode)
@@ -158,11 +158,11 @@
   '(nil nil)
   nil
   nil
-  '((indent-tabs-mode) (buffer-display-time 24480 23132 241523 759000) (buffer-file-coding-system . utf-8-unix) (truncate-lines))
+  '((indent-tabs-mode) (buffer-display-time 24480 23171 598174 759000) (buffer-file-coding-system . utf-8-unix) (truncate-lines))
   '((mark-ring nil)))
 
 (desktop-create-buffer 208
-  "/Users/viktor/Dropbox/org/Todo.org"
+  "c:/Users/Viktor/Dropbox/org/Todo.org"
   "Todo.org"
   'org-mode
   '(visual-line-mode override-global-mode auto-compile-on-load-mode ivy-mode which-key-mode org-indent-mode)
@@ -170,11 +170,11 @@
   '(nil nil)
   nil
   nil
-  '((indent-tabs-mode) (buffer-display-time 24480 23132 450394 759000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
+  '((indent-tabs-mode) (buffer-display-time 24480 23172 87690 759000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
   '((mark-ring nil)))
 
 (desktop-create-buffer 208
-  "/Users/viktor/Dropbox/org/notes.org"
+  "c:/Users/Viktor/Dropbox/org/notes.org"
   "notes.org"
   'org-mode
   '(visual-line-mode override-global-mode auto-compile-on-load-mode ivy-mode which-key-mode org-indent-mode)
@@ -182,11 +182,11 @@
   '(nil nil)
   nil
   nil
-  '((indent-tabs-mode) (buffer-display-time 24480 23132 580133 759000) (buffer-file-coding-system . utf-8-unix) (truncate-lines))
+  '((indent-tabs-mode) (buffer-display-time 24480 23172 506993 759000) (buffer-file-coding-system . utf-8-unix) (truncate-lines))
   '((mark-ring nil)))
 
 (desktop-create-buffer 208
-  "/Users/viktor/Dropbox/org/test.org"
+  "c:/Users/Viktor/Dropbox/org/test.org"
   "test.org"
   'org-mode
   '(visual-line-mode override-global-mode auto-compile-on-load-mode ivy-mode which-key-mode org-indent-mode)
@@ -194,11 +194,11 @@
   '(nil nil)
   nil
   nil
-  '((indent-tabs-mode) (buffer-display-time 24480 23857 263505 714000) (buffer-file-coding-system . utf-8-unix) (truncate-lines))
+  '((indent-tabs-mode) (buffer-display-time 24480 23897 444880 714000) (buffer-file-coding-system . utf-8-unix) (truncate-lines))
   '((mark-ring nil)))
 
 (desktop-create-buffer 208
-  "/Users/viktor/Dropbox/org/Initial setup.org_archive"
+  "c:/Users/Viktor/Dropbox/org/Initial setup.org_archive"
   "Initial setup.org_archive"
   'org-mode
   '(visual-line-mode override-global-mode auto-compile-on-load-mode ivy-mode which-key-mode org-indent-mode)
@@ -206,6 +206,6 @@
   '(nil nil)
   nil
   nil
-  '((indent-tabs-mode) (buffer-display-time 24480 24481 475222 0) (buffer-file-coding-system . utf-8-unix) (truncate-lines))
+  '((indent-tabs-mode) (buffer-display-time 24480 26326 644822 0) (buffer-file-coding-system . utf-8-unix) (truncate-lines))
   '((mark-ring nil)))
 

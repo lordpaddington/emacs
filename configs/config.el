@@ -16,7 +16,6 @@
        (menu-bar-mode -1)
        ))
 
-
 ;;set up package management
 (require 'package)
 (unless (assoc-default "melpa" package-archives)
