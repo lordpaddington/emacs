@@ -5,13 +5,14 @@
        (setq mac-option-modifier 'none)
        (add-to-list 'default-frame-alist '(ns-transparent-titlebar))
        (add-to-list 'default-frame-alist '(ns-appearance . light))
-       (setq org-directory "~/Dropbox/org")))
+       (setq org-directory "~/Dropbox/org")
+       (set-face-attribute 'default nil :font "Consolas 17")))
 
 ;;WINDOWS SPECIFIC:
 (cond ((eq system-type 'windows-nt)
        (setq org-directory "C:/Users/Viktor/org")
        (menu-bar-mode -1)
-       ))
+       (set-face-attribute 'default nil :font "Consolas 15")))
 
 ;;set up package management
 (require 'package)
@@ -60,8 +61,6 @@
 ;;Visuals
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 (fringe-mode 10)
-;;(set-frame-font "Consolas 17" nil t)
-(set-face-attribute 'default nil :font "Consolas 17")
 ;;(set-face-attribute 'mode-line nil :font "Courier-13") - faszért nem működik rendesen?!?!?
 
 ;;THEMES
