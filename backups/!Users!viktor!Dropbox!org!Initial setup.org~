@@ -23,10 +23,12 @@ Az van, hogy kurvára összezavarnak a vim bindingek, szerintem vimmereken kív�
 Rejtély. Akkor is csinálja, amikor elvileg kibasztam az initből a safe témákat...
 
 ** DONE Setup magit!
-** TODO Install org-roam
+** TODO Install org-roam and make it work with Deft
+Also: nézd meg a régi Doom-os configokat, mert abban már majdnem működött...
 [[https://www.orgroam.com/manual/][Org-roam manual]]
 *** DONE Fix the initial config (see the installation docs: https://www.orgroam.com/manual/index.html
 *** TODO Kitalálni, hogy miért bassza el a save buffert.
+A backup miatt nyilván, azzal kellene kezdeni valamit...
 ** DONE Általában kitalálni, hogy hogyan lehet gitre felkúrni a configot
 ** DONE Setup the Mac/Windows Switch
 ** DONE Set up the capture templates
@@ -38,15 +40,23 @@ Rejtély. Akkor is csinálja, amikor elvileg kibasztam az initből a safe témá
 ** DONE Orgmode tab: unroll to first level.
 ** DONE Kikapcsolni a kibaszott autocomplete-t, legalább orgmodeban.
 ** DONE Fix the M-w mapping to Copy or make Cua standard.
-** TODO Valami normális témát belőni
+** DONE Valami normális témát belőni
 Egyébként valszeg a Solarized lesz a jó irány, de customizálni kell erősen, mert pl. az is a elkúrja a headingeket Orgmodeban. Nézd meg a régi windowsos configot, abban van egy csomó jó on-the-fly customization!!!!
-*** Tango Edits
-**** TODO Make headlines bold
-**** TODO Change DONE headlines to gray
-**** TODO Tweak the background color
 ** TODO Rendberakni az Org Capture templatest
 ** TODO Felrakni valami terminalt
+** TODO Felrakni valami terminalt, ami működik windowson...
 ** TODO Display time in the Modeline
+** TODO Találni egy jobb fontot, ami nem ilyen gépies.
+** TODO Találni egy működő megoldást a képek beillesztésére.
+
+* TODO Make Deft Work
+Valamiért nem úgy nevezi el a fájlokat, ahogy kellene...
+- Txt a default kiterjesztés.
+- Nincs title tag és nincs timestamp.
+** TODO Is this shit the same on Mac?
+** TODO How to make it save ORG by default?
+** TODO How to make it save with timestamp by default?
+
 
 * Mi az, amiben a Doom jobb, mint a Vanilla?
 - [ ] A témák szebbek
@@ -75,7 +85,7 @@ Ugyanakkor viszont, a Doom egy csomó kibaszottul alap dolgot beállít, amit a 
 - [X] Orgmode capture működik
 - [X] Deft működik
 - [ ] Roam működik
-- [ ] Windowson is működik az egész szar.
+- [X] Windowson is működik az egész szar.
   - Majdnem ott vagyunk, de csak majdnem... :(
   
 

@@ -3,8 +3,8 @@
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("org-capture-last-stored"
- (filename . "~/Dropbox/org/Notepad.org")
- (front-context-string . "* [2020-11-01 Su")
+ (filename . "~/Dropbox/org/notes/20201103205811-immediate_insert.org")
+ (front-context-string . "#+title: Immedia")
  (rear-context-string)
  (position . 1))
 )
