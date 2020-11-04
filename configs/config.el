@@ -11,6 +11,8 @@
 ;;WINDOWS SPECIFIC:
 (cond ((eq system-type 'windows-nt)
        (setq org-directory "C:/Users/Viktor/org")
+       (setq org-roam-db-location "C:/Users/Viktor/org/notes")
+       (add-to-list 'exec-path "C:/Users/Viktor/usr/sqlite3")
        (menu-bar-mode -1)
        (set-face-attribute 'default nil :font "Consolas 15")))
 
@@ -228,5 +230,4 @@
 	("M" "New markdown reference" plain (file my/generate-markdown-note-name) "%(format \"# %s\n\" my-org-note--name)\n%?\n")
        )
       )
-
 
