@@ -10,7 +10,7 @@
 
 ;;WINDOWS SPECIFIC:
 (cond ((eq system-type 'windows-nt)
-       (setq org-directory "C:/Users/Viktor/Dropbox/org")
+       (setq org-directory "C:/Users/Viktor/org")
        (menu-bar-mode -1)
        (set-face-attribute 'default nil :font "Consolas 15")))
 
@@ -61,8 +61,6 @@
 ;;Visuals
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 (fringe-mode 10)
-;;((set-frame-font "Consolas 17" nil t)
-;;(set-face-attribute 'default nil :font "Consolas 17")
 ;;(set-face-attribute 'mode-line nil :font "Courier-13") - faszért nem működik rendesen?!?!?
 
 ;;THEMES
@@ -122,12 +120,49 @@
 
 
 ;;DEFT
-(setq deft-directory "~/Dropbox/org")
+<<<<<<< HEAD
+(setq deft-directory org-directory)
+=======
+(setq deft-directory (concat org-directory "/notes"))
+>>>>>>> a14f6e83945ec15699238d10d1f7f7392169ddb0
 (use-package deft)
+(setq deft-default-extension "org")
+(setq deft-recursive t)
+(setq deft-use-filename-as-title nil)
+(setq deft-use-filter-string-for-filename t) ;Ez miez?
+(setq deft-file-naming-rules '((noslash . "-")
+                                   (nospace . "-")
+                                   (case-fn . downcase)))
+(setq deft-text-mode 'org-mode)
+; Lehet itt be kellene konfigolni az alapokat...
+
+;;ORG ROAM
+
+;This could theoretically turn a [[ into a new Roam Insert link, but I couldn't get it work.
+;(use-package key-chord)
+;(key-chord-define org-mode-map "[[" #'my/insert-roam-link)
+;(defun my/insert-roam-link ()
+;    "Inserts an Org-roam link."
+;    (interactive)
+;    (insert "[[file:]]") ;Shouldn't this be roam?
+;    (backward-char 2))
+
+
+(setq org-roam-directory deft-directory)
+(use-package org-roam
+  :ensure t
+  :hook
+  (after-init . org-roam-mode)
+  :bind (:map org-roam-mode-map
+              (("C-c r l" . org-roam)
+               ("C-c r f" . org-roam-find-file-immediate)
+               ("C-c r g" . org-roam-graph))
+              :map org-mode-map
+              (("C-c r i" . org-roam-insert))
+              (("C-c r I" . org-roam-insert-immediate))))
 
 ;;MAGIT
 (use-package magit)
-
 
 
 ;;ORG Setup

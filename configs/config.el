@@ -10,7 +10,7 @@
 
 ;;WINDOWS SPECIFIC:
 (cond ((eq system-type 'windows-nt)
-       (setq org-directory "C:/Users/Viktor/Dropbox/org")
+       (setq org-directory "C:/Users/Viktor/org")
        (menu-bar-mode -1)
        (set-face-attribute 'default nil :font "Consolas 15")))
 
@@ -120,12 +120,45 @@
 
 
 ;;DEFT
-(setq deft-directory org-directory)
+(setq deft-directory (concat org-directory "/notes"))
 (use-package deft)
+(setq deft-default-extension "org")
+(setq deft-recursive t)
+(setq deft-use-filename-as-title nil)
+(setq deft-use-filter-string-for-filename t) ;Ez miez?
+(setq deft-file-naming-rules '((noslash . "-")
+                                   (nospace . "-")
+                                   (case-fn . downcase)))
+(setq deft-text-mode 'org-mode)
+; Lehet itt be kellene konfigolni az alapokat...
+
+;;ORG ROAM
+
+;This could theoretically turn a [[ into a new Roam Insert link, but I couldn't get it work.
+;(use-package key-chord)
+;(key-chord-define org-mode-map "[[" #'my/insert-roam-link)
+;(defun my/insert-roam-link ()
+;    "Inserts an Org-roam link."
+;    (interactive)
+;    (insert "[[file:]]") ;Shouldn't this be roam?
+;    (backward-char 2))
+
+
+(setq org-roam-directory deft-directory)
+(use-package org-roam
+  :ensure t
+  :hook
+  (after-init . org-roam-mode)
+  :bind (:map org-roam-mode-map
+              (("C-c r l" . org-roam)
+               ("C-c r f" . org-roam-find-file-immediate)
+               ("C-c r g" . org-roam-graph))
+              :map org-mode-map
+              (("C-c r i" . org-roam-insert))
+              (("C-c r I" . org-roam-insert-immediate))))
 
 ;;MAGIT
 (use-package magit)
-
 
 
 ;;ORG Setup
