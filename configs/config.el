@@ -120,7 +120,7 @@
 
 
 ;;DEFT
-(setq deft-directory "~/Dropbox/org")
+(setq deft-directory org-directory)
 (use-package deft)
 
 ;;MAGIT
