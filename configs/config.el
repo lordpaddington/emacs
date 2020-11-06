@@ -13,7 +13,7 @@
        (setq org-directory "C:/Users/Viktor/org")
        (setq org-roam-db-location "C:/Users/Viktor/org/notes")
        (add-to-list 'exec-path "C:/Users/Viktor/usr/sqlite3")
-       (menu-bar-mode -1)
+       (menu-bar-mode 1)
        (set-face-attribute 'default nil :font "Consolas 15")))
 
 ;;set up package management
@@ -42,6 +42,7 @@
 ;;BASICS
 (global-visual-line-mode t)
 (desktop-save-mode 1)
+(setq desktop-load-locked-desktop t)
 (scroll-bar-mode 0)
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
 (prefer-coding-system 'utf-8)
@@ -50,6 +51,7 @@
 (show-paren-mode)
 ;;(blink-cursor-mode -1)
 
+(use-package centered-cursor-mode)
 
 ;;Custom keybindings
 (global-set-key (kbd "<C-up>") 'scroll-down-command)
