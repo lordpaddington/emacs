@@ -122,6 +122,19 @@
 (setq ivy-use-virtual-buffers t)
 (setq ivy-count-format "(%d/%d) ")
 
+;;MARKDOWN
+(use-package markdown-mode
+  :ensure t
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown"))
+
+(setq markdown-header-scaling 1)
+(setq markdown-hide-markup 1)
+
+
 
 ;;DEFT
 (setq deft-directory (concat org-directory "/notes"))
@@ -155,7 +168,8 @@
   (after-init . org-roam-mode)
   :bind (:map org-roam-mode-map
               (("C-c r l" . org-roam)
-               ("C-c r f" . org-roam-find-file-immediate)
+               ("C-c r f" . org-roam-find-file)
+	       ("C-c r F" . org-roam-find-file-immediate)
                ("C-c r g" . org-roam-graph))
               :map org-mode-map
               (("C-c r i" . org-roam-insert))
