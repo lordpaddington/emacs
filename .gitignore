@@ -20,3 +20,5 @@ smex-items
 bookmarks
 *.lock
 server
+local.el
+places

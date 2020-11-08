@@ -1,17 +1,16 @@
+;;(setq desktop-dirname "~/.emacs.d/")
+;;(desktop-read)
 
 ;;MAC SPECIFIC - put it in an ifmac
 (cond ((eq system-type 'darwin)       
        (setq mac-command-modifier 'meta)
        (setq mac-option-modifier 'none)
        (add-to-list 'default-frame-alist '(ns-transparent-titlebar))
-       (add-to-list 'default-frame-alist '(ns-appearance . light))
-       (setq org-directory "~/Dropbox/org")
-       (set-face-attribute 'default nil :font "Consolas 17")))
+       (add-to-list 'default-frame-alist '(ns-appearance . light))))
 
 ;;WINDOWS SPECIFIC:
 (cond ((eq system-type 'windows-nt)
-       (setq org-directory "C:/Users/Viktor/org")
-       (setq org-roam-db-location "C:/Users/Viktor/org/notes")
+       (setq org-directory "C:/Users/Viktor/Dropbox/org")
        (add-to-list 'exec-path "C:/Users/Viktor/usr/sqlite3")
        (menu-bar-mode 1)
        (set-face-attribute 'default nil :font "Consolas 15")))
@@ -137,7 +136,6 @@
 
 
 ;;DEFT
-(setq deft-directory (concat org-directory "/notes"))
 (use-package deft)
 (setq deft-default-extension "org")
 (setq deft-recursive t)
@@ -161,19 +159,19 @@
 ;    (backward-char 2))
 
 
-(setq org-roam-directory deft-directory)
-(use-package org-roam
-  :ensure t
-  :hook
-  (after-init . org-roam-mode)
-  :bind (:map org-roam-mode-map
-              (("C-c r l" . org-roam)
-               ("C-c r f" . org-roam-find-file)
-	       ("C-c r F" . org-roam-find-file-immediate)
-               ("C-c r g" . org-roam-graph))
-              :map org-mode-map
-              (("C-c r i" . org-roam-insert))
-              (("C-c r I" . org-roam-insert-immediate))))
+
+;(use-package org-roam
+;  :ensure t
+;  :hook
+;  (after-init . org-roam-mode)
+;  :bind (:map org-roam-mode-map
+;              (("C-c r l" . org-roam)
+;               ("C-c r f" . org-roam-find-file)
+;	       ("C-c r F" . org-roam-find-file-immediate)
+;               ("C-c r g" . org-roam-graph))
+;              :map org-mode-map
+;              (("C-c r i" . org-roam-insert))
+;              (("C-c r I" . org-roam-insert-immediate))))
 
 ;;MAGIT
 (use-package magit)
@@ -186,7 +184,6 @@
       org-startup-folded "content"
       org-agenda-start-on-weekday 1)
 
-(setq org-agenda-files '("~/Dropbox/org")) ;;Warning, ezzel majd csinálni kell Windowson!!!
 
 ;;Strikethrough DONE regardless of the theme
 (setq org-fontify-done-headline t)
@@ -215,35 +212,5 @@
   (define-key org-mode-map (kbd "<M-right>") 'end-of-line)
   (centered-cursor-mode))
 
-;; Capture Templates
-(defvar notepad (expand-file-name "Notepad.org" org-directory))
-(defvar todo (expand-file-name "Todo.org" org-directory))
-(defvar journal (expand-file-name "Journal.org" org-directory))
-(defvar reference (expand-file-name "Reference" org-directory))
-
-(defun my/generate-org-note-name ()
-  (setq my-org-note--name (read-string "Filename: "))
-  (setq my-org-note--time (format-time-string "%Y%m%d%H%M%S"))
-  (expand-file-name (format "%s-%s.org" my-org-note--time my-org-note--name) org-directory))
-
-(defun my/generate-markdown-note-name ()
-  (setq my-org-note--name (read-string "Filename: "))
-  (expand-file-name (format "%s.md" my-org-note--name) reference))
-
-
-(setq org-capture-templates
-      '(
-        ("t" "Todo" entry (file+headline todo "Tasks:")
-         "* TODO %?\n")
-        ("n" "Note" entry (file notepad)
-         "* %U %?\n " :prepend t)
-        ("a" "Action item" entry (file+headline (lambda() (buffer-file-name)) "ACTIONS:")
-         "* TODO %?\n")
-	;;("w" "Work-Task" entry (file+headline "c:/Users/vweyde/wOrg/Actions/Tasks.org" "Unfiled:")
-        ;; "* TODO %?\n")
-	;;("j" "Journal entry" plain (file+olp+datetree journal) "**** %<%H:%M>\n%?\n")
-	("N" "New OrgMode note" plain (file my/generate-org-note-name) "%(format \"#+TITLE: %s\n#+DATE:  %s\n\" my-org-note--name my-org-note--time)\n%?\n")
-	("M" "New markdown reference" plain (file my/generate-markdown-note-name) "%(format \"# %s\n\" my-org-note--name)\n%?\n")
-       )
-      )
-
+;; Load the locally applicable settings
+(load-file "~/.emacs.d/local.el")
