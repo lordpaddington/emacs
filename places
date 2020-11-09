@@ -1,5 +1,34 @@
 ;;; -*- coding: utf-8 -*-
-(("/Users/viktor/Dropbox/org/"
+(("c:/Users/Viktor/"
+  (dired-filename . "c:/Users/Viktor/org"))
+ ("c:/Users/Viktor/org/"
+  (dired-filename . "c:/Users/Viktor/org/notes"))
+ ("c:/Users/Viktor/org/notes/"
+  (dired-filename . "c:/Users/Viktor/org/notes/20201109115811-testing_roam_at_work.org"))
+ ("c:/Users/Viktor/org/notes/20201109115811-testing_roam_at_work.org" . 131)
+ ("c:/Users/Viktor/Dropbox/Emacs/Doom backups/config.el" . 5074)
+ ("c:/Users/Viktor/Dropbox/org/Initial setup.org" . 1756)
+ ("c:/Users/Viktor/.emacs.d/recentf" . 767)
+ ("c:/Users/Viktor/org/notes/20201109115834-link_target.org" . 54)
+ ("c:/Users/Viktor/Dropbox/Emacs/"
+  (dired-filename . "c:/Users/Viktor/Dropbox/Emacs/Doom backups"))
+ ("c:/Users/Viktor/Dropbox/Emacs/Doom backups/"
+  (dired-filename . "c:/Users/Viktor/Dropbox/Emacs/Doom backups/config.el"))
+ ("c:/Users/Viktor/org/Note.org" . 40)
+ ("c:/Users/Viktor/.emacs.d/"
+  (dired-filename . "c:/Users/Viktor/.emacs.d/elpa"))
+ ("c:/Users/Viktor/.emacs.d/elpa/packed-20201024.954/"
+  (dired-filename . "c:/Users/Viktor/.emacs.d/elpa/packed-20201024.954/packed-autoloads.el"))
+ ("c:/Users/Viktor/.emacs.d/elpa/"
+  (dired-filename . "c:/Users/Viktor/.emacs.d/elpa/org-roam-20201105.834"))
+ ("c:/Users/Viktor/.emacs.d/elpa/org-roam-20201105.834/"
+  (dired-filename . "c:/Users/Viktor/.emacs.d/elpa/org-roam-20201105.834/org-roam-db.el"))
+ ("c:/Users/Viktor/.emacs.d/elpa/org-roam-20201105.834/org-roam-db.el" . 5563)
+ ("c:/Users/Viktor/.emacs.d/.gitignore" . 229)
+ ("c:/Users/Viktor/.emacs.d/local.el" . 221)
+ ("c:/Users/Viktor/.emacs.d/configs/config.el" . 5104)
+ ("c:/Users/Viktor/Dropbox/org/Markdown.md" . 24)
+ ("/Users/viktor/Dropbox/org/"
   (dired-filename . "/Users/viktor/Dropbox/org/.."))
  ("/Users/viktor/.emacs.d/configs/"
   (dired-filename . "/Users/viktor/.emacs.d/configs/config.el"))
