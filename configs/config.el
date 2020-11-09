@@ -12,7 +12,7 @@
 (cond ((eq system-type 'windows-nt)
        (setq org-directory "C:/Users/Viktor/Dropbox/org")
        (add-to-list 'exec-path "C:/Users/Viktor/usr/sqlite3")
-       (menu-bar-mode 1)
+       (menu-bar-mode 0)
        (set-face-attribute 'default nil :font "Consolas 15")))
 
 ;;set up package management
@@ -40,7 +40,7 @@
 
 ;;BASICS
 (global-visual-line-mode t)
-(desktop-save-mode 1)
+(desktop-save-mode 1) ;;Disabling to see if it breaks roam...
 (setq desktop-load-locked-desktop t)
 (scroll-bar-mode 0)
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
@@ -133,7 +133,7 @@
 (setq markdown-header-scaling 1)
 (setq markdown-hide-markup 1)
 
-
+(use-package writeroom-mode)
 
 ;;DEFT
 (use-package deft)
@@ -146,6 +146,9 @@
                                    (case-fn . downcase)))
 (setq deft-text-mode 'org-mode)
 ; Lehet itt be kellene konfigolni az alapokat...
+
+
+
 
 ;;ORG ROAM
 
@@ -160,15 +163,19 @@
 
 
 
+
+
 ;(use-package org-roam
 ;  :ensure t
 ;  :hook
 ;  (after-init . org-roam-mode)
+;  :custom
+;  (org-roam-directory "~/org/Notes/") - this is needed, otherwise it won't start up on win!!!
 ;  :bind (:map org-roam-mode-map
 ;              (("C-c r l" . org-roam)
-;               ("C-c r f" . org-roam-find-file)
-;	       ("C-c r F" . org-roam-find-file-immediate)
-;               ("C-c r g" . org-roam-graph))
+;               ("C-c r f" . org-roam-find-file);
+;	       ("C-c r F" . org-roam-find-file-i;mmediate)
+;               ("C-c r g" . org-roam-graph);)
 ;              :map org-mode-map
 ;              (("C-c r i" . org-roam-insert))
 ;              (("C-c r I" . org-roam-insert-immediate))))
