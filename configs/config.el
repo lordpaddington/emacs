@@ -139,14 +139,13 @@
 (use-package deft)
 (setq deft-default-extension "org")
 (setq deft-recursive t)
-(setq deft-use-filename-as-title nil)
+(setq deft-use-filename-as-title t)
 (setq deft-use-filter-string-for-filename t) ;Ez miez?
 (setq deft-file-naming-rules '((noslash . "-")
                                    (nospace . "-")
                                    (case-fn . downcase)))
 (setq deft-text-mode 'org-mode)
 ; Lehet itt be kellene konfigolni az alapokat...
-
 
 
 

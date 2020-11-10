@@ -1,9 +1,13 @@
 ;;; -*- coding: utf-8 -*-
-(("c:/Users/Viktor/Dropbox/org/Initial setup.org" . 2883)
- ("c:/Users/Viktor/.emacs.d/configs/config.el" . 4161)
- ("c:/Users/Viktor/.emacs.d/recentf" . 1064)
- ("c:/Users/Viktor/org/notes/20201109115834-link_target.org" . 22)
+(("c:/Users/Viktor/Dropbox/org/Initial setup.org" . 2179)
+ ("c:/Users/Viktor/.emacs.d/configs/config.el" . 4585)
+ ("c:/Users/Viktor/.emacs.d/recentf" . 1393)
  ("c:/Users/Viktor/.emacs.d/init.el" . 1176)
+ ("c:/Users/Viktor/org/notes/2020-11-10-1202-new-with-zetteldeft.org" . 15)
+ ("c:/Users/Viktor/.emacs.d/elpa/ace-window-20200606.1259/ace-window-autoloads.el" . 2309)
+ ("c:/Users/Viktor/.emacs.d/elpa/avy-20200624.1148/avy-autoloads.el" . 8726)
+ ("c:/Users/Viktor/org/notes/20201110105948-private-note-not-with-roam.org" . 195)
+ ("c:/Users/Viktor/org/notes/20201109115834-link_target.org" . 22)
  ("c:/Users/Viktor/org/"
   (dired-filename . "c:/Users/Viktor/org/notes"))
  ("c:/Users/Viktor/org/notes/"
