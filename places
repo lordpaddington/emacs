@@ -1,23 +1,28 @@
 ;;; -*- coding: utf-8 -*-
-(("c:/Users/Viktor/org/"
+(("c:/Users/Viktor/Dropbox/org/Initial setup.org" . 2883)
+ ("c:/Users/Viktor/.emacs.d/configs/config.el" . 4161)
+ ("c:/Users/Viktor/.emacs.d/recentf" . 1064)
+ ("c:/Users/Viktor/org/notes/20201109115834-link_target.org" . 22)
+ ("c:/Users/Viktor/.emacs.d/init.el" . 1176)
+ ("c:/Users/Viktor/org/"
   (dired-filename . "c:/Users/Viktor/org/notes"))
  ("c:/Users/Viktor/org/notes/"
   (dired-filename . "c:/Users/Viktor/org/notes/Testing Deft"))
- ("c:/Users/Viktor/.emacs.d/local.el" . 1426)
- ("c:/Users/Viktor/Dropbox/org/Initial setup.org" . 2444)
- ("c:/Users/Viktor/.emacs.d/recentf" . 982)
+ ("c:/Users/Viktor/.emacs.d/local.el" . 1028)
+ ("c:/Users/Viktor/org/notes/20201109115811-testing_roam_at_work.org" . 119)
+ ("c:/Users/Viktor/org/notes/20201109153626-testing-the-note-renaming.org" . 90)
+ ("c:/Users/Viktor/.emacs.d/elpa/doom-themes-20201107.315/doom-themes-autoloads.el" . 17312)
+ ("c:/Users/Viktor/.emacs.d/elpa/magit-20201108.2128/magit-autoloads.el" . 86532)
+ ("c:/Users/Viktor/.emacs.d/elpa/counsel-20201109.1753/counsel-autoloads.el" . 17114)
+ ("c:/Users/Viktor/.emacs.d/elpa/ivy-20201109.1753/ivy-autoloads.el" . 5416)
  ("c:/Users/Viktor/Dropbox/org/Markdown.md" . 111)
- ("c:/Users/Viktor/.emacs.d/configs/config.el" . 4036)
  ("c:/Users/Viktor/org/Notepad.org" . 42)
  ("c:/Users/Viktor/org/Note.org" . 40)
  ("c:/Users/Viktor/.emacs.d/elpa/writeroom-mode-20201107.2227/writeroom-mode-autoloads.el" . 1935)
  ("c:/Users/Viktor/.emacs.d/elpa/visual-fill-column-20201008.919/visual-fill-column-autoloads.el" . 2421)
- ("c:/Users/Viktor/.emacs.d/init.el" . 1176)
  ("c:/Users/Viktor/Dropbox/Emacs/Doom backups/config.el" . 3315)
  ("c:/Users/Viktor/"
   (dired-filename . "c:/Users/Viktor/org"))
- ("c:/Users/Viktor/org/notes/20201109115811-testing_roam_at_work.org" . 131)
- ("c:/Users/Viktor/org/notes/20201109115834-link_target.org" . 54)
  ("c:/Users/Viktor/Dropbox/Emacs/"
   (dired-filename . "c:/Users/Viktor/Dropbox/Emacs/Doom backups"))
  ("c:/Users/Viktor/Dropbox/Emacs/Doom backups/"
