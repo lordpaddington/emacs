@@ -139,7 +139,7 @@
 (use-package deft)
 (setq deft-default-extension "org")
 (setq deft-recursive t)
-(setq deft-use-filename-as-title t)
+(setq deft-use-filename-as-title nil)
 (setq deft-use-filter-string-for-filename t) ;Ez miez?
 (setq deft-file-naming-rules '((noslash . "-")
                                    (nospace . "-")
@@ -153,7 +153,7 @@
 
 ;This could theoretically turn a [[ into a new Roam Insert link, but I couldn't get it work.
 ;(use-package key-chord)
-;(key-chord-define org-mode-map "[[" #'my/insert-roam-link)
+t;(key-chord-define org-mode-map "[[" #'my/insert-roam-link)
 ;(defun my/insert-roam-link ()
 ;    "Inserts an Org-roam link."
 ;    (interactive)
