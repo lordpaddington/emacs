@@ -149,12 +149,11 @@
 
 
 
-
 ;;ORG ROAM
 
 ;This could theoretically turn a [[ into a new Roam Insert link, but I couldn't get it work.
 ;(use-package key-chord)
-;(key-chord-define org-mode-map "[[" #'my/insert-roam-link)
+t;(key-chord-define org-mode-map "[[" #'my/insert-roam-link)
 ;(defun my/insert-roam-link ()
 ;    "Inserts an Org-roam link."
 ;    (interactive)
@@ -165,23 +164,35 @@
 
 
 
-;(use-package org-roam
+;;(use-package org-roam
 ;  :ensure t
 ;  :hook
 ;  (after-init . org-roam-mode)
 ;  :custom
-;  (org-roam-directory "~/org/Notes/") - this is needed, otherwise it won't start up on win!!!
+;  (org-roam-directory "~/org/Notes/")
 ;  :bind (:map org-roam-mode-map
 ;              (("C-c r l" . org-roam)
-;               ("C-c r f" . org-roam-find-file);
-;	       ("C-c r F" . org-roam-find-file-i;mmediate)
-;               ("C-c r g" . org-roam-graph);)
+;               ("C-c r f" . org-roam-find-file)
+;	       ("C-c r F" . org-roam-find-file-immediate)
+;               ("C-c r g" . org-roam-graph)
 ;              :map org-mode-map
 ;              (("C-c r i" . org-roam-insert))
-;              (("C-c r I" . org-roam-insert-immediate))))
+;              (("C-c r I" . org-roam-insert-immediate)))))
 
 ;;MAGIT
 (use-package magit)
+
+;;EVIL MODE
+;; Set up package.el to work with MELPA
+
+;; Download Evil
+(unless (package-installed-p 'evil)
+  (package-install 'evil))
+
+;; Enable Evil
+(require 'evil)
+(evil-mode 1)
+
 
 
 ;;ORG Setup
