@@ -93,8 +93,6 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 
-(use-package term)
-
 ;; Show keybindings!!!!
 (use-package which-key
   :ensure t
