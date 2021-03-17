@@ -118,6 +118,7 @@
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
 (setq ivy-count-format "(%d/%d) ")
+;;A faszert nem mukodik ez???
 
 ;;MARKDOWN
 (use-package markdown-mode
