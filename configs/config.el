@@ -1,10 +1,20 @@
 ;;(setq desktop-dirname "~/.emacs.d/")
 ;;(desktop-read)
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+(require 'use-package)
+(setq use-package-verbose t)
+(setq use-package-always-ensure t)
+(use-package auto-compile
+  :config (auto-compile-on-load-mode))
+
 
 ;;MAC SPECIFIC - put it in an ifmac
 (cond ((eq system-type 'darwin)       
        (setq mac-command-modifier 'meta)
        (setq mac-option-modifier 'none)
+       (use-package ns-auto-titlebar)
+       (ns-auto-titlebar-mode 1)
        (add-to-list 'default-frame-alist '(ns-transparent-titlebar))
        (add-to-list 'default-frame-alist '(ns-appearance . light))))
 
@@ -23,13 +33,6 @@
 (unless (assoc-default "org" package-archives)
   (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t))
 
-(unless (package-installed-p 'use-package)
-  (package-install 'use-package))
-(require 'use-package)
-(setq use-package-verbose t)
-(setq use-package-always-ensure t)
-(use-package auto-compile
-  :config (auto-compile-on-load-mode))
 (setq load-prefer-newer t)
 (setq custom-safe-themes t) ;;UNSAFE! Set every theme as safe, so there is no confirmation!
 

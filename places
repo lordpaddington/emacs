@@ -1,89 +1,30 @@
 ;;; -*- coding: utf-8 -*-
-(("/Users/viktor/Dropbox/org/Notetaking setup.org" . 872)
- ("/Users/viktor/Dropbox/org/20201031090050-link_source.org" . 55)
- ("/Users/viktor/Dropbox/org/20201031085928-link_target.org" . 213)
- ("/Users/viktor/iCloud Drive/Notes/Zettelkasten/.obsidian/themes/"
-  (dired-filename . "/Users/viktor/iCloud Drive/Notes/Zettelkasten/.obsidian/themes/Notation.css"))
- ("/Users/viktor/iCloud Drive/Notes/Zettelkasten/.obsidian/"
-  (dired-filename . "/Users/viktor/iCloud Drive/Notes/Zettelkasten/.obsidian/.."))
- ("/Users/viktor/iCloud Drive/Notes/Trove/.obsidian/" . 439)
- ("/Users/"
+(("/Users/"
   (dired-filename . "/Users/viktor"))
+ ("/Users/viktor/org/"
+  (dired-filename . "/Users/viktor/org/.."))
+ ("/Users/viktor/"
+  (dired-filename . "/Users/viktor/.emacs.d"))
  ("/Users/viktor/.emacs.d/"
   (dired-filename . "/Users/viktor/.emacs.d/configs"))
- ("/Users/viktor/iCloud Drive/Notes/Zettelkasten/"
-  (dired-filename . "/Users/viktor/iCloud Drive/Notes/Zettelkasten/6.9b - Impact.jpg"))
- ("/Users/viktor/OneDrive/Projects/Job Applications/"
-  (dired-filename . "/Users/viktor/OneDrive/Projects/Job Applications/Sample Letters Withdrawing a Job Application.webloc"))
- ("/Users/viktor/OneDrive/Projects/"
-  (dired-filename . "/Users/viktor/OneDrive/Projects/Job Applications"))
- ("/Users/viktor/OneDrive/"
-  (dired-filename . "/Users/viktor/OneDrive/Projects"))
- ("/Users/viktor/Downloads/Cost of Delay Notes/"
-  (dired-filename . "/Users/viktor/Downloads/Cost of Delay Notes/."))
- ("/Users/viktor/Downloads/"
-  (dired-filename . "/Users/viktor/Downloads/1614104458179.jpg"))
- ("/Users/viktor/"
-  (dired-filename . "/Users/viktor/iCloud Drive"))
- ("/Users/viktor/iCloud Drive/"
-  (dired-filename . "/Users/viktor/iCloud Drive/Notes"))
- ("/Users/viktor/iCloud Drive/Notes/Zettelkasten/8.10 - Natural vs. Good.md" . 193)
- ("/Users/viktor/Dropbox/org/Notepad.org" . 545)
- ("/Users/viktor/Dropbox/Notebooks/"
-  (dired-filename . "/Users/viktor/Dropbox/Notebooks/.DS_Store"))
- ("/Users/viktor/Dropbox/"
-  (dired-filename . "/Users/viktor/Dropbox/org"))
- ("/Users/viktor/Dropbox/org/"
-  (dired-filename . "/Users/viktor/Dropbox/org/;bd"))
- ("/Users/viktor/Dropbox/org/Initial setup.org" . 33)
- ("/Users/viktor/iCloud Drive/Notes/Trove/Four steps to Quantifying Cost of Delay.md" . 5128)
- ("/Users/viktor/iCloud Drive/Notes/Journal/"
-  (dired-filename . "/Users/viktor/iCloud Drive/Notes/Journal/2020-02-10.md"))
- ("/Users/viktor/iCloud Drive/Notes/Trove/"
-  (dired-filename . "/Users/viktor/iCloud Drive/Notes/Trove/Four steps to Quantifying Cost of Delay.md"))
- ("/Users/viktor/iCloud Drive/Notes/"
-  (dired-filename . "/Users/viktor/iCloud Drive/Notes/Trove"))
- ("/Users/viktor/Dropbox/org/Markdown.md" . 862)
- ("/Users/viktor/Dropbox/org/test.org" . 162)
- ("/Users/viktor/Dropbox/org/20201031130502-book_club_voting.org" . 315)
- ("/Users/viktor/.emacs.d/recentf" . 1164)
- ("/Users/viktor/.emacs.d/configs/config.el" . 1810)
  ("/Users/viktor/.emacs.d/configs/"
   (dired-filename . "/Users/viktor/.emacs.d/configs/config.el"))
- ("/Users/viktor/.emacs.d/init.el" . 1207)
- ("/Users/viktor/.emacs.d/elpa/all-the-icons-20210228.1440/all-the-icons-autoloads.el" . 2243)
+ ("/Users/viktor/.emacs.d/configs/config.el" . 451)
+ ("/Users/viktor/org/Notepad.org" . 271)
+ ("/Users/viktor/.emacs.d/recentf" . 527)
+ ("/Users/viktor/.emacs.d/elpa/ns-auto-titlebar-20181022.2154/ns-auto-titlebar-autoloads.el" . 1253)
+ ("/Users/viktor/.emacs.d/init.el" . 1224)
+ ("/Users/viktor/org/Basic Note.org" . 340)
+ ("/Users/viktor/.emacs.d/local.el" . 1158)
+ ("/Users/viktor/org/Todo.org" . 24)
+ ("/Users/viktor/Downloads/"
+  (dired-filename . "/Users/viktor/Downloads/1614104458179.jpg"))
  ("/Users/viktor/.emacs.d/elpa/auto-compile-20201122.1157/auto-compile-autoloads.el" . 5218)
  ("/Users/viktor/.emacs.d/elpa/bind-key-20210210.1609/bind-key-autoloads.el" . 2613)
- ("/Users/viktor/.emacs.d/elpa/doom-modeline-20210302.1032/doom-modeline-autoloads.el" . 3972)
- ("/Users/viktor/.emacs.d/elpa/doom-themes-20210302.1549/doom-themes-autoloads.el" . 18676)
- ("/Users/viktor/.emacs.d/elpa/evil-20210305.1341/evil-autoloads.el" . 3775)
- ("/Users/viktor/.emacs.d/elpa/git-commit-20210206.2245/git-commit-autoloads.el" . 447)
  ("/Users/viktor/.emacs.d/elpa/goto-chg-20201101.1029/goto-chg-autoloads.el" . 1995)
- ("/Users/viktor/.emacs.d/elpa/key-chord-20201222.2030/key-chord-autoloads.el" . 2685)
- ("/Users/viktor/.emacs.d/elpa/magit-20210304.1456/magit-autoloads.el" . 87985)
  ("/Users/viktor/.emacs.d/elpa/markdown-mode-20210220.1301/markdown-mode-autoloads.el" . 1404)
  ("/Users/viktor/.emacs.d/elpa/packed-20201120.2047/packed-autoloads.el" . 398)
- ("/Users/viktor/.emacs.d/elpa/powerline-20201129.2306/powerline-autoloads.el" . 2744)
  ("/Users/viktor/.emacs.d/elpa/restart-emacs-20201127.1425/restart-emacs-autoloads.el" . 1867)
- ("/Users/viktor/.emacs.d/elpa/simple-modeline-20201218.840/simple-modeline-autoloads.el" . 1950)
- ("/Users/viktor/.emacs.d/elpa/solarized-theme-20210202.1730/solarized-theme-autoloads.el" . 4602)
- ("/Users/viktor/.emacs.d/elpa/transient-20210228.1207/transient-autoloads.el" . 2700)
- ("/Users/viktor/.emacs.d/elpa/use-package-20210207.1926/use-package-autoloads.el" . 8501)
  ("/Users/viktor/.emacs.d/elpa/visual-fill-column-20201229.2303/visual-fill-column-autoloads.el" . 2425)
- ("/Users/viktor/.emacs.d/elpa/with-editor-20210117.2008/with-editor-autoloads.el" . 3656)
  ("/Users/viktor/.emacs.d/elpa/writeroom-mode-20201229.2242/writeroom-mode-autoloads.el" . 1935)
- ("/Users/viktor/.emacs.d/elpa/counsel-20210226.1256/counsel-autoloads.el" . 17136)
- ("/Users/viktor/.emacs.d/elpa/dash-20210228.2221/dash-autoloads.el" . 2474)
- ("/Users/viktor/.emacs.d/elpa/ivy-20210225.1251/ivy-autoloads.el" . 5416)
- ("/Users/viktor/.emacs.d/elpa/swiper-20210225.1251/swiper-autoloads.el" . 1387)
- ("/Users/viktor/.emacs.d/elpa/which-key-20210131.1837/which-key-autoloads.el" . 7292)
- ("/Users/viktor/iCloud Drive/Notes/Trove/Tyranny of tools.md" . 342)
- ("/Users/viktor/iCloud Drive/Notes/Trove/Someday-Maybe - Private.md" . 377)
- ("/Users/viktor/iCloud Drive/Notes/Trove/Resolving Conflicts.md" . 440)
- ("/Users/viktor/iCloud Drive/Notes/Trove/The success of an organization-nation-company comes down to two.txt" . 108)
- ("/Users/viktor/.emacs.d/local.el" . 1784)
- ("/Users/viktor/iCloud Drive/Notes/Trove/Initiative backlog.md" . 532)
- ("/Users/viktor/iCloud Drive/Notes/Trove/Background of the Fleet Telematics API Calculations.md" . 3)
- ("/Users/viktor/iCloud Drive/Notes/Zettelkasten/.obsidian/workspace" . 1013)
- ("/Users/viktor/iCloud Drive/Notes/Zettelkasten/.obsidian/themes/Warmth.css" . 9147)
- ("/Users/viktor/iCloud Drive/Notes/Zettelkasten/.obsidian/config" . 33))
+ ("/Users/viktor/.emacs.d/elpa/which-key-20210131.1837/which-key-autoloads.el" . 7292))
