@@ -22,4 +22,5 @@ bookmarks
 server
 local.el
 places
+places/*
 org-roam.db

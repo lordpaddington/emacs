@@ -9,22 +9,6 @@
   :config (auto-compile-on-load-mode))
 
 
-;;MAC SPECIFIC - put it in an ifmac
-(cond ((eq system-type 'darwin)       
-       (setq mac-command-modifier 'meta)
-       (setq mac-option-modifier 'none)
-       (use-package ns-auto-titlebar)
-       (ns-auto-titlebar-mode 1)
-       (add-to-list 'default-frame-alist '(ns-transparent-titlebar))
-       (add-to-list 'default-frame-alist '(ns-appearance . light))))
-
-;;WINDOWS SPECIFIC:
-(cond ((eq system-type 'windows-nt)
-       (setq org-directory "C:/Users/Viktor/Dropbox/org")
-       (add-to-list 'exec-path "C:/Users/Viktor/usr/sqlite3")
-       (menu-bar-mode 0)
-       (set-face-attribute 'default nil :font "Consolas 15")))
-
 ;;set up package management
 (require 'package)
 (unless (assoc-default "melpa" package-archives)
@@ -42,6 +26,23 @@
   :bind* (("C-x M-c" . restart-emacs)))
 
 ;;BASICS
+
+;;MAC SPECIFIC - put it in an ifmac
+(cond ((eq system-type 'darwin)       
+       (setq mac-command-modifier 'meta)
+       (setq mac-option-modifier 'none)
+       (use-package ns-auto-titlebar)
+       (ns-auto-titlebar-mode 1)
+       (add-to-list 'default-frame-alist '(ns-transparent-titlebar))
+       (add-to-list 'default-frame-alist '(ns-appearance . light))))
+
+;;WINDOWS SPECIFIC:
+(cond ((eq system-type 'windows-nt)
+       (setq org-directory "C:/Users/Viktor/Dropbox/org")
+       (add-to-list 'exec-path "C:/Users/Viktor/usr/sqlite3")
+       (menu-bar-mode 0)
+       (set-face-attribute 'default nil :font "Consolas 15")))
+
 (global-visual-line-mode t)
 (desktop-save-mode 1) ;;Disabling to see if it breaks roam...
 (setq desktop-load-locked-desktop t)
