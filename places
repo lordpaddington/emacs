@@ -1,56 +1,26 @@
 ;;; -*- coding: utf-8 -*-
-(("/Users/viktor/Dropbox/org/Initial setup.org" . 3390)
- ("/Users/viktor/Dropbox/org/Notetaking setup.org" . 872)
- ("/Users/viktor/Dropbox/org/20201031090050-link_source.org" . 55)
- ("/Users/viktor/Dropbox/org/20201031085928-link_target.org" . 213)
- ("/Users/viktor/iCloud Drive/Notes/Zettelkasten/.obsidian/themes/"
-  (dired-filename . "/Users/viktor/iCloud Drive/Notes/Zettelkasten/.obsidian/themes/Notation.css"))
- ("/Users/viktor/iCloud Drive/Notes/Zettelkasten/.obsidian/"
-  (dired-filename . "/Users/viktor/iCloud Drive/Notes/Zettelkasten/.obsidian/.."))
- ("/Users/viktor/iCloud Drive/Notes/Trove/.obsidian/" . 439)
+(("/Users/viktor/org/20210324161310-GTFS-RT Discovery Notes.org" . 15)
  ("/Users/"
   (dired-filename . "/Users/viktor"))
- ("/Users/viktor/iCloud Drive/Notes/Zettelkasten/"
-  (dired-filename . "/Users/viktor/iCloud Drive/Notes/Zettelkasten/6.9b - Impact.jpg"))
- ("/Users/viktor/OneDrive/Projects/Job Applications/"
-  (dired-filename . "/Users/viktor/OneDrive/Projects/Job Applications/Sample Letters Withdrawing a Job Application.webloc"))
- ("/Users/viktor/OneDrive/Projects/"
-  (dired-filename . "/Users/viktor/OneDrive/Projects/Job Applications"))
- ("/Users/viktor/OneDrive/"
-  (dired-filename . "/Users/viktor/OneDrive/Projects"))
- ("/Users/viktor/Downloads/Cost of Delay Notes/"
-  (dired-filename . "/Users/viktor/Downloads/Cost of Delay Notes/."))
+ ("/Users/viktor/"
+  (dired-filename . "/Users/viktor/.emacs.d"))
+ ("/Users/viktor/.emacs.d/"
+  (dired-filename . "/Users/viktor/.emacs.d/bookmarks"))
+ ("/Users/viktor/.emacs.d/configs/"
+  (dired-filename . "/Users/viktor/.emacs.d/configs/.DS_Store"))
+ ("/Users/viktor/org/Basic Note.org" . 252)
+ ("/Users/viktor/org/Notepad.org" . 328)
+ ("/Users/viktor/org/"
+  (dired-filename . "/Users/viktor/org/Reference"))
+ ("/Users/viktor/org/Reference/"
+  (dired-filename . "/Users/viktor/org/Reference/GTFS-RT Disco - outdated.md"))
+ ("/Users/viktor/org/Todo.org" . 126)
+ ("/Users/viktor/org/Reference/GTFS-RT Disco - outdated.md" . 303)
+ ("/Users/viktor/.emacs.d/configs/config.el" . 2698)
+ ("/Users/viktor/.emacs.d/recentf" . 701)
+ ("/Users/viktor/.emacs.d/init.el" . 1291)
  ("/Users/viktor/Downloads/"
   (dired-filename . "/Users/viktor/Downloads/1614104458179.jpg"))
- ("/Users/viktor/"
-  (dired-filename . "/Users/viktor/bin"))
- ("/Users/viktor/iCloud Drive/"
-  (dired-filename . "/Users/viktor/iCloud Drive/Notes"))
- ("/Users/viktor/iCloud Drive/Notes/Zettelkasten/8.10 - Natural vs. Good.md" . 193)
- ("/Users/viktor/Dropbox/org/Notepad.org" . 545)
- ("/Users/viktor/Dropbox/Notebooks/"
-  (dired-filename . "/Users/viktor/Dropbox/Notebooks/.DS_Store"))
- ("/Users/viktor/Dropbox/"
-  (dired-filename . "/Users/viktor/Dropbox/org"))
- ("/Users/viktor/Dropbox/org/"
-  (dired-filename . "/Users/viktor/Dropbox/org/;bd"))
- ("/Users/viktor/iCloud Drive/Notes/Trove/Four steps to Quantifying Cost of Delay.md" . 5128)
- ("/Users/viktor/iCloud Drive/Notes/Journal/"
-  (dired-filename . "/Users/viktor/iCloud Drive/Notes/Journal/2020-02-10.md"))
- ("/Users/viktor/iCloud Drive/Notes/Trove/"
-  (dired-filename . "/Users/viktor/iCloud Drive/Notes/Trove/Four steps to Quantifying Cost of Delay.md"))
- ("/Users/viktor/iCloud Drive/Notes/"
-  (dired-filename . "/Users/viktor/iCloud Drive/Notes/Trove"))
- ("/Users/viktor/Dropbox/org/Markdown.md" . 862)
- ("/Users/viktor/.emacs.d/"
-  (dired-filename . "/Users/viktor/.emacs.d/configs"))
- ("/Users/viktor/.emacs.d/configs/"
-  (dired-filename . "/Users/viktor/.emacs.d/configs/config.el"))
- ("/Users/viktor/.emacs.d/configs/config.el" . 4763)
- ("/Users/viktor/Dropbox/org/test.org" . 164)
- ("/Users/viktor/Dropbox/org/Todo.org" . 194)
- ("/Users/viktor/.emacs.d/recentf" . 1209)
- ("/Users/viktor/.emacs.d/init.el" . 1224)
  ("/Users/viktor/.emacs.d/elpa/ns-auto-titlebar-20181022.2154/ns-auto-titlebar-autoloads.el" . 1253)
  ("/Users/viktor/.emacs.d/local.el" . 1158)
  ("/Users/viktor/.emacs.d/elpa/auto-compile-20201122.1157/auto-compile-autoloads.el" . 5218)

@@ -79,10 +79,9 @@
 ;;(load-theme 'solarized-light-high-contrast t)
 (use-package doom-themes)
 (load-theme 'doom-opera-light)
+;;(load-theme 'zenburn)
 (set-face-attribute 'fringe nil :background nil)
 (tool-bar-mode -1)
-
-
 
 ;;Easy switch windows
 (use-package windmove
