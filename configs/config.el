@@ -54,6 +54,19 @@
 (show-paren-mode)
 ;;(blink-cursor-mode -1)
 
+;; Displaying the clock in the modeline
+(defface egoge-display-time
+   '((((type x w32 mac))
+      ;; #060525 is the background colour of my default face.
+      (:foreground "white" :inherit bold))
+     (((type tty))
+      (:foreground "blue")))
+   "Face used to display the time in the mode line.")
+(setq display-time-string-forms
+      '((propertize (concat " " 24-hours ":" minutes " ")
+	    'face 'egoge-display-time)))
+(display-time-mode 1)
+
 (use-package centered-cursor-mode)
 
 ;;Custom keybindings
@@ -155,7 +168,7 @@
 
 ;This could theoretically turn a [[ into a new Roam Insert link, but I couldn't get it work.
 ;(use-package key-chord)
-t;(key-chord-define org-mode-map "[[" #'my/insert-roam-link)
+;(key-chord-define org-mode-map "[[" #'my/insert-roam-link)
 ;(defun my/insert-roam-link ()
 ;    "Inserts an Org-roam link."
 ;    (interactive)
