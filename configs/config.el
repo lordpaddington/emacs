@@ -26,8 +26,7 @@
   :bind* (("C-x M-c" . restart-emacs)))
 
 ;;BASICS
-(set-face-attribute 'default nil :font "Menlo 15")
-
+(set-face-attribute 'default nil :font "iA Writer Duo V 18")
 
 ;;MAC SPECIFIC - put it in an ifmac
 (cond ((eq system-type 'darwin)       
@@ -207,9 +206,9 @@
   (package-install 'evil))
 
 ;; Enable Evil
-(require 'evil)
-(evil-mode 1)
-
+;(require 'evil)
+;(evil-mode)
+(setq-default cursor-type 'bar) ;; Comment this out if using Evil!!!!
 
 
 ;;ORG Setup
@@ -250,20 +249,18 @@
 
 ;; Making OrgMode Nice:
 (setq org-hide-emphasis-markers t)
-(font-lock-add-keywords 'org-mode
-                            '(("^ +\\([-*]\\) "
-                               (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
-;;ez valamiert nem megy az elso sorban......
+;(font-lock-add-keywords 'org-mode
+;                            '(("^ +\\([-*]\\) "
+;                               (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+;;Ez valamiert nem megy az elso sorban......
 
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
 
-   (let* ((variable-tuple (cond ((x-list-fonts "Menlo") '(:font "Menlo"))
-                                 ((x-list-fonts "Lucida Grande")   '(:font "Lucida Grande"))
-                                 ((x-list-fonts "Verdana")         '(:font "Verdana"))
-                                 ((x-family-fonts "Sans Serif")    '(:family "Sans Serif"))
-                                 (nil (warn "Cannot find a Sans Serif Font.  Install Source Sans Pro."))))
+(let* ((variable-tuple (cond    ((x-list-fonts "iA Writer Duo S") '(:font "iA Writer Duo S"))
+				((x-family-fonts "Sans Serif")    '(:family "Sans Serif"))
+				(nil (warn "Cannot find a Sans Serif Font.  Install Source Sans Pro."))))
            (base-font-color     (face-foreground 'default nil 'default))
            (headline           `(:inherit default :weight bold :foreground ,base-font-color)))
 
@@ -280,3 +277,4 @@
 
 ;; Load the locally applicable settings
 (load-file "~/.emacs.d/local.el")
+
