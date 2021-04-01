@@ -4,6 +4,7 @@ doc/*
 backup
 backups
 backup.*
+places
 elpa
 eshell
 recentf
@@ -21,6 +22,4 @@ bookmarks
 *.lock
 server
 local.el
-places
-places/*
 org-roam.db
