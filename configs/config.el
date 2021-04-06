@@ -27,6 +27,8 @@
 
 ;;BASICS
 (set-face-attribute 'default nil :font "Menlo 16")
+(delete-selection-mode 1)
+
 
 ;;MAC SPECIFIC - put it in an ifmac
 (cond ((eq system-type 'darwin)       
