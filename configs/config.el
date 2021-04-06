@@ -26,7 +26,7 @@
   :bind* (("C-x M-c" . restart-emacs)))
 
 ;;BASICS
-(set-face-attribute 'default nil :font "iA Writer Duo V 18")
+(set-face-attribute 'default nil :font "Menlo 16")
 
 ;;MAC SPECIFIC - put it in an ifmac
 (cond ((eq system-type 'darwin)       
