@@ -30,6 +30,7 @@
 (delete-selection-mode 1)
 
 ;;Set face depending on mode
+;TODO: fix this, make it system dependent, I'm sure it fucks everything up on windows...
 (custom-theme-set-faces
    'user
    '(variable-pitch ((t (:family "PT Sans" :height 180))))
