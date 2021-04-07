@@ -242,7 +242,9 @@
 (setq org-startup-indented t
       org-hide-leading-stars t
       org-startup-folded "content"
-      org-agenda-start-on-weekday 1)
+      org-agenda-start-on-weekday 1
+      )
+
 
 
 ;; The following lines are always needed.  Choose your own keys.
@@ -264,12 +266,13 @@
   (define-key org-mode-map (kbd "<M-right>") 'end-of-line)
   (centered-cursor-mode))
 
+(add-hook 'org-mode-hook 'org-display-inline-images)
 
 ;; Making OrgMode Nice:
 (setq org-hide-emphasis-markers t)
-;(font-lock-add-keywords 'org-mode
-;                            '(("^ +\\([-*]\\) "
-;                               (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+;; (font-lock-add-keywords 'org-mode
+;;                             '(("^ +\\([-*]\\) "
+;;                                (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
 ;;Ez valamiert nem megy az elso sorban......
 
 (require 'org-bullets)
