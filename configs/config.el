@@ -29,6 +29,14 @@
 (set-face-attribute 'default nil :font "Menlo 16")
 (delete-selection-mode 1)
 
+;;Set face depending on mode
+(custom-theme-set-faces
+   'user
+   '(variable-pitch ((t (:family "PT Sans" :height 180))))
+   '(fixed-pitch ((t ( :family "PT Mono" :height 180)))))
+;Note-this most likely doesn't fucking work... :(
+
+
 
 ;;MAC SPECIFIC - put it in an ifmac
 (cond ((eq system-type 'darwin)       
@@ -46,7 +54,8 @@
        (menu-bar-mode 0)
        (set-face-attribute 'default nil :font "Consolas 15")))
 
-(global-visual-line-mode t)
+(global-visual-line-mode t) ;; This should be set only for Org and Markdown, like this
+;; (add-hook 'org-mode-hook 'visual-line-mode)
 (desktop-save-mode 1) ;;Disabling to see if it breaks roam...
 (setq desktop-load-locked-desktop t)
 (scroll-bar-mode 0)
@@ -149,9 +158,23 @@
   :init (setq markdown-command "multimarkdown"))
 
 (setq markdown-header-scaling 1)
-(setq markdown-hide-markup 1)
-
+;(setq markdown-hide-markup 1)
 (use-package writeroom-mode)
+
+
+;; Doesn't fucking work!
+;; For some reason it's not a toggle, only set them once.
+(defun my-markdown-modechange ()
+  (interactive)
+  (markdown-toggle-markup-hiding)
+  (variable-pitch-mode)
+  )
+
+(with-eval-after-load 'markdown-mode
+  (define-key markdown-mode-map (kbd "<C-return>") 'my-markdown-modechange)
+  )
+
+
 
 ;;DEFT
 (use-package deft)
@@ -221,14 +244,6 @@
       org-agenda-start-on-weekday 1)
 
 
-;;Strikethrough DONE regardless of the theme
-(setq org-fontify-done-headline t)
-(custom-set-faces
- '(org-done ((t (:weight normal
-                 :strike-through t))))
- '(org-headline-done
-   ((t (:strike-through t)))))
-
 ;; The following lines are always needed.  Choose your own keys.
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
@@ -259,23 +274,31 @@
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
-
-(let* ((variable-tuple (cond    ((x-list-fonts "iA Writer Duo S") '(:font "iA Writer Duo S"))
-				((x-family-fonts "Sans Serif")    '(:family "Sans Serif"))
-				(nil (warn "Cannot find a Sans Serif Font.  Install Source Sans Pro."))))
-           (base-font-color     (face-foreground 'default nil 'default))
-           (headline           `(:inherit default :weight bold :foreground ,base-font-color)))
-
-      (custom-theme-set-faces 'user
-                              `(org-level-8 ((t (,@headline ,@variable-tuple))))
-                              `(org-level-7 ((t (,@headline ,@variable-tuple))))
-                              `(org-level-6 ((t (,@headline ,@variable-tuple))))
-                              `(org-level-5 ((t (,@headline ,@variable-tuple))))
-                              `(org-level-4 ((t (,@headline ,@variable-tuple))))
-                              `(org-level-3 ((t (,@headline ,@variable-tuple))))
-                              `(org-level-2 ((t (,@headline ,@variable-tuple :height 1.1))))
-                              `(org-level-1 ((t (,@headline ,@variable-tuple :height 1.25))))
-                              `(org-document-title ((t (,@headline ,@variable-tuple :height 1.5 :underline t))))))
+;Org font customizations
+(add-hook 'org-mode-hook 'variable-pitch-mode)
+(setq org-fontify-done-headline t)
+(custom-theme-set-faces
+   'user
+   '(org-block ((t (:inherit fixed-pitch))))
+   '(org-code ((t (:inherit (shadow fixed-pitch)))))
+   '(org-document-info ((t (:foreground "dark orange"))))
+   '(org-document-info-keyword ((t (:inherit (shadow fixed-pitch)))))
+   '(org-indent ((t (:inherit (org-hide fixed-pitch)))))
+   '(org-link ((t (:foreground "royal blue" :underline t))))
+   '(org-meta-line ((t (:inherit (font-lock-comment-face fixed-pitch)))))
+   '(org-property-value ((t (:inherit fixed-pitch))) t)
+   '(org-special-keyword ((t (:inherit (font-lock-comment-face fixed-pitch)))))
+   '(org-table ((t (:inherit fixed-pitch :foreground "#83a598"))))
+   '(org-tag ((t (:inherit (shadow fixed-pitch) :weight bold :height 0.8))))
+   '(org-verbatim ((t (:inherit (shadow fixed-pitch)))))
+   '(org-checkbox ((t (:inherit fixed-pitch :foreground "ForestGreen" :weight bold))))
+   '(org-document-title ((t (:height 1.5 :weight bold :underline t))))
+   '(org-level-1 ((t (:height 1.25 :weight bold))))
+   '(org-level-2 ((t (:height 1.1 :weight bold))))
+   '(org-todo ((t (:inherit fixed-pitch))))
+   '(org-done ((t (:inherit fixed-pitch :strike-through t :foreground "Dark Grey"))))
+   '(org-headline-done ((t (:foreground "Grey" :strike-through t :weight bold))))
+   )
 
 ;; Load the locally applicable settings
 (load-file "~/.emacs.d/local.el")
