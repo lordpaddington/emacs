@@ -21,6 +21,7 @@
 (setq custom-safe-themes t) ;;UNSAFE! Set every theme as safe, so there is no confirmation!
 
 
+
 (use-package restart-emacs
   :ensure t
   :bind* (("C-x M-c" . restart-emacs)))
@@ -67,19 +68,6 @@
 (show-paren-mode)
 ;;(blink-cursor-mode -1)
 
-;; Displaying the clock in the modeline
-(defface egoge-display-time
-   '((((type x w32 mac))
-      ;; #060525 is the background colour of my default face.
-      (:foreground "white" :inherit bold))
-     (((type tty))
-      (:foreground "blue")))
-   "Face used to display the time in the mode line.")
-(setq display-time-string-forms
-      '((propertize (concat " " 24-hours ":" minutes " ")
-	    'face 'egoge-display-time)))
-(display-time-mode 1)
-
 (use-package centered-cursor-mode)
 
 ;;Custom keybindings
@@ -108,6 +96,21 @@
 ;;(load-theme 'zenburn)
 (set-face-attribute 'fringe nil :background nil)
 (tool-bar-mode -1)
+
+;; Displaying the clock in the modeline
+(defface egoge-display-time
+   '((((type x w32 mac))
+      ;; #060525 is the background colour of my default face.
+      (:foreground "white" :inherit bold))
+     (((type tty))
+      (:foreground "blue")))
+   "Face used to display the time in the mode line.")
+(setq display-time-string-forms
+      '((propertize (concat " " 24-hours ":" minutes " ")
+	    'face 'egoge-display-time)))
+(display-time-mode 1)
+
+
 
 ;;Easy switch windows
 (use-package windmove
@@ -286,7 +289,7 @@
    '(org-meta-line ((t (:inherit (font-lock-comment-face fixed-pitch)))))
    '(org-property-value ((t (:inherit fixed-pitch))) t)
    '(org-special-keyword ((t (:inherit (font-lock-comment-face fixed-pitch)))))
-   '(org-table ((t (:inherit fixed-pitch :foreground "#83a598"))))
+   '(org-table ((t (:inherit fixed-pitch))))
    '(org-tag ((t (:inherit (shadow fixed-pitch) :weight bold :height 0.8))))
    '(org-verbatim ((t (:inherit (shadow fixed-pitch)))))
    '(org-checkbox ((t (:inherit fixed-pitch :foreground "ForestGreen" :weight bold))))
