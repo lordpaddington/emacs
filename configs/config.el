@@ -243,8 +243,9 @@
       org-hide-leading-stars t
       org-startup-folded "content"
       org-agenda-start-on-weekday 1
+      org-pretty-entities t
+      org-hide-emphasis-markers t
       )
-
 
 
 ;; The following lines are always needed.  Choose your own keys.
@@ -267,13 +268,6 @@
   (centered-cursor-mode))
 
 (add-hook 'org-mode-hook 'org-display-inline-images)
-
-;; Making OrgMode Nice:
-(setq org-hide-emphasis-markers t)
-;; (font-lock-add-keywords 'org-mode
-;;                             '(("^ +\\([-*]\\) "
-;;                                (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
-;;Ez valamiert nem megy az elso sorban......
 
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
