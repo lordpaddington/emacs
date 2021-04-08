@@ -92,8 +92,9 @@
 ;;(setq solarized-high-contrast-mode-line t)
 ;;(load-theme 'solarized-light-high-contrast t)
 (use-package doom-themes)
-(load-theme 'doom-opera-light)
-;;(load-theme 'zenburn)
+(load-theme 'doom-opera-light) ;Fancy light theme
+;(load-theme 'zenburn) ;Nice darkish theme
+;(load-theme 'tango) ;Simple light theme
 (set-face-attribute 'fringe nil :background nil)
 (tool-bar-mode -1)
 
@@ -109,7 +110,6 @@
       '((propertize (concat " " 24-hours ":" minutes " ")
 	    'face 'egoge-display-time)))
 (display-time-mode 1)
-
 
 
 ;;Easy switch windows
@@ -177,8 +177,6 @@
 (with-eval-after-load 'markdown-mode
   (define-key markdown-mode-map (kbd "<C-return>") 'my-markdown-modechange)
   )
-
-
 
 ;;DEFT
 (use-package deft)
