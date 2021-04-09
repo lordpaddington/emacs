@@ -98,7 +98,9 @@
 (set-face-attribute 'fringe nil :background nil)
 (tool-bar-mode -1)
 
-;; Displaying the clock in the modeline
+(use-package simple-modeline)
+(simple-modeline-mode)
+;; Displaying the cloc$k in the modeline
 (defface egoge-display-time
    '((((type x w32 mac))
       ;; #060525 is the background colour of my default face.
