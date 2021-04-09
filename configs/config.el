@@ -108,9 +108,12 @@
    "Face used to display the time in the mode line.")
 (setq display-time-string-forms
       '((propertize (concat " " 24-hours ":" minutes " ")
-	    'face 'egoge-display-time)))
+	    'face 'egoge-display-time))) ;;Faszért nem működik???
 (display-time-mode 1)
 
+;;Insert Date Function
+(defun insert-current-date () (interactive)
+       (insert (shell-command-to-string "echo -n $(date +%Y-%m-%d)")))
 
 ;;Easy switch windows
 (use-package windmove
@@ -257,6 +260,7 @@
 (global-set-key "\C-xg" 'magit-status)
 (global-set-key "\C-cd" 'deft)
 
+
 ;; Archive all done tasks
 (defun my-org-archive-done-tasks ()
   (interactive)
@@ -266,6 +270,8 @@
 (with-eval-after-load 'org
   (define-key org-mode-map (kbd "<M-left>") 'beginning-of-line)
   (define-key org-mode-map (kbd "<M-right>") 'end-of-line)
+  (define-key org-mode-map (kbd "<C-S-up>") 'org-move-subtree-up)
+  (define-key org-mode-map (kbd "<C-S-down>") 'org-move-subtree-down)
   (centered-cursor-mode))
 
 (add-hook 'org-mode-hook 'org-display-inline-images)
