@@ -81,22 +81,46 @@
 
 ;;Visuals
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(fringe-mode 10)
+(fringe-mode 20) ;this is usually 10 only.
 ;;(set-face-attribute 'mode-line nil :font "Courier-13") - faszért nem működik rendesen?!?!?
 
-;;THEMES
-;;(use-package solarized-theme)
+
+
+;;Themes
+;;(Use-package solarized-theme)
 ;;(setq solarized-use-variable-pitch nil)
 ;;(setq solarized-scale-org-headlines nil)
 ;;(setq x-underline-at-descent-line t)
 ;;(setq solarized-high-contrast-mode-line t)
 ;;(load-theme 'solarized-light-high-contrast t)
 (use-package doom-themes)
+(require 'doom-themes)
 (load-theme 'doom-opera-light) ;Fancy light theme
 ;(load-theme 'zenburn) ;Nice darkish theme
 ;(load-theme 'tango) ;Simple light theme
 (set-face-attribute 'fringe nil :background nil)
 (tool-bar-mode -1)
+;(load-theme doom-themes-neotree) ;;How the fuck does this work?
+(doom-themes-neotree-config)
+
+;;NEOTREE as default
+;(use-package neotree)
+;(neotree-show)
+;(setq neo-window-width 50)
+;(setq neo-window-fixed-size nil)
+;(global-set-key [f8] 'neotree-toggle)
+;(setq neo-smart-open t)
+
+
+;;TREEMACS FTW
+(use-package treemacs)
+(global-set-key [f8] 'treemacs)
+(setq treemacs-width-lock t)
+(setq treemacs-width 50)
+(treemacs)
+
+
+
 
 (use-package simple-modeline)
 (simple-modeline-mode)
