@@ -14,6 +14,7 @@
  '(jdee-db-requested-breakpoint-face-colors (cons "#fafafa" "#4f894c"))
  '(jdee-db-spec-breakpoint-face-colors (cons "#fafafa" "#bdbdbd"))
  '(magit-diff-use-overlays nil)
+ '(neo-window-fixed-size nil)
  '(objed-cursor-color "#99324b")
  '(package-selected-packages
    '(neotree org-bullets diminish ns-auto-titlebar markdown-mode+ markdown-preview-mode writeroom-mode markdown-mode sqlite3 key-chord magit solarized-theme doom-themes powerline-evil powerline which-key use-package simple-modeline restart-emacs counsel centered-cursor-mode auto-compile))
