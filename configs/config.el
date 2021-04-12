@@ -118,7 +118,12 @@
 (setq treemacs-width 50)
 (treemacs)
 (treemacs-toggle-fixed-width)
+(use-package treemacs-icons-dired) ;Treemacs icons in dired!
+(treemacs-icons-dired-mode)
 
+
+
+;;Others
 (use-package simple-modeline)
 (simple-modeline-mode)
 ;; Displaying the cloc$k in the modeline
