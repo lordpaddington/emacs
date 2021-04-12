@@ -115,12 +115,9 @@
 ;;TREEMACS FTW
 (use-package treemacs)
 (global-set-key [f8] 'treemacs)
-(setq treemacs-width-lock t)
 (setq treemacs-width 50)
 (treemacs)
-
-
-
+(treemacs-toggle-fixed-width)
 
 (use-package simple-modeline)
 (simple-modeline-mode)
