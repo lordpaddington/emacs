@@ -46,22 +46,22 @@
        (ns-auto-titlebar-mode 1)
        (add-to-list 'default-frame-alist '(ns-transparent-titlebar))
        (add-to-list 'default-frame-alist '(ns-appearance . dark))
-       (setq ns-use-proxy-icon nil))
-      (custom-theme-set-faces
-       'user
-       '(variable-pitch ((t (:family "PT Sans" :height 180))))
-       '(fixed-pitch ((t ( :family "PT Mono" :height 180))))))
-
-;;WINDOWS SPECIFIC:
-;(cond ((eq system-type 'windows-nt)
-;       (setq org-directory "C:/Users/Viktor/Dropbox/org")
-;       (add-to-list 'exec-path "C:/Users/Viktor/usr/sqlite3")
-;       (menu-bar-mode 0)
-;       )
-;      (custom-theme-set-faces
-;       'user
-;       '(variable-pitch ((t (:family "Consolas" :height 180))))
-;       '(fixed-pitch ((t ( :family "Verdana" :height 180))))))
+       (setq ns-use-proxy-icon nil)
+       (custom-theme-set-faces
+	'user
+	'(variable-pitch ((t (:family "PT Sans" :height 180))))
+	'(fixed-pitch ((t ( :family "PT Mono" :height 180)))))
+       )
+      ((eq system-type 'windows-nt)
+       (setq org-directory "C:/Users/Viktor/Dropbox/org")
+       (add-to-list 'exec-path "C:/Users/Viktor/usr/sqlite3")
+       (menu-bar-mode 0)       
+       (custom-theme-set-faces
+	'user
+	'(variable-pitch ((t (:family "Consolas" :height 180))))
+	'(fixed-pitch ((t ( :family "Verdana" :height 180)))))
+       )
+      )
 
 (global-visual-line-mode t) ;; This should be set only for Org and Markdown, like this
 ;; (add-hook 'org-mode-hook 'visual-line-mode)
