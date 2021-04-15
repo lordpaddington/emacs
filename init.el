@@ -54,7 +54,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(fixed-pitch ((t (:family "PT Mono" :height 180))))
+ '(fixed-pitch ((t (:family "Consolas" :height 180))))
  '(org-block ((t (:inherit fixed-pitch))))
  '(org-checkbox ((t (:inherit fixed-pitch :foreground "ForestGreen" :weight bold))))
  '(org-code ((t (:inherit (shadow fixed-pitch)))))
@@ -74,4 +74,4 @@
  '(org-tag ((t (:inherit (shadow fixed-pitch) :weight bold :height 0.8))))
  '(org-todo ((t (:inherit fixed-pitch))))
  '(org-verbatim ((t (:inherit (shadow fixed-pitch)))))
- '(variable-pitch ((t (:family "PT Sans" :height 180)))))
+ '(variable-pitch ((t (:family "Calibri" :height 180)))))

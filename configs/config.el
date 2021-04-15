@@ -52,14 +52,15 @@
 	'(variable-pitch ((t (:family "PT Sans" :height 180))))
 	'(fixed-pitch ((t ( :family "PT Mono" :height 180)))))
        )
-      ((eq system-type 'windows-nt)
+      ((eq system-type 'windows)
        (setq org-directory "C:/Users/Viktor/Dropbox/org")
        (add-to-list 'exec-path "C:/Users/Viktor/usr/sqlite3")
        (menu-bar-mode 0)       
        (custom-theme-set-faces
 	'user
-	'(variable-pitch ((t (:family "Consolas" :height 180))))
-	'(fixed-pitch ((t ( :family "Verdana" :height 180)))))
+	'(variable-pitch ((t (:family "Tahoma" :height 300))))
+     	;This shit doesn't seem to work on win and don't know why!!!
+	'(fixed-pitch ((t ( :family "Consolas" :height 180)))))
        )
       )
 
@@ -135,7 +136,7 @@
 (simple-modeline-mode)
 ;; Displaying the cloc$k in the modeline
 (defface egoge-display-time
-   '((((type x w32 mac))
+   '((((type x w32 darwin))
       ;; #060525 is the background colour of my default face.
       (:foreground "white" :inherit bold))
      (((type tty))
