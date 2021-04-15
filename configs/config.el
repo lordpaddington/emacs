@@ -27,7 +27,7 @@
   :bind* (("C-x M-c" . restart-emacs)))
 
 ;;BASICS
-(set-face-attribute 'default nil :font "Menlo 16")
+(set-face-attribute 'default nil :font "Courier 16")
 (delete-selection-mode 1)
 
 
@@ -37,9 +37,9 @@
 ;Note-this most likely doesn't fucking work... :(
 
 
-
 ;;MAC SPECIFIC - put it in an ifmac
-(cond ((eq system-type 'darwin)       
+(cond ((eq system-type 'darwin)
+       (set-face-attribute 'default nil :font "Menlo 16")
        (setq mac-command-modifier 'meta)
        (setq mac-option-modifier 'none)
        (use-package ns-auto-titlebar)
@@ -53,15 +53,15 @@
        '(fixed-pitch ((t ( :family "PT Mono" :height 180))))))
 
 ;;WINDOWS SPECIFIC:
-(cond ((eq system-type 'windows-nt)
-       (setq org-directory "C:/Users/Viktor/Dropbox/org")
-       (add-to-list 'exec-path "C:/Users/Viktor/usr/sqlite3")
-       (menu-bar-mode 0)
-       )
-      (custom-theme-set-faces
-       'user
-       '(variable-pitch ((t (:family "Consolas" :height 180))))
-       '(fixed-pitch ((t ( :family "Verdana" :height 180))))))
+;(cond ((eq system-type 'windows-nt)
+;       (setq org-directory "C:/Users/Viktor/Dropbox/org")
+;       (add-to-list 'exec-path "C:/Users/Viktor/usr/sqlite3")
+;       (menu-bar-mode 0)
+;       )
+;      (custom-theme-set-faces
+;       'user
+;       '(variable-pitch ((t (:family "Consolas" :height 180))))
+;       '(fixed-pitch ((t ( :family "Verdana" :height 180))))))
 
 (global-visual-line-mode t) ;; This should be set only for Org and Markdown, like this
 ;; (add-hook 'org-mode-hook 'visual-line-mode)
