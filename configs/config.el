@@ -134,18 +134,6 @@
 ;;Others
 (use-package simple-modeline)
 (simple-modeline-mode)
-;; Displaying the cloc$k in the modeline
-(defface egoge-display-time
-   '((((type x w32 darwin))
-      ;; #060525 is the background colour of my default face.
-      (:foreground "white" :inherit bold))
-     (((type tty))
-      (:foreground "blue")))
-   "Face used to display the time in the mode line.")
-(setq display-time-string-forms
-      '((propertize (concat " " 24-hours ":" minutes " ")
-	    'face 'egoge-display-time))) ;;Faszért nem működik???
-(display-time-mode 1)
 
 ;;Insert Date Function
 (defun insert-current-date () (interactive)
@@ -340,7 +328,15 @@
    '(org-todo ((t (:inherit fixed-pitch))))
    '(org-done ((t (:inherit fixed-pitch :strike-through t :foreground "Dark Grey"))))
    '(org-headline-done ((t (:foreground "Grey" :strike-through t :weight bold))))
-   )
+   '(egoge-display-time ((t (:inherit fixed-pitch :foreground "Royal Blue" :weight bold))))
+   ) 
+
+(setq display-time-string-forms
+      '((propertize (concat " " 24-hours ":" minutes " ")
+	    'face 'egoge-display-time))) ;;Fuck, this did work once, but not anymore and I don't know why!!!!
+(display-time-mode 1)
+
+
 
 ;; Load the locally applicable settings
 (load-file "~/.emacs.d/local.el")
