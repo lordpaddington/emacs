@@ -131,9 +131,11 @@
 
 
 
-;;Others
+;;MODELINE
 (use-package simple-modeline)
 (simple-modeline-mode)
+
+
 
 ;;Insert Date Function
 (defun insert-current-date () (interactive)
@@ -167,10 +169,10 @@
 )
 
 ;;smex is an amazing program that helps order the M-x commands based on usage and recent items.
-;(use-package smex
-;  :ensure t
-;  :config
-;  (smex-initialize))
+(use-package smex
+  :ensure t
+  :config
+  (smex-initialize))
 
 ;;IVY Autocompletion
 (use-package counsel)
