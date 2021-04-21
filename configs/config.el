@@ -37,6 +37,7 @@
 ;Note-this most likely doesn't fucking work... :(
 
 
+
 ;;MAC SPECIFIC - put it in an ifmac
 (cond ((eq system-type 'darwin)
        (set-face-attribute 'default nil :font "Menlo 16")
@@ -61,6 +62,7 @@
 	'(variable-pitch ((t (:family "Tahoma" :height 300))))
      	;This shit doesn't seem to work on win and don't know why!!!
 	'(fixed-pitch ((t ( :family "Consolas" :height 180)))))
+        '(egoge-display-time ((t (:inherit fixed-pitch :foreground "Royal Blue" :weight bold)))) 
        )
       )
 
@@ -275,6 +277,10 @@
       org-agenda-start-on-weekday 1
       org-pretty-entities t
       org-hide-emphasis-markers t
+      org-todo-keywords '((sequence "TODO" "INPR" "WAIT" "|" "DONE"))
+      org-todo-keyword-faces
+      '(("TODO" . org-todo) ("INPR" . "orange")
+        ("WAIT" . "purple"))
       )
 
 
