@@ -277,7 +277,7 @@
       org-agenda-start-on-weekday 1
       org-pretty-entities t
       org-hide-emphasis-markers t
-      org-todo-keywords '((sequence "TODO" "INPR" "WAIT" "|" "DONE"))
+      org-todo-keywords '((sequence "TODO(t)" "INPR(i)" "WAIT(w)" "|" "DONE(d)"))
       org-todo-keyword-faces
       '(("TODO" . org-todo) ("INPR" . "orange")
         ("WAIT" . "purple"))
