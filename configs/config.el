@@ -77,6 +77,7 @@
 (setq show-paren-delay 0)
 (show-paren-mode)
 ;;(blink-cursor-mode -1)
+(setq calendar-week-start-day 1)
 
 (use-package centered-cursor-mode)
 
@@ -193,7 +194,7 @@
   :init (setq markdown-command "multimarkdown"))
 
 (setq markdown-header-scaling 1)
-;(setq markdown-hide-markup 1)
+(setq markdown-hide-markup 1)
 (use-package writeroom-mode)
 
 
