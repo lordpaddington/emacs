@@ -17,7 +17,7 @@
  '(neo-window-fixed-size nil)
  '(objed-cursor-color "#99324b")
  '(package-selected-packages
-   '(smex treemacs-icons-dired treemacs neotree org-bullets diminish ns-auto-titlebar markdown-mode+ markdown-preview-mode writeroom-mode markdown-mode sqlite3 key-chord magit solarized-theme doom-themes powerline-evil powerline which-key use-package simple-modeline restart-emacs counsel centered-cursor-mode auto-compile))
+   '(zetteldeft smex treemacs-icons-dired treemacs neotree org-bullets diminish ns-auto-titlebar markdown-mode+ markdown-preview-mode writeroom-mode markdown-mode sqlite3 key-chord magit solarized-theme doom-themes powerline-evil powerline which-key use-package simple-modeline restart-emacs counsel centered-cursor-mode auto-compile))
  '(pdf-view-midnight-colors (cons "#2a2a2a" "#fafafa"))
  '(rustic-ansi-faces
    ["#fafafa" "#99324b" "#4f894c" "#9a7500" "#3b6ea8" "#97365b" "#398eac" "#2a2a2a"])

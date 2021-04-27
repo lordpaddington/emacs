@@ -210,16 +210,31 @@
   (define-key markdown-mode-map (kbd "<C-return>") 'my-markdown-modechange)
   )
 
-;;DEFT
-(use-package deft)
-(setq deft-default-extension "org")
-(setq deft-recursive t)
-(setq deft-use-filename-as-title nil)
-(setq deft-use-filter-string-for-filename t) ;Ez miez?
-(setq deft-file-naming-rules '((noslash . "-")
-                                   (nospace . "-")
-                                   (case-fn . downcase)))
-(setq deft-text-mode 'org-mode)
+;;DEFT and ZETTELDEFT
+(use-package deft
+  :ensure t
+  :init
+    (setq deft-extensions '("org" "md" "txt")
+          deft-use-filename-as-title t
+	  deft-recursive t
+	  deft-text-mode 'org-mode))
+
+(use-package zetteldeft
+  :ensure t
+  :after deft
+  :config (zetteldeft-set-classic-keybindings))
+
+(setq zetteldeft-link-indicator "§"
+      zetteldeft-id-format "%Y-%m-%d-%H%M"
+      zetteldeft-id-regex "[0-9]\\{4\\}\\(-[0-9]\\{2,\\}\\)\\{3\\}"
+      zetteldeft-tag-regex "[#@][a-z-]+")
+
+
+
+;(setq deft-use-filter-string-for-filename t) ;Ez miez?
+;(setq deft-file-naming-rules '((noslash . "-")
+;                                   (nospace . "-")
+;                                   (case-fn . downcase)))
 ; Lehet itt be kellene konfigolni az alapokat...
 
 
