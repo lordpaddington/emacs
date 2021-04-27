@@ -215,7 +215,7 @@
   :ensure t
   :init
     (setq deft-extensions '("org" "md" "txt")
-          deft-use-filename-as-title t
+          deft-use-filename-as-title nil
 	  deft-recursive t
 	  deft-text-mode 'org-mode))
 
