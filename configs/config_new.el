@@ -3,7 +3,7 @@
 
 (require 'package)
 (unless (assoc-default "melpa" package-archives)
-  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t))
 ;  (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/")))
 (unless (assoc-default "org" package-archives)
   (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t))
@@ -13,7 +13,7 @@
   (package-refresh-contents))
 
 (require 'use-package)
-;(setq use-package-verbose t)
+;;(setq use-package-verbose t)
 (setq use-package-always-ensure t) ;This makes every package in use-package installed on every machine!!!
 
 
@@ -37,7 +37,7 @@
 (setq track-eol t)			; Keep cursor at end of lines.
 (setq line-move-visual nil)		; To be required by track-eol
 (setq-default kill-whole-line t)	; Kill line including '\n'
-(setq-default indent-tabs-mode nil)   ; use space
+(setq-default indent-tabs-mode t)   ; nil to use space
 
 
 ;; STYLE
@@ -65,7 +65,9 @@
        (custom-theme-set-faces
 	'user
 	'(variable-pitch ((t (:family "PT Sans" :height 180))))
-	'(fixed-pitch ((t ( :family "PT Mono" :height 180)))))
+	'(fixed-pitch ((t ( :family "PT Mono" :height 180))))
+        '(egoge-display-time ((t (:inherit fixed-pitch :foreground "white" :weight bold :height 0.9))))
+        )
        )
       
       ((eq system-type 'windows)
@@ -75,7 +77,7 @@
 	'(variable-pitch ((t (:family "Tahoma" :height 300))))
      	;This shit doesn't seem to work on win and don't know why!!!
 	'(fixed-pitch ((t ( :family "Consolas" :height 180)))))
-        '(egoge-display-time ((t (:inherit fixed-pitch :foreground "Royal Blue" :weight bold)))) 
+        '(egoge-display-time ((t (:inherit fixed-pitch :foreground "Royal Blue")))) 
        )
       )
 
@@ -102,6 +104,21 @@
 (use-package all-the-icons
   :defer t)
 
+(defface egoge-display-time
+   '((((type x w32 mac))
+      ;; #060525 is the background colour of my default face.
+      (:foreground "red" :height 0.8))
+     (((type tty))
+      (:foreground "red" :height 0.8)))
+   "Face used to display the time in the mode line.")
+;; Rejtély, de valamiéret ez muszáj ide, még akkor is, ha amúgy odafönnt adom meg, hogy hogy kéne kinéznie a fontnak és azt veszi figyelembe...
+
+(setq display-time-string-forms
+      '((propertize (concat " " 24-hours ":" minutes " ")
+	    'face 'egoge-display-time))) ;;Fuck, this did work once, but not anymore and I don't know why!!!!
+(display-time-mode t)
+
+
 ;; KEYS
 ;; ====
 (global-set-key (kbd "<C-up>") 'scroll-down-command)
@@ -113,10 +130,12 @@
   (define-key dired-mode-map "-" 'dired-up-directory))
 (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
 
-(with-eval-after-load 'org
-  (define-key org-mode-map (kbd "<C-S-up>") 'org-move-subtree-up)
-  (define-key org-mode-map (kbd "<C-S-down>") 'org-move-subtree-down)
-  )
+;(with-eval-after-load 'org
+;  (define-key org-mode-map (kbd "<C-S-up>") 'org-move-subtree-up)
+  ;; (define-key org-mode-map (kbd "<C-S-down>") 'org-move-subtree-down)
+  ;; ;(define-key org-mode-map (kbd "<M-left>") 'beginning-of-line)
+  ;; ;(define-key org-mode-map (kbd "<M-right>") 'end-of-line)
+  ;; )
 
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
@@ -147,16 +166,16 @@
   ("C-a" . mwim-beginning-of-code-or-line)
   ("C-e" . mwim-end-of-code-or-line))
 
-
-
 ;;tree buffer
 (use-package treemacs
   :config
-  (global-set-key [f8] 'treemacs)  
-  (treemacs)
+  ;(treemacs)
   (treemacs-toggle-fixed-width)
+  :bind
+  ("<f8>" . treemacs) ;miért nem megy?
   :custom
   (treemacs-width 50))
+
 
 ;;Treemacs icons in dired
 (use-package treemacs-icons-dired
@@ -178,10 +197,9 @@
 
 ;;Show keybindings!!!!
 (use-package which-key
-  :defer t
   :diminish which-key-mode
-  :init
-  (setq which-key-sort-order 'which-key-key-order-alpha)
+  :custom
+  (which-key-sort-order 'which-key-key-order-alpha)  
   :bind* (("M-m ?" . which-key-show-top-level))
   :config
   (which-key-mode)
@@ -191,7 +209,7 @@
 
 ;;focused writing
 (use-package writeroom-mode
-  :bind ("<f7>" . writeroom-mode))
+  :bind ([f7] . writeroom-mode))
 
 
 ;;MAGIT
@@ -220,37 +238,10 @@
 
 ;;Org Mode
 (use-package org
-  :init
-  
-  :config
-
-  :custom
-  (org-src-fontify-natively t)
-  (org-agenda-span 'day)  
-  (org-startup-indented t)
-  (org-hide-leading-stars t)
-  (org-startup-folded "content")
-  (org-agenda-start-on-weekday 1)
-  (org-pretty-entities t)
-  (org-fontify-done-headline t)
-  (org-hide-emphasis-markers t)
-  (org-todo-keywords '((sequence "TODO(t)" "INPR(i)" "WAIT(w)" "|" "DONE(d)")))
-  (org-todo-keyword-faces '(("TODO" . org-todo) ("INPR" . "orange") ("WAIT" . "purple")))
-
-  :hook
-  (org-mode . 'org-display-inline-images)
-  (org-mode . 'variable-pitch-mode)
-  (org-mode . 'centered-cursor-mode)
-  )
-
-(use-package org-bullets
-  :hook
-  (org-mode . (lambda () (org-bullets-mode 1)))
-  )
-
-
-;;fucking clean this up!!!:
-(custom-theme-set-faces
+  :config  
+  (org-display-inline-images)
+  (add-hook 'org-mode-hook 'variable-pitch-mode 'centered-cursor-mode)
+  (custom-theme-set-faces
    'user
    '(org-block ((t (:inherit fixed-pitch))))
    '(org-code ((t (:inherit (shadow fixed-pitch)))))
@@ -275,14 +266,34 @@
    '(org-level-7 ((t (:height 1.0 :weight bold))))
    '(org-todo ((t (:inherit fixed-pitch))))
    '(org-done ((t (:inherit fixed-pitch :strike-through t :foreground "Dark Grey"))))
-   '(org-headline-done ((t (:foreground "Grey" :strike-through t :weight bold))))
-   '(egoge-display-time ((t (:inherit fixed-pitch :foreground "Royal Blue" :weight bold))))
-   ) 
+   '(org-headline-done ((t (:foreground "Grey" :strike-through t :weight bold)))))
+  :custom
+  (org-src-fontify-natively t)
+  (org-agenda-span 'day)  
+  (org-startup-indented t)
+  (org-hide-leading-stars t)
+  (org-startup-folded "content")
+  (org-agenda-start-on-weekday 1)
+  (org-pretty-entities t)
+  (org-fontify-done-headline t)
+  (org-hide-emphasis-markers t)
+  (org-todo-keywords '((sequence "TODO(t)" "INPR(i)" "WAIT(w)" "|" "DONE(d)")))
+  (org-todo-keyword-faces '(("TODO" . org-todo) ("INPR" . "orange") ("WAIT" . "purple")))
+  :bind (:map org-mode-map
+	      ("<M-left>" . beginning-of-line)
+	      ("<M-right>" . end-of-line)
+	      ("<C-S-up>" . org-move-subtree-up)
+	      ("<C-S-down>" . org-move-subtree-down)
+              )
+  )
 
-(setq display-time-string-forms
-      '((propertize (concat " " 24-hours ":" minutes " ")
-	    'face 'egoge-display-time))) ;;Fuck, this did work once, but not anymore and I don't know why!!!!
-(display-time-mode 1)
+(use-package org-bullets
+  :hook
+  (org-mode . (lambda () (org-bullets-mode 1)))
+  )
+
+
+
 
 
 
@@ -290,12 +301,11 @@
 ;; =========
 
 ;; insert current date
-(defun insert-current-date () (interactive)
+(defun vix-insert-current-date () (interactive)
        (insert (shell-command-to-string "echo -n $(date +%Y-%m-%d)")))
 
-
 ;; archive all done tasks
-(defun my-org-archive-done-tasks ()
+(defun vix-org-archive-done-tasks ()
   (interactive)
   (org-map-entries 'org-archive-subtree "/DONE" 'file))
 
