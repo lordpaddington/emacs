@@ -138,8 +138,6 @@
 (use-package simple-modeline)
 (simple-modeline-mode)
 
-
-
 ;;Insert Date Function
 (defun insert-current-date () (interactive)
        (insert (shell-command-to-string "echo -n $(date +%Y-%m-%d)")))
