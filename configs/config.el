@@ -306,7 +306,7 @@
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)
 (global-set-key "\C-xg" 'magit-status)
-(global-set-key "\C-cd" 'deft)
+
 
 
 ;; Archive all done tasks
@@ -364,7 +364,6 @@
       '((propertize (concat " " 24-hours ":" minutes " ")
 	    'face 'egoge-display-time))) ;;Fuck, this did work once, but not anymore and I don't know why!!!!
 (display-time-mode 1)
-
 
 
 ;; Load the locally applicable settings
