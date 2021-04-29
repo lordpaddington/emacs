@@ -47,7 +47,7 @@
 ;; =====
 (setq custom-safe-themes t) ;;UNSAFE! Set every theme as safe, so there is no confirmation!
 
-(set-face-attribute 'default nil :font "Courier 16")
+(set-face-attribute 'default nil :font "Menlo 16")
 (delete-selection-mode 1)
 (global-visual-line-mode t)
 (scroll-bar-mode 0)
@@ -145,7 +145,7 @@
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)
 (global-set-key "\C-xg" 'magit-status)
-
+(global-set-key (kbd "C-c v j") 'vix-open-todays-journal)
 
 ;; PACKAGES:
 ;; =========
