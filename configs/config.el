@@ -19,6 +19,9 @@
 
 (setq load-prefer-newer t)
 
+;;opening a file from finder will reuse the same window
+(setq ns-pop-up-frames nil)
+
 (desktop-save-mode 1)
 (setq desktop-load-locked-desktop t)
 
@@ -335,6 +338,15 @@
 ;; insert current date
 (defun vix-insert-current-date () (interactive)
        (insert (shell-command-to-string "echo -n $(date +%Y-%m-%d)")))
+
+
+(defun vix-open-todays-journal ()
+  (interactive)
+  (find-file-other-window (concat org-directory (format-time-string "/Journal/%Y-%m-%d %A.org"))))
+
+
+;; (defun ladicle/open-org-file (fname)
+;;       (switch-to-buffer (find-file-other-frame fname)))
 
 ;; archive all done tasks
 (defun vix-org-archive-done-tasks ()
