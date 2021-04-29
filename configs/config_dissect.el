@@ -74,30 +74,10 @@
 ;;A faszert nem mukodik ez???
 
 ;;MARKDOWN
-(use-package markdown-mode
-  :ensure t
-  :commands (markdown-mode gfm-mode)
-  :mode (("README\\.md\\'" . gfm-mode)
-         ("\\.md\\'" . markdown-mode)
-         ("\\.markdown\\'" . markdown-mode))
-  :init (setq markdown-command "multimarkdown"))
-
-(setq markdown-header-scaling 1)
-(setq markdown-hide-markup 1)
 
 
 
 ;; Doesn't fucking work!
-;; For some reason it's not a toggle, only set them once.
-(defun my-markdown-modechange ()
-  (interactive)
-  (markdown-toggle-markup-hiding)
-  (variable-pitch-mode)
-  )
-
-(with-eval-after-load 'markdown-mode
-  (define-key markdown-mode-map (kbd "<C-return>") 'my-markdown-modechange)
-  )
 
 
 
