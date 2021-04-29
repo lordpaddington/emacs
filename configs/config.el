@@ -172,7 +172,7 @@
   ;(treemacs)
   (treemacs-toggle-fixed-width)
   :bind
-  ("<f8>" . treemacs) ;miért nem megy?
+  ([f9] . treemacs) ;miért nem megy?
   :custom
   (treemacs-width 50))
 
@@ -221,7 +221,11 @@
     (setq deft-extensions '("org" "md" "txt")
           deft-use-filename-as-title nil
 	  deft-recursive t
-	  deft-text-mode 'org-mode))
+	  deft-text-mode 'org-mode)
+  :bind
+  ([f8] . deft)  
+    )
+
 
 (use-package zetteldeft
   :after
