@@ -224,23 +224,26 @@
     (setq deft-extensions '("org" "md" "txt")
           deft-use-filename-as-title nil
 	  deft-recursive t
-	  deft-text-mode 'org-mode)
+	  deft-text-mode 'org-mode
+	  deft-org-mode-title-prefix t)       
   :bind
-  ([f8] . deft)  
-    )
+  ([f8] . deft)
+  ("C-c d n" . deft-new-file-named)
+  ("C-c d d" . deft)
+)
 
 
-(use-package zetteldeft
-  :after
-  deft
-  :init
-  (setq zetteldeft-link-indicator "§"
-      zetteldeft-id-format "%Y-%m-%d-%H%M"
-      zetteldeft-id-regex "[0-9]\\{4\\}\\(-[0-9]\\{2,\\}\\)\\{3\\}"
-      zetteldeft-tag-regex "[#@][a-z-]+")  
-  :config
-  (zetteldeft-set-classic-keybindings)
-  )
+;; (use-package zetteldeft
+;;   :after
+;;   deft
+;;   :init
+;;   (setq zetteldeft-link-indicator "§"
+;;       zetteldeft-id-format "%Y-%m-%d-%H%M"
+;;       zetteldeft-id-regex "[0-9]\\{4\\}\\(-[0-9]\\{2,\\}\\)\\{3\\}"
+;;       zetteldeft-tag-regex "[#@][a-z-]+")  
+;;   :config
+;;   (zetteldeft-set-classic-keybindings)
+;;   )
 
 
 ;;Markdown
@@ -255,6 +258,8 @@
   (markdown-command "multimarkdown")
   (markdown-indent-function t)
   (markdown-hide-urls t)
+  :config
+  (variable-pitch-mode)
   ;; :custom-face
   ;; TODO: copy the OrgMode faces, but try to keep the original blue heading colors
   ;; (markdown-header-delimiter-face ((t (:foreground "mediumpurple"))))
@@ -321,6 +326,9 @@
 	      ("<C-S-down>" . org-move-subtree-down)
               )
   )
+
+
+(require 'org-download)
 
 (use-package org-bullets
   :hook
