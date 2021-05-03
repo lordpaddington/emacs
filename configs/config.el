@@ -343,11 +343,13 @@
 (setq org-inbox (concat org-directory "/In"))
 (setq org-projects (concat org-directory "/Projects"))
 (setq deft-directory "~/org/Reference")
+;;(setq org-refile-use-outline-path 'file) - ez lehet kell a refile mukodesehez.
 
 (defvar inbox (expand-file-name "Inbox.org" org-inbox))
 (defvar todo (expand-file-name "Next Actions.org" org-directory))
 ;(defvar reference (expand-file-name "Reference" org-directory))
 (defvar minutes (expand-file-name "Minutes" org-directory))
+(defvar someday (expand-file-name "Someday.org" org-directory))
 
 (defun my/generate-minute-name ()
   (setq my-minute--name (read-string "Meeting Title: "))
@@ -356,21 +358,21 @@
 
 (setq org-capture-templates
       '(
-        ("t" "Todo" entry (file+headline todo "Unfiled:")
+        ("t" "Todo" entry (file+headline todo "Next Actions:")
          "* TODO %?\n")
         ("n" "Quick Note" entry (file inbox)
-         "* %U %?\n\n" :prepend t)
+         "* %?\n\n" :prepend t)
         ("a" "Action item" entry (file+headline (lambda() (buffer-file-name)) "Action items:")
          "* TODO %?\n")
 	("m" "New Meeting Minutes" plain (file my/generate-minute-name) "%(format \"#+TITLE: %s\n#+DATE:  %s\n\" my-minute--name my-minute--date)\n%?\n")
        )
       )
 
-(setq org-agenda-files (list todo inbox))
+(setq org-refile-targets (quote ((todo :maxlevel . 1)
+                                 (someday :maxlevel . 1))))
 
 
-
-
+(setq org-agenda-files (list todo inbox someday))
 
 
 ;; FUNCTIONS
