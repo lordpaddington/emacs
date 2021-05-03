@@ -277,6 +277,9 @@
 
 
 ;;Org Mode
+(load-file "~/.emacs.d/local.el")
+
+
 (use-package org
   :config  
   (org-display-inline-images)
@@ -319,6 +322,9 @@
   (org-hide-emphasis-markers t)
   (org-todo-keywords '((sequence "TODO(t)" "INPR(i)" "WAIT(w)" "|" "DONE(d)")))
   (org-todo-keyword-faces '(("TODO" . org-todo) ("INPR" . "orange") ("WAIT" . "purple")))
+
+  ;; Directories
+  
   :bind (:map org-mode-map
 	      ("<M-left>" . beginning-of-line)
 	      ("<M-right>" . end-of-line)
@@ -327,13 +333,40 @@
               )
   )
 
-
-(require 'org-download)
-
-(use-package org-bullets
+(use-package org-download)
+(use-package org-bullets  
   :hook
   (org-mode . (lambda () (org-bullets-mode 1)))
   )
+
+;;Org Capture Templates
+(setq org-inbox (concat org-directory "/In"))
+(setq org-projects (concat org-directory "/Projects"))
+(setq deft-directory "~/org/Reference")
+
+(defvar inbox (expand-file-name "Inbox.org" org-inbox))
+(defvar todo (expand-file-name "Next Actions.org" org-directory))
+;(defvar reference (expand-file-name "Reference" org-directory))
+(defvar minutes (expand-file-name "Minutes" org-directory))
+
+(defun my/generate-minute-name ()
+  (setq my-minute--name (read-string "Meeting Title: "))
+  (setq my-minute--date (format-time-string "%Y-%m-%d"))
+  (expand-file-name (format "%s - %s.org" my-minute--date my-minute--name ) minutes))
+
+(setq org-capture-templates
+      '(
+        ("t" "Todo" entry (file+headline todo "Unfiled:")
+         "* TODO %?\n")
+        ("n" "Quick Note" entry (file inbox)
+         "* %U %?\n\n" :prepend t)
+        ("a" "Action item" entry (file+headline (lambda() (buffer-file-name)) "Action items:")
+         "* TODO %?\n")
+	("m" "New Meeting Minutes" plain (file my/generate-minute-name) "%(format \"#+TITLE: %s\n#+DATE:  %s\n\" my-minute--name my-minute--date)\n%?\n")
+       )
+      )
+
+(setq org-agenda-files (list todo inbox))
 
 
 
@@ -381,5 +414,4 @@
 ;; ====
 
 ; Load the local settings! (LEAVE THIS LAST!)
-(load-file "~/.emacs.d/local.el")
 
