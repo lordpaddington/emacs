@@ -25,7 +25,6 @@
 (desktop-save-mode 1)
 (setq desktop-load-locked-desktop t)
 
-
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
 (prefer-coding-system 'utf-8)
 (setq ring-bell-function 'ignore)
@@ -51,6 +50,8 @@
 (delete-selection-mode 1)
 (global-visual-line-mode t)
 (scroll-bar-mode 0)
+(setq frame-title-format nil)
+
 
 (setq show-paren-delay 0)
 (show-paren-mode)
@@ -60,10 +61,10 @@
        (set-face-attribute 'default nil :font "Menlo 16")
        (setq mac-command-modifier 'meta)
        (setq mac-option-modifier 'none)
-       (use-package ns-auto-titlebar)
-       (ns-auto-titlebar-mode 1)
-       (add-to-list 'default-frame-alist '(ns-transparent-titlebar))
-       (add-to-list 'default-frame-alist '(ns-appearance . dark))
+;       (use-package ns-auto-titlebar)
+;       (ns-auto-titlebar-mode 1)
+;       (add-to-list 'default-frame-alist '(ns-transparenttitlebar))
+;       (add-to-list 'default-frame-alist '(ns-appearance . dark))
        (setq ns-use-proxy-icon nil)
        (custom-theme-set-faces
 	'user
