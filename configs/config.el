@@ -15,7 +15,7 @@
 (require 'use-package)
 ;;(setq use-package-verbose t)
 (setq use-package-always-ensure t) ;This makes every package in use-package installed on every machine!!!
-
+(recentf-mode 1)
 
 (setq load-prefer-newer t)
 
@@ -38,8 +38,12 @@
 
 (setq track-eol t)			; Keep cursor at end of lines.
 (setq line-move-visual nil)		; To be required by track-eol
-(setq-default kill-whole-line t)	; Kill line including '\n'
+;(setq-default kill-whole-line t)	; Kill line including '\n'
 (setq-default indent-tabs-mode t)   ; nil to use space
+
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
 
 
 ;; STYLE
@@ -50,7 +54,7 @@
 (delete-selection-mode 1)
 (global-visual-line-mode t)
 (scroll-bar-mode 0)
-(setq frame-title-format nil)
+(setq frame-title-format 1)
 
 
 (setq show-paren-delay 0)
@@ -61,17 +65,18 @@
        (set-face-attribute 'default nil :font "Menlo 16")
        (setq mac-command-modifier 'meta)
        (setq mac-option-modifier 'none)
-;       (use-package ns-auto-titlebar)
-;       (ns-auto-titlebar-mode 1)
-;       (add-to-list 'default-frame-alist '(ns-transparenttitlebar))
-;       (add-to-list 'default-frame-alist '(ns-appearance . dark))
+       (use-package ns-auto-titlebar)
+       (setq ns-auto-titlebar-mode nil)
+       (add-to-list 'default-frame-alist '(ns-transparent-titlebar . nil))
+       (add-to-list 'default-frame-alist '(ns-appearance . dark))
        (setq ns-use-proxy-icon nil)
        (custom-theme-set-faces
 	'user
 	'(variable-pitch ((t (:family "PT Sans" :height 180))))
 	'(fixed-pitch ((t ( :family "PT Mono" :height 180))))
         '(egoge-display-time ((t (:inherit modeline :foreground "white" :weight bold :height 0.9))))
-        )
+       )
+       
        )
       
       ((eq system-type 'windows)
@@ -92,7 +97,7 @@
 (set-face-attribute 'fringe nil :background nil)
 (tool-bar-mode -1)
 
-
+;;THEME
 ;;(Use-package solarized-theme)
 ;;(setq solarized-use-variable-pitch nil)
 ;;(setq solarized-scale-org-headlines nil)
@@ -104,9 +109,6 @@
 (load-theme 'doom-opera-light) ;Fancy light theme
 ;(load-theme 'zenburn) ;Nice darkish theme
 ;(load-theme 'tango) ;Simple light theme
-
-(use-package all-the-icons
-  :defer t)
 
 (defface egoge-display-time
    '((((type x w32 mac))
@@ -147,6 +149,8 @@
 (global-set-key "\C-cb" 'org-iswitchb)
 (global-set-key "\C-xg" 'magit-status)
 (global-set-key (kbd "C-c v j") 'vix-open-todays-journal)
+(global-set-key (kbd "C-c v h") 'vix-open-home-file)
+
 
 ;; PACKAGES:
 ;; =========
@@ -214,6 +218,12 @@
 ;;focused writing
 (use-package writeroom-mode
   :bind ([f7] . writeroom-mode))
+
+;;IVY Autocompletion (keep recent files in the buffer list)
+(use-package counsel)
+(ivy-mode 1)
+(setq ivy-use-virtual-buffers t)
+(setq ivy-count-format "(%d/%d) ")
 
 
 ;;MAGIT
@@ -327,8 +337,8 @@
   ;; Directories
   
   :bind (:map org-mode-map
-	      ("<M-left>" . beginning-of-line)
-	      ("<M-right>" . end-of-line)
+	      ("<S-left>" . beginning-of-line)
+	      ("<S-right>" . end-of-line)
 	      ("<C-S-up>" . org-move-subtree-up)
 	      ("<C-S-down>" . org-move-subtree-down)
               )
@@ -371,7 +381,7 @@
 
 (setq org-refile-targets (quote ((todo :maxlevel . 1)
                                  (someday :maxlevel . 1))))
-
+;Consider having Next Actions in the home file...
 
 (setq org-agenda-files (list todo inbox someday))
 
@@ -387,6 +397,10 @@
 (defun vix-open-todays-journal ()
   (interactive)
   (find-file-other-window (concat org-directory (format-time-string "/Journal/%Y-%m-%d %A.org"))))
+
+(defun vix-open-home-file ()
+  (interactive)
+  (find-file-other-window (concat org-directory "/Home.org")))
 
 
 ;; (defun ladicle/open-org-file (fname)
