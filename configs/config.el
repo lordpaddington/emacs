@@ -54,7 +54,7 @@
 (delete-selection-mode 1)
 (global-visual-line-mode t)
 (scroll-bar-mode 0)
-(setq frame-title-format 1)
+;(setq frame-title-format nil)
 
 
 (setq show-paren-delay 0)
