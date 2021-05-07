@@ -50,7 +50,7 @@
 ;; =====
 (setq custom-safe-themes t) ;;UNSAFE! Set every theme as safe, so there is no confirmation!
 
-(set-face-attribute 'default nil :font "Menlo 16")
+;(set-face-attribute 'default nil :font "Menlo 16")
 (delete-selection-mode 1)
 (global-visual-line-mode t)
 (scroll-bar-mode 0)
@@ -93,11 +93,11 @@
       
       ((eq system-type 'gnu/linux)
        (menu-bar-mode 0)
-       (set-face-attribute 'default nil :font "Courrier 16")
+       (set-face-attribute 'default nil :font "Liberation Mono 16")
        (custom-theme-set-faces
 	'user
-	'(variable-pitch ((t (:family "Helvetica" :height 180))))
-	'(fixed-pitch ((t ( :family "Courrier" :height 180))))
+	'(variable-pitch ((t (:family "Ubuntu" :height 180))))
+	'(fixed-pitch ((t ( :family "Liberation Mono" :height 180))))
         '(egoge-display-time ((t (:inherit modeline :foreground "white" :weight bold :height 0.9))))
        )
        )
