@@ -70,6 +70,7 @@
        (add-to-list 'default-frame-alist '(ns-transparent-titlebar . nil))
        (add-to-list 'default-frame-alist '(ns-appearance . dark))
        (setq ns-use-proxy-icon nil)
+       (global-set-key (kbd "M-h") 'ns-do-hide-emacs)
        (custom-theme-set-faces
 	'user
 	'(variable-pitch ((t (:family "PT Sans" :height 180))))
@@ -234,9 +235,10 @@
   :init
     (setq deft-extensions '("org" "md" "txt")
           deft-use-filename-as-title nil
+	  deft-use-filter-string-for-filename nil
 	  deft-recursive t
 	  deft-text-mode 'org-mode
-	  deft-org-mode-title-prefix t)       
+	  deft-org-mode-title-prefix "#+TITLE:")       
   :bind
   ([f8] . deft)
   ("C-c d n" . deft-new-file-named)
@@ -337,8 +339,8 @@
   ;; Directories
   
   :bind (:map org-mode-map
-	      ("<S-left>" . beginning-of-line)
-	      ("<S-right>" . end-of-line)
+	      ("<M-left>" . beginning-of-line)
+	      ("<M-right>" . end-of-line)
 	      ("<C-S-up>" . org-move-subtree-up)
 	      ("<C-S-down>" . org-move-subtree-down)
               )
@@ -410,6 +412,15 @@
 (defun vix-org-archive-done-tasks ()
   (interactive)
   (org-map-entries 'org-archive-subtree "/DONE" 'file))
+
+
+(defun vix-org-archive-done-tasks ()
+  (interactive)
+  (org-map-entries
+   (lambda ()
+     (org-archive-subtree)
+     (setq org-map-continue-from (org-element-property :begin (org-element-at-point))))
+   "/DONE" 'tree))
 
 ;; Edit/View mode change for Markdown
 ;; FUCKING DOESN'T WORK!
