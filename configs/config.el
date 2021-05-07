@@ -34,7 +34,7 @@
 
 ;; Ignore split window horizontally (what does this do?)
 (setq split-width-threshold nil)
-(setq split-width-threshold 160)
+(setq split-width-threshold 100)
 
 (setq track-eol t)			; Keep cursor at end of lines.
 (setq line-move-visual nil)		; To be required by track-eol
@@ -61,6 +61,7 @@
 (show-paren-mode)
 
 ;;System-dependent changes (FUCKING KILL/REFACTOR THIS!!!!)
+;; TODO: Consider moving the system-specific settings into separate files!
 (cond ((eq system-type 'darwin)
        (set-face-attribute 'default nil :font "Menlo 16")
        (setq mac-command-modifier 'meta)
@@ -88,6 +89,17 @@
      	;This shit doesn't seem to work on win and don't know why!!!
 	'(fixed-pitch ((t ( :family "Consolas" :height 180)))))
         '(egoge-display-time ((t (:inherit fixed-pitch :foreground "Royal Blue")))) 
+	)
+      
+      ((eq system-type 'gnu/linux)
+       (menu-bar-mode 0)
+       (set-face-attribute 'default nil :font "Courrier 16")
+       (custom-theme-set-faces
+	'user
+	'(variable-pitch ((t (:family "Helvetica" :height 180))))
+	'(fixed-pitch ((t ( :family "Courrier" :height 180))))
+        '(egoge-display-time ((t (:inherit modeline :foreground "white" :weight bold :height 0.9))))
+       )
        )
       )
 
