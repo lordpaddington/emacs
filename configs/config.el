@@ -283,6 +283,8 @@
   (markdown-command "multimarkdown")
   (markdown-indent-function t)
   (markdown-hide-urls t)
+  (markdown-enable-wiki-links t)
+  (markdown-link-space-sub-char " ") ;this is not gfm compatible!!!
   :config
   (variable-pitch-mode)
   ;; :custom-face
@@ -407,7 +409,7 @@
       :ensure t
       :hook
       (after-init . org-roam-mode)
-      :custom
+      ;;:custom
       ;; (org-roam-directory (file-truename "/path/to/org-files/"))
       ; Take this from the local.el!!!
       :bind (:map org-roam-mode-map
