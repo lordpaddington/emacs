@@ -391,6 +391,8 @@
          "* %?\n\n" :prepend t)
         ("a" "Action item" entry (file+headline (lambda() (buffer-file-name)) "Action items:")
          "* TODO %?\n")
+	("l" "Log Entry" entry (file+headline (lambda() (buffer-file-name)) "Log")
+         "** %U %?\n" :prepend t)
 	("m" "New Meeting Minutes" plain (file my/generate-minute-name) "%(format \"#+TITLE: %s\n#+DATE:  %s\n\" my-minute--name my-minute--date)\n%?\n")
        )
       )
