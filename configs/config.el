@@ -106,14 +106,13 @@
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 (fringe-mode 20)
-(setq-default cursor-type 'bar) ;; Comment this out if using Evil!!!!
 (set-face-attribute 'fringe nil :background nil)
 (tool-bar-mode -1)
 
 ;;THEME
 ;;(Use-package solarized-theme)
 ;;(setq solarized-use-variable-pitch nil)
-;;(setq solarized-scale-org-headlines nil)
+;;(setq solarized-scaqle-org-headlines nil)
 ;;(setq x-underline-at-descent-line t)
 ;;(setq solarized-high-contrast-mode-line t)
 ;;(load-theme 'solarized-light-high-contrast t)
@@ -122,6 +121,12 @@
 (load-theme 'doom-opera-light) ;Fancy light theme
 ;(load-theme 'zenburn) ;Nice darkish theme
 ;(load-theme 'tango) ;Simple light theme
+
+;;Cursor visibility
+(setq-default cursor-type '(bar . 3)) ;; Comment this out if using Evil!!!!
+(set-cursor-color "#FF8C00")
+(global-hl-line-mode)
+
 
 (defface egoge-display-time
    '((((type x w32 mac))
@@ -284,7 +289,6 @@
   (markdown-indent-function t)
   (markdown-hide-urls t)
   (markdown-enable-wiki-links t)
-  (markdown-link-space-sub-char " ") ;this is not gfm compatible!!!
   :config
   (variable-pitch-mode)
   ;; :custom-face
@@ -298,7 +302,7 @@
   ;; (markdown-pre-face ((t (:foreground "#bd98fe"))))
   )
   
-  
+  (setq markdown-link-space-sub-char " ")
 
 
 
