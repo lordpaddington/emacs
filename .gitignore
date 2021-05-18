@@ -25,3 +25,4 @@ server
 local.el
 org-roam.db
 init.el
+emacs-libvterm
