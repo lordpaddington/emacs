@@ -265,8 +265,8 @@
 )
 
 ;;VTERM
-(use-package vterm
-  :load-path  "~/.emacs.d/emacs-libvterm/")
+;;(use-package vterm
+;; :load-path  "~/.emacs.d/emacs-libvterm/")
 
 ;; (use-package zetteldeft
 ;;   :after
