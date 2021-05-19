@@ -154,7 +154,7 @@
   (define-key dired-mode-map "-" 'dired-up-directory))
 (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
 
-(setq ns-function-modifier 'control)
+;;(setq ns-function-modifier 'control)
 
 ;(with-eval-after-load 'org
 ;  (define-key org-mode-map (kbd "<C-S-up>") 'org-move-subtree-up)
