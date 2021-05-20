@@ -127,6 +127,7 @@
 (set-cursor-color "#FF8C00")
 (global-hl-line-mode)
 
+(set-face-attribute 'fringe nil :background nil)
 
 (defface egoge-display-time
    '((((type x w32 mac))
@@ -238,6 +239,11 @@
 ;;focused writing
 (use-package writeroom-mode
   :bind ([f7] . writeroom-mode))
+
+;;Centered Window Mode
+(use-package centered-window :ensure t)
+(centered-window-mode t)
+(setq cwm-centered-window-width 80) ;; nem biztos, hogy működik!!!
 
 ;;IVY Autocompletion (keep recent files in the buffer list)
 (use-package counsel)
