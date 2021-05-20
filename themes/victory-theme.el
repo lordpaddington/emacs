@@ -27,12 +27,12 @@
 
 ;;; Code:
 
-(deftheme victory
+(deftheme name "victory"
   "Face colors using the Tango palette (light background).
 Basic, Font Lock, Isearch, Gnus, Message, Ediff, Flyspell,
 Semantic, and Ansi-Color faces are included.")
 
-(let ((class '((class color) (min-colors 89)))
+(let (
   ;; Tango palette colors.
   (butter-1 "#fce94f")
   (butter-2 "#edd400")
@@ -97,98 +97,95 @@ Semantic, and Ansi-Color faces are included.")
   )
   
  
-
   (custom-theme-set-faces
    'victory
-   `(default ((,class (:foreground ,fg :background ,bg))))
-   `(cursor ((,class (:background ,orange-2))))
-
+   `(default ((t (:foreground ,fg :background ,bg))))
+   `(cursor ((t (:background ,orange-2))))
    ;; Highlighting faces
-   `(fringe ((,class (:background ,bg))))
-   `(highlight ((,class (:background ,alum-3))))
-   `(hl-line ((,class (:background ,white))))
-   `(region ((,class (:background ,alum-3))))
-   `(secondary-selection ((,class (:background ,blue-0))))
-   `(isearch ((,class (:foreground "#ffffff" :background ,orange))))
-   `(lazy-highlight ((,class (:background ,choc-1))))
-   `(trailing-whitespace ((,class (:background ,red-1))))
-
+   `(fringe ((t (:background ,bg))))
+   `(highlight ((t (:background ,alum-3))))
+   `(hl-line ((t (:background ,white))))
+   `(region ((t (:background ,alum-3))))
+   `(secondary-selection ((t (:background ,blue-0))))
+   `(isearch ((t (:foreground "#ffffff" :background ,orange))))
+   `(lazy-highlight ((t (:background ,choc-1))))
+   `(trailing-whitespace ((t (:background ,red-1))))
    ;; Mode line faces
-   `(mode-line ((,class (:box (:line-width 1 :style released-button)
+   `(mode-line ((t (:box (:line-width 1 :style released-button)
 			 :background ,blue-2 :foreground ,white))))
-   `(mode-line-inactive ((,class (:box (:line-width 1 :style released-button)
+   `(mode-line-inactive ((t (:box (:line-width 1 :style released-button)
 				  :background ,base3 :foreground ,base6))))
 
    ;; Escape and prompt faces
-   `(minibuffer-prompt ((,class (:weight bold :foreground ,blue))))
-   `(escape-glyph ((,class (:foreground ,red-3))))
-   `(homoglyph ((,class (:foreground ,red-3))))
-   `(error ((,class (:foreground ,red-3))))
-   `(warning ((,class (:foreground ,orange-3))))
-   `(success ((,class (:foreground ,cham-3))))
+   `(minibuffer-prompt ((t (:weight bold :foreground ,blue))))
+   `(escape-glyph ((t (:foreground ,red-3))))
+   `(homoglyph ((t (:foreground ,red-3))))
+   `(error ((t (:foreground ,red-3))))
+   `(warning ((t (:foreground ,orange-3))))
+   `(success ((t (:foreground ,cham-3))))
 
    ;; Font lock faces
-   `(font-lock-builtin-face ((,class (:foreground ,teal))))
-   `(font-lock-comment-face ((,class (:slant italic :foreground ,base5))))
-   `(font-lock-constant-face ((,class (:weight bold :foreground ,magenta))))
-   `(font-lock-function-name-face ((,class (:foreground ,teal))))
-   `(font-lock-keyword-face ((,class (:foreground ,blue))))
-   `(font-lock-string-face ((,class (:foreground ,green))))
-   `(font-lock-type-face ((,class (:foreground ,yellow))))
-   `(font-lock-variable-name-face ((,class (:foreground ,magenta))))
+   `(font-lock-builtin-face ((t (:foreground ,teal))))
+   `(font-lock-comment-face ((t (:slant italic :foreground ,base5))))
+   `(font-lock-constant-face ((t (:weight bold :foreground ,magenta))))
+   `(font-lock-function-name-face ((t (:foreground ,teal))))
+   `(font-lock-keyword-face ((t (:foreground ,blue))))
+   `(font-lock-string-face ((t (:foreground ,green))))
+   `(font-lock-type-face ((t (:foreground ,yellow))))
+   `(font-lock-variable-name-face ((t (:foreground ,magenta))))
 
    ;; Button and link faces
-   `(link ((,class (:underline t :foreground ,blue-3))))
-   `(link-visited ((,class (:underline t :foreground ,blue-2))))
+   `(link ((t (:underline t :foreground ,blue-3))))
+   `(link-visited ((t (:underline t :foreground ,blue-2))))
 
    ;; Org mode faces
 
    
    ;; Message faces
-   `(message-header-name ((,class (:foreground ,blue-3))))
-   `(message-header-cc ((,class (:foreground ,butter-3))))
-   `(message-header-other ((,class (:foreground ,choc-2))))
-   `(message-header-subject ((,class (:foreground ,red-3))))
-   `(message-header-to ((,class (:weight bold :foreground ,butter-3))))
-   `(message-cited-text ((,class (:slant italic :foreground ,alum-5))))
-   `(message-separator ((,class (:weight bold :foreground ,cham-3))))
+   `(message-header-name ((t (:foreground ,blue-3))))
+   `(message-header-cc ((t (:foreground ,butter-3))))
+   `(message-header-other ((t (:foreground ,choc-2))))
+   `(message-header-subject ((t (:foreground ,red-3))))
+   `(message-header-to ((t (:weight bold :foreground ,butter-3))))
+   `(message-cited-text ((t (:slant italic :foreground ,alum-5))))
+   `(message-separator ((t (:weight bold :foreground ,cham-3))))
 
    ;; SMerge
-   `(smerge-refined-change ((,class (:background ,plum-1))))
+   `(smerge-refined-change ((t (:background ,plum-1))))
 
    ;; Ediff
-   `(ediff-current-diff-A ((,class (:background ,blue-1))))
-   `(ediff-fine-diff-A ((,class (:background ,plum-1))))
-   `(ediff-current-diff-B ((,class (:background ,butter-1))))
-   `(ediff-fine-diff-B ((,class (:background ,orange-1))))
+   `(ediff-current-diff-A ((t (:background ,blue-1))))
+   `(ediff-fine-diff-A ((t (:background ,plum-1))))
+   `(ediff-current-diff-B ((t (:background ,butter-1))))
+   `(ediff-fine-diff-B ((t (:background ,orange-1))))
 
    ;; Flyspell
-   `(flyspell-duplicate ((,class (:underline ,orange-1))))
-   `(flyspell-incorrect ((,class (:underline ,red-1))))
+   `(flyspell-duplicate ((t (:underline ,orange-1))))
+   `(flyspell-incorrect ((t (:underline ,red-1))))
 
    ;; Realgud
-   `(realgud-overlay-arrow1  ((,class (:foreground "dark green"))))
-   `(realgud-overlay-arrow2  ((,class (:foreground "#7a4c02"))))
-   `(realgud-overlay-arrow3  ((,class (:foreground ,orange-1))))
-   `(realgud-bp-disabled-face      ((,class (:foreground ,plum-1))))
-   `(realgud-bp-line-enabled-face  ((,class (:underline "red"))))
-   `(realgud-bp-line-disabled-face ((,class (:underline ,plum-1))))
-   `(realgud-file-name             ((,class :foreground "dark green")))
-   `(realgud-line-number           ((,class :foreground ,blue-3)))
-   `(realgud-backtrace-number      ((,class :foreground ,blue-3 :weight bold)))
+   `(realgud-overlay-arrow1  ((t (:foreground "dark green"))))
+   `(realgud-overlay-arrow2  ((t (:foreground "#7a4c02"))))
+   `(realgud-overlay-arrow3  ((t (:foreground ,orange-1))))
+   `(realgud-bp-disabled-face      ((t (:foreground ,plum-1))))
+   `(realgud-bp-line-enabled-face  ((t (:underline "red"))))
+   `(realgud-bp-line-disabled-face ((t (:underline ,plum-1))))
+   `(realgud-file-name             ((t :foreground "dark green")))
+   `(realgud-line-number           ((t :foreground ,blue-3)))
+   `(realgud-backtrace-number      ((t :foreground ,blue-3 :weight bold)))
 
    ;; Semantic faces
-   `(semantic-decoration-on-includes ((,class (:underline  ,cham-4))))
+   `(semantic-decoration-on-includes ((t (:underline  ,cham-4))))
    `(semantic-decoration-on-private-members-face
-     ((,class (:background ,alum-2))))
+     ((t (:background ,alum-2))))
    `(semantic-decoration-on-protected-members-face
-     ((,class (:background ,alum-2))))
+     ((t (:background ,alum-2))))
    `(semantic-decoration-on-unknown-includes
-     ((,class (:background ,choc-3))))
+     ((t (:background ,choc-3))))
    `(semantic-decoration-on-unparsed-includes
-     ((,class (:underline  ,orange-3))))
-   `(semantic-tag-boundary-face ((,class (:overline   ,blue-1))))
-   `(semantic-unmatched-syntax-face ((,class (:underline  ,red-1)))))
+     ((t (:underline  ,orange-3))))
+   `(semantic-tag-boundary-face ((t (:overline   ,blue-1))))
+   `(semantic-unmatched-syntax-face ((t (:underline  ,red-1)))))
 
   (custom-theme-set-variables
    'victory
