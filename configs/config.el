@@ -76,7 +76,7 @@
 	'user
 	'(variable-pitch ((t (:family "PT Sans" :height 180))))
 	'(fixed-pitch ((t ( :family "PT Mono" :height 180))))
-        '(egoge-display-time ((t (:inherit modeline :foreground "white" :weight bold :height 0.9))))
+        '(egoge-display-time ((t (:inherit modeline :foreground "orange" :weight bold :height 0.9))))
        )
        
        )
@@ -116,11 +116,11 @@
 ;;(setq x-underline-at-descent-line t)
 ;;(setq solarized-high-contrast-mode-line t)
 ;;(load-theme 'solarized-light-high-contrast t)
-(use-package doom-themes)
-(require 'doom-themes)
-(load-theme 'doom-opera-light) ;Fancy light theme
+;(use-package doom-themes)
+;(require 'doom-themes)
+;(load-theme 'doom-opera-light) ;Fancy light theme
 ;(load-theme 'zenburn) ;Nice darkish theme
-;(load-theme 'tango) ;Simple light theme
+(load-theme 'victory) ;Simple light theme
 
 ;;Cursor visibility
 (setq-default cursor-type '(bar . 3)) ;; Comment this out if using Evil!!!!
@@ -136,7 +136,7 @@
      (((type tty))
       (:foreground "red" :height 0.8)))
    "Face used to display the time in the mode line.")
-;; Rejtély, de valamiéret ez muszáj ide, még akkor is, ha amúgy odafönnt adom meg, hogy hogy kéne kinéznie a fontnak és azt veszi figyelembe...
+
 
 (setq display-time-string-forms
       '((propertize (concat " " 24-hours ":" minutes " ")
@@ -215,6 +215,20 @@
 (use-package simple-modeline
   :config (simple-modeline-mode))
 
+(setq simple-modeline-segments
+      '((simple-modeline-segment-modified
+	 simple-modeline-segment-buffer-name)
+	(simple-modeline-segment-minor-modes
+	 simple-modeline-segment-input-method
+	 simple-modeline-segment-vc
+	 simple-modeline-segment-misc-info
+	 simple-modeline-segment-process
+	 simple-modeline-segment-major-mode)))
+
+(custom-set-faces
+ '(simple-modeline-status-modified ((t (:foreground "#ee0000"))))
+ )
+
 ;;Easy window switching
 (use-package windmove
   :bind
@@ -242,11 +256,13 @@
 
 ;;Centered Window Mode
 (use-package centered-window :ensure t)
-(centered-window-mode t)
-(setq cwm-centered-window-width 80) ;; nem biztos, hogy működik!!!
+;(centered-window-mode t)
+;(setq cwm-centered-window-width 80) ;; nem biztos, hogy működik!!!
 
 ;;IVY Autocompletion (keep recent files in the buffer list)
-(use-package counsel)
+(use-package counsel
+  :diminish ivy
+  )
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
 (setq ivy-count-format "(%d/%d) ")
@@ -263,12 +279,17 @@
 	  deft-use-filter-string-for-filename nil
 	  deft-recursive t
 	  deft-text-mode 'org-mode
-	  deft-org-mode-title-prefix "#+TITLE:")       
+	  deft-org-mode-title-prefix t
+	  )       
   :bind
   ([f8] . deft)
   ("C-c d n" . deft-new-file-named)
   ("C-c d d" . deft)
-)
+  )
+
+(setq deft-file-naming-rules '((nospace . "_")
+                                   (case-fn . downcase)))
+
 
 ;;VTERM
 ;;(use-package vterm
@@ -328,8 +349,10 @@
   (add-hook 'org-mode-hook 'variable-pitch-mode 'centered-cursor-mode)
   (custom-theme-set-faces
    'user
-   '(org-block ((t (:inherit fixed-pitch))))
-   '(org-code ((t (:inherit (shadow fixed-pitch)))))
+   '(org-block ((t (:inherit (shadow fixed-pitch) :background "white"))))
+   '(org-block-begin-line ((t (:inherit fixed-pitch :foreground "#996600" :background "#ffe6b3"))))
+   '(org-block-end-line ((t (:foreground "#996600" :background "#ffe6b3"))))
+   '(org-code ((t (:inherit (shadow fixed-pitch)))))   
    '(org-document-info ((t (:foreground "dark orange"))))
    '(org-document-info-keyword ((t (:inherit (shadow fixed-pitch)))))
    '(org-indent ((t (:inherit (org-hide fixed-pitch)))))
@@ -340,8 +363,8 @@
    '(org-table ((t (:inherit fixed-pitch))))
    '(org-tag ((t (:inherit (shadow fixed-pitch) :weight bold :height 0.8))))
    '(org-verbatim ((t (:inherit (shadow fixed-pitch)))))
-   '(org-checkbox ((t (:inherit fixed-pitch :foreground "ForestGreen" :weight bold))))
-   '(org-document-title ((t (:height 1.5 :weight bold :underline t))))
+   '(org-checkbox ((t (:inherit (fixed-pitch success) :weight bold))))
+   '(org-document-title ((t (:inherit (font-lock-function-name-face) :height 1.5 :weight bold :underline t))))
    '(org-level-1 ((t (:height 1.25 :weight bold))))
    '(org-level-2 ((t (:height 1.1 :weight bold))))
    '(org-level-3 ((t (:height 1.0 :weight bold))))
@@ -349,8 +372,8 @@
    '(org-level-5 ((t (:height 1.0 :weight bold))))
    '(org-level-6 ((t (:height 1.0 :weight bold))))
    '(org-level-7 ((t (:height 1.0 :weight bold))))
-   '(org-todo ((t (:inherit fixed-pitch))))
-   '(org-done ((t (:inherit fixed-pitch :strike-through t :foreground "Dark Grey"))))
+   '(org-todo ((t (:inherit (success fixed-pitch) :weight bold))))
+   '(org-done ((t (:inherit fixed-pitch :strike-through t :foreground "Dark Grey" :weight bold))))
    '(org-headline-done ((t (:foreground "Grey" :strike-through t :weight bold)))))
   :custom
   (org-src-fontify-natively t)
@@ -359,6 +382,7 @@
   (org-hide-leading-stars t)
   (org-startup-folded "content")
   (org-agenda-start-on-weekday 1)
+  (org-fontify-quote-and-verse-blocks t)
   (org-pretty-entities t)
   (org-fontify-done-headline t)
   (org-hide-emphasis-markers t)
@@ -423,6 +447,7 @@
 
 ;;Org-roam
 (use-package org-roam
+      :diminish org-roam-mode
       :ensure t
       :hook
       (after-init . org-roam-mode)
@@ -432,10 +457,30 @@
       :bind (:map org-roam-mode-map
               (("C-c n l" . org-roam)
                ("C-c n f" . org-roam-find-file)
-               ("C-c n g" . org-roam-graph))
+               ("C-c n g" . org-roam-graph)
+	       ("C-c n b" . org-roam-switch-to-buffer)
+	       )
               :map org-mode-map
               (("C-c n i" . org-roam-insert))
               (("C-c n I" . org-roam-insert-immediate))))
+
+
+
+;; Clean up the modeline
+;(diminish '(auto-revert-mode ivy-mode line-number-mode global-visual-line-mode))
+;(diminish 'visual-line-mode)
+
+(use-package diminish
+  :diminish auto-revert-mode
+  :diminish visual-line-mode
+  :diminish ivy-mode
+  :diminish line-number-mode
+  :diminish eldoc-mode
+  :diminish buffer-face-mode
+  )
+
+
+
 
 
 ;; FUNCTIONS
