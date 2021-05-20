@@ -27,7 +27,7 @@
 
 ;;; Code:
 
-(deftheme name "victory"
+(deftheme victory
   "Face colors using the Tango palette (light background).
 Basic, Font Lock, Isearch, Gnus, Message, Ediff, Flyspell,
 Semantic, and Ansi-Color faces are included.")
