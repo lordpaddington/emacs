@@ -345,7 +345,7 @@
 
 (use-package org
   :config  
-  (org-display-inline-images)
+  (org-display-inline-images t)
   (add-hook 'org-mode-hook 'variable-pitch-mode 'centered-cursor-mode)
   (custom-theme-set-faces
    'user
