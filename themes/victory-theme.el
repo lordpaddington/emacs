@@ -27,7 +27,7 @@
 
 ;;; Code:
 
-(deftheme name "victory"
+(deftheme victory
   "Face colors using the Tango palette (light background).
 Basic, Font Lock, Isearch, Gnus, Message, Ediff, Flyspell,
 Semantic, and Ansi-Color faces are included.")
@@ -100,6 +100,7 @@ Semantic, and Ansi-Color faces are included.")
   (custom-theme-set-faces
    'victory
    `(default ((t (:foreground ,fg :background ,bg))))
+   `(shadow ((t (:foreground ,base8))))
    `(cursor ((t (:background ,orange-2))))
    ;; Highlighting faces
    `(fringe ((t (:background ,bg))))
@@ -138,6 +139,10 @@ Semantic, and Ansi-Color faces are included.")
    `(link ((t (:underline t :foreground ,blue-3))))
    `(link-visited ((t (:underline t :foreground ,blue-2))))
 
+   ;; Ivy Minibuffer faces
+   `(ivy-minibuffer-match-face-1 ((t (:inherit isearch))))
+   `(ivy-minibuffer-match-face-2 ((t (:inherit lazy-highlight))))
+   
    ;; Org mode faces
 
    
