@@ -88,7 +88,7 @@
 	'(variable-pitch ((t (:family "Tahoma" :height 300))))
      	;This shit doesn't seem to work on win and don't know why!!!
 	'(fixed-pitch ((t ( :family "Consolas" :height 180)))))
-        '(egoge-display-time ((t (:inherit fixed-pitch :foreground "Royal Blue")))) 
+        '(egoge-display-time ((t (:inherit modeline :foreground "orange" :weight bold :height 0.9))))
 	)
       
       ((eq system-type 'gnu/linux)
@@ -98,7 +98,7 @@
 	'user
 	'(variable-pitch ((t (:family "Ubuntu" :height 180))))
 	'(fixed-pitch ((t ( :family "Liberation Mono" :height 180))))
-        '(egoge-display-time ((t (:inherit modeline :foreground "white" :weight bold :height 0.9))))
+	'(egoge-display-time ((t (:inherit modeline :foreground "orange" :weight bold :height 0.9))))
        )
        )
       )
@@ -140,7 +140,7 @@
 
 (setq display-time-string-forms
       '((propertize (concat " " 24-hours ":" minutes " ")
-	    'face 'egoge-display-time))) ;;Fuck, this did work once, but not anymore and I don't know why!!!!
+	    'face 'egoge-display-time))) ;;Face defined in the theme!
 (display-time-mode t)
 
 
@@ -348,34 +348,35 @@
   :config  
   (org-display-inline-images t)
   (add-hook 'org-mode-hook 'variable-pitch-mode 'centered-cursor-mode)
-  (custom-theme-set-faces
-   'user
-   '(org-block ((t (:inherit (shadow fixed-pitch) :background "#f5f5f5" :extend t))))
-   '(org-block-begin-line ((t (:inherit fixed-pitch :foreground "#ffffff" :background "#757575" :extend t))))
-   '(org-block-end-line ((t (:inherit fixed-pitch :foreground "#ffffff" :background "#757575" :extend t))))
-   '(org-code ((t (:inherit (shadow fixed-pitch)))))   
-   '(org-document-info ((t (:foreground "dark orange"))))
-   '(org-document-info-keyword ((t (:inherit (shadow fixed-pitch)))))
-   '(org-indent ((t (:inherit (org-hide fixed-pitch)))))
-   '(org-link ((t (:foreground "royal blue" :underline t))))
-   '(org-meta-line ((t (:inherit (font-lock-comment-face fixed-pitch)))))
-   '(org-property-value ((t (:inherit fixed-pitch))) t)
-   '(org-special-keyword ((t (:inherit (font-lock-comment-face fixed-pitch)))))
-   '(org-table ((t (:inherit fixed-pitch))))
-   '(org-tag ((t (:inherit (shadow fixed-pitch) :weight bold :height 0.8))))
-   '(org-verbatim ((t (:inherit (shadow fixed-pitch)))))
-   '(org-checkbox ((t (:inherit (fixed-pitch success) :weight bold))))
-   '(org-document-title ((t (:inherit (font-lock-function-name-face) :height 1.5 :weight bold :underline t))))
-   '(org-level-1 ((t (:height 1.25 :weight bold))))
-   '(org-level-2 ((t (:height 1.1 :weight bold))))
-   '(org-level-3 ((t (:height 1.0 :weight bold))))
-   '(org-level-4 ((t (:height 1.0 :weight bold))))
-   '(org-level-5 ((t (:height 1.0 :weight bold))))
-   '(org-level-6 ((t (:height 1.0 :weight bold))))
-   '(org-level-7 ((t (:height 1.0 :weight bold))))
-   '(org-todo ((t (:inherit (success fixed-pitch) :weight bold))))
-   '(org-done ((t (:inherit fixed-pitch :strike-through t :foreground "Dark Grey" :weight bold))))
-   '(org-headline-done ((t (:foreground "Grey" :strike-through t :weight bold)))))
+  ;; (custom-theme-set-faces
+  ;; See them in the theme!
+  ;;  'user
+  ;;  '(org-block ((t (:inherit (shadow fixed-pitch) :background "#ffffff" :extend t))))
+  ;;  '(org-block-begin-line ((t (:inherit font-lock-comment-face))))
+  ;;  '(org-block-end-line ((t (:inherit font-lock-comment-face))))
+  ;;  '(org-code ((t (:inherit (shadow fixed-pitch)))))   
+  ;;  '(org-document-info ((t (:foreground "dark orange"))))
+  ;;  '(org-document-info-keyword ((t (:inherit (shadow fixed-pitch)))))
+  ;;  '(org-indent ((t (:inherit (org-hide fixed-pitch)))))
+  ;;  '(org-link ((t (:foreground "royal blue" :underline t))))
+  ;;  '(org-meta-line ((t (:inherit (font-lock-comment-face fixed-pitch)))))
+  ;;  '(org-property-value ((t (:inherit fixed-pitch))) t)
+  ;;  '(org-special-keyword ((t (:inherit (font-lock-comment-face fixed-pitch)))))
+  ;;  '(org-table ((t (:inherit fixed-pitch))))
+  ;;  '(org-tag ((t (:inherit (shadow fixed-pitch) :weight bold :height 0.8))))
+  ;;  '(org-verbatim ((t (:inherit (shadow fixed-pitch)))))
+  ;;  '(org-checkbox ((t (:inherit (fixed-pitch success) :weight bold))))
+  ;;  '(org-document-title ((t (:inherit (font-lock-function-name-face) :height 1.5 :weight bold :underline t))))
+  ;;  '(org-level-1 ((t (:height 1.25 :weight bold))))
+  ;;  '(org-level-2 ((t (:height 1.1 :weight bold))))
+  ;;  '(org-level-3 ((t (:height 1.0 :weight bold))))
+  ;;  '(org-level-4 ((t (:height 1.0 :weight bold))))
+  ;;  '(org-level-5 ((t (:height 1.0 :weight bold))))
+  ;;  '(org-level-6 ((t (:height 1.0 :weight bold))))
+  ;;  '(org-level-7 ((t (:height 1.0 :weight bold))))
+  ;;  '(org-todo ((t (:inherit (success fixed-pitch) :weight bold))))
+  ;;  '(org-done ((t (:inherit fixed-pitch :strike-through t :foreground "Dark Grey" :weight bold))))
+  ;;  '(org-headline-done ((t (:foreground "Grey" :strike-through t :weight bold)))))
   :custom
   (org-src-fontify-natively t)
   (org-agenda-span 'day)  
