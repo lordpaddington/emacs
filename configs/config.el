@@ -266,7 +266,8 @@
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
 (setq ivy-count-format "(%d/%d) ")
-
+(when (commandp 'counsel-M-x)
+  (global-set-key [remap execute-extended-command] #'counsel-M-x))
 
 ;;MAGIT
 (use-package magit)
@@ -349,9 +350,9 @@
   (add-hook 'org-mode-hook 'variable-pitch-mode 'centered-cursor-mode)
   (custom-theme-set-faces
    'user
-   '(org-block ((t (:inherit (shadow fixed-pitch) :background "white"))))
-   '(org-block-begin-line ((t (:inherit fixed-pitch :foreground "#996600" :background "#ffe6b3"))))
-   '(org-block-end-line ((t (:foreground "#996600" :background "#ffe6b3"))))
+   '(org-block ((t (:inherit (shadow fixed-pitch) :background "#f5f5f5" :extend t))))
+   '(org-block-begin-line ((t (:inherit fixed-pitch :foreground "#ffffff" :background "#757575" :extend t))))
+   '(org-block-end-line ((t (:inherit fixed-pitch :foreground "#ffffff" :background "#757575" :extend t))))
    '(org-code ((t (:inherit (shadow fixed-pitch)))))   
    '(org-document-info ((t (:foreground "dark orange"))))
    '(org-document-info-keyword ((t (:inherit (shadow fixed-pitch)))))
@@ -382,15 +383,12 @@
   (org-hide-leading-stars t)
   (org-startup-folded "content")
   (org-agenda-start-on-weekday 1)
-  (org-fontify-quote-and-verse-blocks t)
+  (org-fontify-quote-and-verse-blocks t)  
   (org-pretty-entities t)
   (org-fontify-done-headline t)
   (org-hide-emphasis-markers t)
   (org-todo-keywords '((sequence "TODO(t)" "INPR(i)" "WAIT(w)" "|" "DONE(d)" )))
   (org-todo-keyword-faces '(("TODO" . org-todo) ("INPR" . "orange") ("WAIT" . "purple")))
-
-  ;; Directories
-  
   :bind (:map org-mode-map
 	      ("<M-left>" . beginning-of-line)
 	      ("<M-right>" . end-of-line)
