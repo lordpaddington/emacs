@@ -76,7 +76,7 @@
 	'user
 	'(variable-pitch ((t (:family "PT Sans" :height 180))))
 	'(fixed-pitch ((t ( :family "PT Mono" :height 180))))
-        '(egoge-display-time ((t (:inherit modeline :foreground "orange" :weight bold :height 0.9))))
+        '(egoge-display-time ((t (:inherit modeline :foreground "#e0e0e0" :weight bold :height 0.9))))
        )
        
        )
@@ -346,41 +346,12 @@
 
 (use-package org
   :config  
-  (org-display-inline-images t)
   (add-hook 'org-mode-hook 'variable-pitch-mode 'centered-cursor-mode)
-  ;; (custom-theme-set-faces
-  ;; See them in the theme!
-  ;;  'user
-  ;;  '(org-block ((t (:inherit (shadow fixed-pitch) :background "#ffffff" :extend t))))
-  ;;  '(org-block-begin-line ((t (:inherit font-lock-comment-face))))
-  ;;  '(org-block-end-line ((t (:inherit font-lock-comment-face))))
-  ;;  '(org-code ((t (:inherit (shadow fixed-pitch)))))   
-  ;;  '(org-document-info ((t (:foreground "dark orange"))))
-  ;;  '(org-document-info-keyword ((t (:inherit (shadow fixed-pitch)))))
-  ;;  '(org-indent ((t (:inherit (org-hide fixed-pitch)))))
-  ;;  '(org-link ((t (:foreground "royal blue" :underline t))))
-  ;;  '(org-meta-line ((t (:inherit (font-lock-comment-face fixed-pitch)))))
-  ;;  '(org-property-value ((t (:inherit fixed-pitch))) t)
-  ;;  '(org-special-keyword ((t (:inherit (font-lock-comment-face fixed-pitch)))))
-  ;;  '(org-table ((t (:inherit fixed-pitch))))
-  ;;  '(org-tag ((t (:inherit (shadow fixed-pitch) :weight bold :height 0.8))))
-  ;;  '(org-verbatim ((t (:inherit (shadow fixed-pitch)))))
-  ;;  '(org-checkbox ((t (:inherit (fixed-pitch success) :weight bold))))
-  ;;  '(org-document-title ((t (:inherit (font-lock-function-name-face) :height 1.5 :weight bold :underline t))))
-  ;;  '(org-level-1 ((t (:height 1.25 :weight bold))))
-  ;;  '(org-level-2 ((t (:height 1.1 :weight bold))))
-  ;;  '(org-level-3 ((t (:height 1.0 :weight bold))))
-  ;;  '(org-level-4 ((t (:height 1.0 :weight bold))))
-  ;;  '(org-level-5 ((t (:height 1.0 :weight bold))))
-  ;;  '(org-level-6 ((t (:height 1.0 :weight bold))))
-  ;;  '(org-level-7 ((t (:height 1.0 :weight bold))))
-  ;;  '(org-todo ((t (:inherit (success fixed-pitch) :weight bold))))
-  ;;  '(org-done ((t (:inherit fixed-pitch :strike-through t :foreground "Dark Grey" :weight bold))))
-  ;;  '(org-headline-done ((t (:foreground "Grey" :strike-through t :weight bold)))))
   :custom
   (org-src-fontify-natively t)
   (org-agenda-span 'day)  
   (org-startup-indented t)
+  (org-startup-with-inline-images t)
   (org-hide-leading-stars t)
   (org-startup-folded "content")
   (org-agenda-start-on-weekday 1)
@@ -397,6 +368,8 @@
 	      ("<C-S-down>" . org-move-subtree-down)
               )
   )
+
+;(setq org-display-inline-images t)
 
 (use-package org-download)
 (use-package org-bullets  

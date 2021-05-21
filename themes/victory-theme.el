@@ -102,6 +102,7 @@ Semantic, and Ansi-Color faces are included.")
    `(default ((t (:foreground ,fg :background ,bg))))
    `(shadow ((t (:foreground ,base8))))
    `(cursor ((t (:background ,orange-2))))
+
    ;; Highlighting faces
    `(fringe ((t (:background ,bg))))
    `(highlight ((t (:background ,alum-3))))
@@ -111,9 +112,10 @@ Semantic, and Ansi-Color faces are included.")
    `(isearch ((t (:foreground "#ffffff" :background ,orange))))
    `(lazy-highlight ((t (:background ,choc-1))))
    `(trailing-whitespace ((t (:background ,red-1))))
+
    ;; Mode line faces
    `(mode-line ((t (:box (:line-width 1 :style released-button)
-			 :background ,blue-2 :foreground ,white))))
+			 :background ,dark-cyan :foreground ,white))))
    `(mode-line-inactive ((t (:box (:line-width 1 :style released-button)
 				  :background ,base3 :foreground ,base6))))
 
@@ -158,7 +160,7 @@ Semantic, and Ansi-Color faces are included.")
    `(org-special-keyword ((t (:inherit (font-lock-comment-face fixed-pitch)))))
    `(org-table ((t (:inherit fixed-pitch))))
    `(org-tag ((t (:inherit (shadow fixed-pitch) :weight bold :height 0.8))))
-   `(org-verbatim ((t (:inherit (shadow fixed-pitch)))))
+   `(org-verbatim ((t (:inherit (shadow fixed-pitch) :foreground ,teal))))
    `(org-checkbox ((t (:inherit (fixed-pitch success) :weight bold))))
    `(org-document-title ((t (:inherit (font-lock-function-name-face) :height 1.5 :weight bold :underline t))))
    `(org-level-1 ((t (:height 1.25 :weight bold))))
