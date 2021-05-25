@@ -125,7 +125,7 @@
 ;;Cursor visibility
 (setq-default cursor-type '(bar . 3)) ;; Comment this out if using Evil!!!!
 (set-cursor-color "#FF8C00")
-(global-hl-line-mode)
+;;(global-hl-line-mode) - if you want line highlighting.
 
 (set-face-attribute 'fringe nil :background nil)
 
