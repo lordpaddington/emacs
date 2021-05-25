@@ -76,7 +76,7 @@
 	'user
 	'(variable-pitch ((t (:family "PT Sans" :height 180))))
 	'(fixed-pitch ((t ( :family "PT Mono" :height 180))))
-        '(egoge-display-time ((t (:inherit modeline :foreground "#e0e0e0" :weight bold :height 0.9))))
+        '(egoge-display-time ((t (:inherit modeline :foreground "orange" :weight bold :height 0.9))))
        )
        
        )
@@ -449,6 +449,7 @@
   :diminish line-number-mode
   :diminish eldoc-mode
   :diminish buffer-face-mode
+  :diminish rainbow-mode
   )
 
 
