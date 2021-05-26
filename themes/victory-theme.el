@@ -119,6 +119,10 @@ Semantic, and Ansi-Color faces are included.")
    `(mode-line-inactive ((t (:box (:line-width 1 :style released-button)
 				  :background ,base3 :foreground ,base6))))
 
+   ;; Header-line
+   `(header-line ((t (:inherit mode-line))))
+   `(header-line-inactive ((t (:inherit mode-line-inactive))))
+
 
    ;; Escape and prompt faces
    `(minibuffer-prompt ((t (:weight bold :foreground ,blue))))

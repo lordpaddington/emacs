@@ -212,8 +212,8 @@
   :config (treemacs-icons-dired-mode)) 
 
 ;;Custom modeline
-(use-package simple-modeline
-  :config (simple-modeline-mode))
+;(use-package simple-modeline
+;  :config (simple-modeline-mode))
 
 (setq simple-modeline-segments
       '((simple-modeline-segment-modified
@@ -224,6 +224,12 @@
 	 simple-modeline-segment-misc-info
 	 simple-modeline-segment-process
 	 simple-modeline-segment-major-mode)))
+
+;; Experimental, leave alone for now.
+;(setq-default header-line-format mode-line-format)
+;(setq-default mode-line-format nil)
+
+
 
 (custom-set-faces
  '(simple-modeline-status-modified ((t (:foreground "#ee0000"))))
@@ -268,6 +274,9 @@
 (setq ivy-count-format "(%d/%d) ")
 (when (commandp 'counsel-M-x)
   (global-set-key [remap execute-extended-command] #'counsel-M-x))
+(global-set-key (kbd "C-x C-b") 'counsel-switch-buffer)
+(setq ivy-initial-inputs-alist: '((counsel-M-x . "")))
+
 
 ;;MAGIT
 (use-package magit)
