@@ -145,6 +145,8 @@ Semantic, and Ansi-Color faces are included.")
    ;; Ivy Minibuffer faces
    `(ivy-minibuffer-match-face-1 ((t (:inherit isearch))))
    `(ivy-minibuffer-match-face-2 ((t (:inherit lazy-highlight))))
+   `(ivy-virtual ((t (:inherit font-lock-comment-face))))
+
    
    ;; Org mode faces
    `(org-block ((t (:inherit (shadow fixed-pitch) :background ,white :extend t))))

@@ -33,8 +33,8 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;; Ignore split window horizontally (what does this do?)
-(setq split-width-threshold nil)
-(setq split-width-threshold 100)
+(setq split-height-threshold 120
+      split-width-threshold 160)
 
 (setq track-eol t)			; Keep cursor at end of lines.
 (setq line-move-visual nil)		; To be required by track-eol
@@ -53,7 +53,7 @@
 ;(set-face-attribute 'default nil :font "Menlo 16")
 (delete-selection-mode 1)
 (global-visual-line-mode t)
-(scroll-bar-mode 0)
+(scroll-bar-mode 1)
 ;(setq frame-title-format nil)
 
 
@@ -412,7 +412,7 @@
                                  (someday :maxlevel . 1))))
 ;Consider having Next Actions in the home file...
 
-(setq org-agenda-files (list todo inbox someday))
+(setq org-agenda-files (list todo inbox someday minutes))
 
 
 
@@ -501,8 +501,21 @@
   )
 
 ;; (with-eval-after-load 'markdown-mode
-;;   (define-key markdown-mode-map (kbd "<C-return>") 'my-markdown-modechange)
+;;   (define-key markdown-mode-map (kbd "<C-return>") 'my-markdown-modehange)
 ;;   )
+
+;; (defun my-split-window-sensibly (&optional window)
+;;     "replacement `split-window-sensibly' function which prefers vertical splits"
+;;     (interactive)
+;;     (let ((window (or window (selected-window))))
+;;         (or (and (window-splittable-p window t)
+;;                  (with-selected-window window
+;;                      (split-window-right)))
+;;             (and (window-splittable-p window)
+;;                  (with-selected-window window
+;;                      (split-window-below))))))
+
+;; (setq split-window-preferred-function #'my-split-window-sensibly)
 
 
 
