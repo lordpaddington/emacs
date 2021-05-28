@@ -187,6 +187,11 @@ Semantic, and Ansi-Color faces are included.")
    `(org-scheduled-today ((t (:inherit org-level-4))))
    `(org-agenda-structure ((t (:inherit org-document-title))))
      
+   ;; Markdown mode faces
+   `(markdown-header-face ((t (:inherit default :weight bold))))
+   `(markdown-gfm-checkbox-face ((t (:inherit (fixed-pitch success) :weight bold))))
+   `(markdown-inline-code-face ((t (:inherit (shadow fixed-pitch)))))
+   `(markdown-blockquote-face ((t (:inherit shadow :foreground ,base6))))
    
    ;; Message faces
    `(message-header-name ((t (:foreground ,blue-3))))

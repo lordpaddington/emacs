@@ -105,6 +105,7 @@
 
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(add-to-list 'load-path "~/.emacs.d/packages/")
 (fringe-mode 20)
 (set-face-attribute 'fringe nil :background nil)
 (tool-bar-mode -1)
@@ -175,6 +176,11 @@
 
 ;; PACKAGES:
 ;; =========
+
+;; adaptive wrapping
+;;(require 'adaptive-wrap-vp) - this is buggy, fucks up markdown.
+(use-package adaptive-wrap)
+
 
 ;;auto-compile
 (use-package auto-compile
@@ -328,7 +334,7 @@
   (markdown-header-scaling t)
   (markdown-hide-markup t)
   (markdown-command "multimarkdown")
-  (markdown-indent-function t)
+  (markdown-indent-function markdown-indent-line)
   (markdown-hide-urls t)
   (markdown-enable-wiki-links t)
   :config
@@ -345,6 +351,11 @@
   )
   
   (setq markdown-link-space-sub-char " ")
+
+(add-hook 'markdown-mode-hook 'variable-pitch-mode 'adaptive-wrap-prefix-mode)
+(setq markdown-indent-on-enter 'indent-and-new-item
+      markdown-make-gfm-checkboxes-buttons t
+      markdown-gfm-uppercase-checkbox t)
 
 
 
@@ -378,6 +389,7 @@
               )
   )
 
+;(add-hook 'org-mode-hook 'variable-pitch-mode 'centered-cursor-mode)
 ;(setq org-display-inline-images t)
 
 (use-package org-download)
@@ -385,7 +397,7 @@
   :hook
   (org-mode . (lambda () (org-bullets-mode 1)))
   )
-
+ 
 ;;Org Capture Templates
 (setq org-inbox (concat org-directory "/In"))
 (setq org-projects (concat org-directory "/Projects"))
@@ -507,6 +519,7 @@
   (markdown-toggle-markup-hiding)
   (variable-pitch-mode)
   (markdown-toggle-url-hiding)
+  (read-only-mode)
   )
 
 ;; (with-eval-after-load 'markdown-mode
