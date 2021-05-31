@@ -144,6 +144,8 @@
 	    'face 'egoge-display-time))) ;;Face defined in the theme!
 (display-time-mode t)
 
+;;Kill window when the buffer is killed:
+
 
 ;; KEYS
 ;; ====
@@ -172,6 +174,7 @@
 (global-set-key "\C-xg" 'magit-status)
 (global-set-key (kbd "C-c v j") 'vix-open-todays-journal)
 (global-set-key (kbd "C-c v h") 'vix-open-home-file)
+(global-set-key (kbd "C-c K") 'kill-buffer-and-window) ;;Could write a function to this: if one window, 'kill-buffer, if >1: 'kill-buffer-and-window...
 
 
 ;; PACKAGES:
@@ -334,7 +337,7 @@
   (markdown-header-scaling t)
   (markdown-hide-markup t)
   (markdown-command "multimarkdown")
-  (markdown-indent-function markdown-indent-line)
+  ;;(markdown-indent-function markdown-indent-line)
   (markdown-hide-urls t)
   (markdown-enable-wiki-links t)
   :config
@@ -409,6 +412,7 @@
 ;(defvar reference (expand-file-name "Reference" org-directory))
 (defvar minutes (expand-file-name "Minutes" org-directory))
 (defvar someday (expand-file-name "Someday.org" org-directory))
+(defvar reference (expand-file-name "Reference" org-directory))
 
 (defun my/generate-minute-name ()
   (setq my-minute--name (read-string "Meeting Title: "))
@@ -433,7 +437,7 @@
                                  (someday :maxlevel . 1))))
 ;Consider having Next Actions in the home file...
 
-(setq org-agenda-files (list todo inbox someday minutes))
+(setq org-agenda-files (list todo inbox someday minutes reference))
 
 
 
@@ -482,14 +486,17 @@
 
 ;; insert current date
 (defun vix-insert-current-date () (interactive)
+       "Insert todays date in YYYY-MM-DD format."
        (insert (shell-command-to-string "echo -n $(date +%Y-%m-%d)")))
 
 
 (defun vix-open-todays-journal ()
+  "Display today's journal file."
   (interactive)
   (find-file-other-window (concat org-directory (format-time-string "/Journal/%Y-%m-%d %A.org"))))
 
 (defun vix-open-home-file ()
+  "Open my 'Home.org' file."
   (interactive)
   (find-file-other-window (concat org-directory "/Home.org")))
 
@@ -498,12 +505,9 @@
 ;;       (switch-to-buffer (find-file-other-frame fname)))
 
 ;; archive all done tasks
-(defun vix-org-archive-done-tasks ()
-  (interactive)
-  (org-map-entries 'org-archive-subtree "/DONE" 'file))
-
 
 (defun vix-org-archive-done-tasks ()
+  "Archive all DONE tasks starting from the cursor."
   (interactive)
   (org-map-entries
    (lambda ()
@@ -515,12 +519,25 @@
 ;; FUCKING DOESN'T WORK!
 ;; For some reason it's not a toggle, only set them once.
 (defun vix-markdown-modechange ()
+  "Toggle Markdown editing and Reading mode."
   (interactive)
   (markdown-toggle-markup-hiding)
   (variable-pitch-mode)
   (markdown-toggle-url-hiding)
   (read-only-mode)
   )
+
+(defun delete-file-and-buffer ()
+  "Kill the current buffer and deletes the file it is visiting."
+  (interactive)
+  (let ((filename (buffer-file-name)))
+    (if filename
+        (if (y-or-n-p (concat "Do you really want to delete file " filename " ?"))
+            (progn
+              (delete-file filename)
+              (message "Deleted file %s." filename)
+              (kill-buffer)))
+      (message "Not a file visiting buffer!"))))
 
 ;; (with-eval-after-load 'markdown-mode
 ;;   (define-key markdown-mode-map (kbd "<C-return>") 'my-markdown-modehange)

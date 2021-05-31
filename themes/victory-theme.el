@@ -186,6 +186,7 @@ Semantic, and Ansi-Color faces are included.")
    `(org-agenda-date-weekend ((t (:inherit org-date :foreground ,magenta))))
    `(org-scheduled-today ((t (:inherit org-level-4))))
    `(org-agenda-structure ((t (:inherit org-document-title))))
+   `(org-agenda-done ((t (:inherit fixed-pitch :strike-through t :foreground "Dark Grey"))))
      
    ;; Markdown mode faces
    `(markdown-header-face ((t (:inherit default :weight bold))))
