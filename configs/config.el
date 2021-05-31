@@ -346,15 +346,6 @@
   (markdown-enable-wiki-links t)
   :config
   (variable-pitch-mode)
-  ;; :custom-face
-  ;; TODO: copy the OrgMode faces, but try to keep the original blue heading colors
-  ;; (markdown-header-delimiter-face ((t (:foreground "mediumpurple"))))
-  ;; (markdown-header-face-1 ((t (:foreground "violet" :weight bold :height 1.0))))
-  ;; (markdown-header-face-2 ((t (:foreground "lightslateblue" :weight bold :height 1.0))))
-  ;; (markdown-header-face-3 ((t (:foreground "mediumpurple1" :weight bold :height 1.0))))
-  ;; (markdown-link-face ((t (:background "#0e1014" :foreground "#bd93f9"))))
-  ;; (markdown-list-face ((t (:foreground "mediumpurple"))))
-  ;; (markdown-pre-face ((t (:foreground "#bd98fe"))))
   )
   
   (setq markdown-link-space-sub-char " ")
@@ -416,6 +407,7 @@
 ;(defvar reference (expand-file-name "Reference" org-directory))
 (defvar minutes (expand-file-name "Minutes" org-directory))
 (defvar someday (expand-file-name "Someday.org" org-directory))
+(defvar scheduled (expand-file-name "Scheduled.org" org-directory))
 (defvar reference (expand-file-name "Reference" org-directory))
 
 (defun my/generate-minute-name ()
@@ -438,10 +430,12 @@
       )
 
 (setq org-refile-targets (quote ((todo :maxlevel . 1)
-                                 (someday :maxlevel . 1))))
+                                 (someday :maxlevel . 1)
+				 (scheduled :maxlevel . 1)
+				 )))
 ;Consider having Next Actions in the home file...
 
-(setq org-agenda-files (list todo inbox someday minutes reference))
+(setq org-agenda-files (list todo inbox scheduled minutes))
 
 
 
