@@ -326,15 +326,19 @@
 
 ;;Markdown
 (use-package markdown-mode
-  :commands (markdown-mode gfm-mode)
-  :mode (("README\\.md\\'" . gfm-mode)
-         ("\\.md\\'" . gfm-mode)
-         ("\\.markdown\\'" . gfm-mode))
+  ;; :commands (markdown-mode gfm-mode)
+  ;; :mode (("README\\.md\\'" . gfm-mode)
+  ;;        ("\\.md\\'" . gfm-mode)
+  ;;        ("\\.markdown\\'" . gfm-mode))
+  :commands (markdown-mode)
+  :mode (("README\\.md\\'" . markdown-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))  
   :custom
   (markdown-header-scaling t)
   (markdown-hide-markup t)
   (markdown-command "multimarkdown")
-  (markdown-indent-function markdown-indent-line)
+  ;;(markdown-indent-function markdown-indent-line)
   (markdown-hide-urls t)
   (markdown-enable-wiki-links t)
   :config
