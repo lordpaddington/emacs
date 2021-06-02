@@ -68,7 +68,7 @@ Semantic, and Ansi-Color faces are included.")
   (orange-4 "#b35000")
   ;; Custom colors
   (bg         "#f0f0f0")
-  (bg-alt     "#eeeeee")
+  (bg-act     "#f0f0f0")
   (base0      "#fafafa")
   (base1      "#f5f5f5")
   (base2      "#eeeeee")
