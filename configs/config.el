@@ -387,7 +387,7 @@
               )
   )
 
-;(add-hook 'org-mode-hook 'variable-pitch-mode 'centered-cursor-mode)
+(add-hook 'org-mode-hook 'variable-pitch-mode 'centered-cursor-mode)
 ;(setq org-display-inline-images t)
 
 (use-package org-download)
@@ -536,6 +536,17 @@
               (message "Deleted file %s." filename)
               (kill-buffer)))
       (message "Not a file visiting buffer!"))))
+
+;;Highlight the active window
+;; Doesn't work well for some reason, screws up the fonts.
+;; (defun highlight-selected-window ()
+;;   "Highlight selected window with a different background color."
+;;   (walk-windows (lambda (w)
+;;                   (unless (eq w (selected-window))
+;;                     (with-current-buffer (window-buffer w)
+;;                       (buffer-face-set '(:inherit default :background "#e0e0e0"))))))
+;;   (buffer-face-set 'default))
+;; (add-hook 'buffer-list-update-hook 'highlight-selected-window)
 
 ;; (with-eval-after-load 'markdown-mode
 ;;   (define-key markdown-mode-map (kbd "<C-return>") 'my-markdown-modehange)
