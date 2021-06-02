@@ -221,8 +221,8 @@
   :config (treemacs-icons-dired-mode)) 
 
 ;;Custom modeline
-;(use-package simple-modeline
-;  :config (simple-modeline-mode))
+(use-package simple-modeline
+  :config (simple-modeline-mode))
 
 (setq simple-modeline-segments
       '((simple-modeline-segment-modified
@@ -237,8 +237,6 @@
 ;; Experimental, leave alone for now.
 ;(setq-default header-line-format mode-line-format)
 ;(setq-default mode-line-format nil)
-
-
 
 (custom-set-faces
  '(simple-modeline-status-modified ((t (:foreground "#ee0000"))))
@@ -355,7 +353,8 @@
       markdown-make-gfm-checkboxes-buttons t
       markdown-gfm-uppercase-checkbox t)
 
-
+;;Python
+(add-hook 'python-mode-hook 'display-line-numbers-mode)
 
 
 ;;Org Mode

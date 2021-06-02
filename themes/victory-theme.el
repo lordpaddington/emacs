@@ -113,6 +113,8 @@ Semantic, and Ansi-Color faces are included.")
    `(lazy-highlight ((t (:background ,choc-1))))
    `(trailing-whitespace ((t (:background ,red-1))))
 
+   `(line-number ((t (:foreground ,base3))))   
+
    ;; Mode line faces
    `(mode-line ((t (:box (:line-width 1 :style released-button)
 			 :background ,dark-cyan :foreground ,white))))
