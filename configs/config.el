@@ -408,6 +408,7 @@
 (defvar someday (expand-file-name "Someday.org" org-directory))
 (defvar scheduled (expand-file-name "Scheduled.org" org-directory))
 (defvar reference (expand-file-name "Reference" org-directory))
+(defvar home (expand-file-name "Home.org" org-directory))
 
 (defun my/generate-minute-name ()
   (setq my-minute--name (read-string "Meeting Title: "))
@@ -416,9 +417,9 @@
 
 (setq org-capture-templates
       '(
-        ("t" "Todo" entry (file+headline todo "Next Actions:")
+        ("t" "Todo" entry (file+headline home "Next Actions")
          "* TODO %?\n")
-        ("n" "Quick Note" entry (file inbox)
+        ("n" "Quick Note" entry (file+headline home "Notes")
          "* %?\n\n" :prepend t)
         ("a" "Action item" entry (file+headline (lambda() (buffer-file-name)) "Action items:")
          "* TODO %?\n")
@@ -428,13 +429,12 @@
        )
       )
 
-(setq org-refile-targets (quote ((todo :maxlevel . 1)
+(setq org-refile-targets (quote ((home :maxlevel . 1)				 
                                  (someday :maxlevel . 1)
 				 (scheduled :maxlevel . 1)
 				 )))
-;Consider having Next Actions in the home file...
 
-(setq org-agenda-files (list todo inbox scheduled minutes))
+(setq org-agenda-files (list home scheduled minutes))
 
 
 
