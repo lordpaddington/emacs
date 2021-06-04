@@ -54,6 +54,11 @@
 (delete-selection-mode 1)
 (global-visual-line-mode t)
 (scroll-bar-mode 1)
+(setq window-divider-default-places t
+      window-divider-default-bottom-width 2
+      window-divider-default-right-width 2)
+(window-divider-mode)
+
 ;(setq frame-title-format nil)
 
 
