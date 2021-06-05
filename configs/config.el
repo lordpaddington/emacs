@@ -359,7 +359,12 @@
       markdown-gfm-uppercase-checkbox t)
 
 ;;Python
-(add-hook 'python-mode-hook 'display-line-numbers-mode)
+(use-package jedi)
+(add-hook 'python-mode-hook 'display-line-numbers-mode 'jedi:setup)
+(setq python-shell-interpreter "python3")
+(setq jedi:complete-on-dot t)                 ; optional
+
+
 
 
 ;;Org Mode
