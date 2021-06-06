@@ -361,9 +361,13 @@
 ;;Python
 (use-package jedi)
 (add-hook 'python-mode-hook 'display-line-numbers-mode 'jedi:setup)
-(setq python-shell-interpreter "python3")
+(setq python-shell-interpreter "/usr/local/bin/python") ;; shell path to the python env
 (setq jedi:complete-on-dot t)                 ; optional
 
+;; (setq jedi:environment-root "jedi")  ; or any other name you like
+;; (setq jedi:environment-virtualenv
+;;       (append python-environment-virtualenv
+;;               '("--python" "/usr/local/bin/python")))
 
 
 
