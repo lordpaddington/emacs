@@ -68,7 +68,7 @@
 ;;System-dependent changes (FUCKING KILL/REFACTOR THIS!!!!)
 ;; TODO: Consider moving the system-specific settings into separate files!
 (cond ((eq system-type 'darwin)
-       (set-face-attribute 'default nil :font "Menlo 16")
+       (set-face-attribute 'default nil :font "Menlo 18")
        (setq mac-command-modifier 'meta)
        (setq mac-option-modifier 'none)
        (use-package ns-auto-titlebar)
@@ -79,8 +79,8 @@
        (global-set-key (kbd "M-h") 'ns-do-hide-emacs)
        (custom-theme-set-faces
 	'user
-	'(variable-pitch ((t (:family "PT Sans" :height 180))))
-	'(fixed-pitch ((t ( :family "PT Mono" :height 180))))
+	'(variable-pitch ((t (:family "PT Sans" :height 220))))
+	'(fixed-pitch ((t ( :family "PT Mono" :height 200))))
         '(egoge-display-time ((t (:inherit modeline :foreground "orange" :weight bold :height 0.9))))
        )
        
