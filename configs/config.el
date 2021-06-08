@@ -70,7 +70,7 @@
 (cond ((eq system-type 'darwin)
        (set-face-attribute 'default nil :font "Menlo 18")
        (setq mac-command-modifier 'meta)
-       (setq mac-option-modifier 'none)
+       (setq mac-option-modifier 'super)
        (use-package ns-auto-titlebar)
        (setq ns-auto-titlebar-mode nil)
        (add-to-list 'default-frame-alist '(ns-transparent-titlebar . nil))
