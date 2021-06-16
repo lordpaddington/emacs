@@ -33,8 +33,8 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;; Ignore split window horizontally (what does this do?)
-(setq split-height-threshold 120
-      split-width-threshold 160)
+;(setq split-height-threshold 120
+;      split-width-threshold 160)
 
 (setq track-eol t)			; Keep cursor at end of lines.
 (setq line-move-visual nil)		; To be required by track-eol
@@ -70,7 +70,7 @@
 (cond ((eq system-type 'darwin)
        (set-face-attribute 'default nil :font "Menlo 18")
        (setq mac-command-modifier 'meta)
-       (setq mac-option-modifier 'super)
+       (setq mac-option-modifier 'none) ;; alt doesn't work, fucks up special characters.
        (use-package ns-auto-titlebar)
        (setq ns-auto-titlebar-mode nil)
        (add-to-list 'default-frame-alist '(ns-transparent-titlebar . nil))
@@ -565,18 +565,18 @@
 ;;   (define-key markdown-mode-map (kbd "<C-return>") 'my-markdown-modehange)
 ;;   )
 
-;; (defun my-split-window-sensibly (&optional window)
-;;     "replacement `split-window-sensibly' function which prefers vertical splits"
-;;     (interactive)
-;;     (let ((window (or window (selected-window))))
-;;         (or (and (window-splittable-p window t)
-;;                  (with-selected-window window
-;;                      (split-window-right)))
-;;             (and (window-splittable-p window)
-;;                  (with-selected-window window
-;;                      (split-window-below))))))
+(defun my-split-window-sensibly (&optional window)
+    "replacement `split-window-sensibly' function which prefers vertical splits"
+    (interactive)
+    (let ((window (or window (selected-window))))
+        (or (and (window-splittable-p window t)
+                 (with-selected-window window
+                     (split-window-right)))
+            (and (window-splittable-p window)
+                 (with-selected-window window
+                     (split-window-below))))))
 
-;; (setq split-window-preferred-function #'my-split-window-sensibly)
+(setq split-window-preferred-function #'my-split-window-sensibly)
 
 (defun window-split-toggle ()
   "Toggle between horizontal and vertical split with two windows."
