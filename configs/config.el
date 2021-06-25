@@ -33,8 +33,8 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;; Ignore split window horizontally (what does this do?)
-;(setq split-height-threshold 120
-;      split-width-threshold 160)
+(setq split-height-threshold 80
+      split-width-threshold 100)
 
 (setq track-eol t)			; Keep cursor at end of lines.
 (setq line-move-visual nil)		; To be required by track-eol
@@ -565,18 +565,19 @@
 ;;   (define-key markdown-mode-map (kbd "<C-return>") 'my-markdown-modehange)
 ;;   )
 
-(defun my-split-window-sensibly (&optional window)
-    "replacement `split-window-sensibly' function which prefers vertical splits"
-    (interactive)
-    (let ((window (or window (selected-window))))
-        (or (and (window-splittable-p window t)
-                 (with-selected-window window
-                     (split-window-right)))
-            (and (window-splittable-p window)
-                 (with-selected-window window
-                     (split-window-below))))))
 
-(setq split-window-preferred-function #'my-split-window-sensibly)
+;; Fuck, for some reason this prefers opening a new frame...
+;; (defun my-split-window-sensibly (&optional window)
+;;     "replacement `split-window-sensibly' function which prefers vertical splits"
+;;     (interactive)
+;;     (let ((window (or window (selected-window))))
+;;         (or (and (window-splittable-p window t)
+;;                  (with-selected-window window
+;;                      (split-window-right)))
+;;             (and (window-splittable-p window)
+;;                  (with-selected-window window
+;;                      (split-window-below))))))
+;; (setq split-window-preferred-function 'my-split-window-sensibly)
 
 (defun window-split-toggle ()
   "Toggle between horizontal and vertical split with two windows."
