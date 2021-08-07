@@ -1,7 +1,6 @@
 ;; BASIC SETUP
 ;; ===========
 
-;faszkivan
 (require 'package)
 (unless (assoc-default "melpa" package-archives)
   (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t))
@@ -293,6 +292,8 @@
 
 ;;MAGIT
 (use-package magit)
+;; How to set up the credentials: https://docs.github.com/en/get-started/getting-started-with-git/caching-your-github-credentials-in-git
+
 
 ;;Zettelkasten implementation
 (use-package deft
