@@ -1,6 +1,7 @@
 ;; BASIC SETUP
 ;; ===========
 
+;faszkivan
 (require 'package)
 (unless (assoc-default "melpa" package-archives)
   (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t))
