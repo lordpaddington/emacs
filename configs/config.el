@@ -125,8 +125,8 @@
 ;(use-package doom-themes)
 ;(require 'doom-themes)
 ;(load-theme 'doom-opera-light) ;Fancy light theme
-;(load-theme 'zenburn) ;Nice darkish theme
-(load-theme 'victory) ;Simple light theme
+(load-theme 'zenburn) ;Nice darkish theme
+;(load-theme 'victory) ;Simple light theme
 
 ;;Cursor visibility
 (setq-default cursor-type '(bar . 3)) ;; Comment this out if using Evil!!!!

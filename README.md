@@ -1,13 +1,19 @@
 # My private emacs config
 
+First of all: Install use-package
+`
+M-x package-refresh-contents
+M-x package-install use-package
+`
+
 Pretty much everything is in configs/config.el
 
 ### Config files that are "missing":
 
 **init.el** - do keep it for compatibility purposes, but not included in the repo to avoid customizations on different machniges messing up things.
 
-Include in the beginning:
 
+Include in the beginning:
 `
 (package-initialize)
 (load-file "~/.emacs.d/configs/config.el")
