@@ -9,8 +9,9 @@
   (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t))
 
 (unless (package-installed-p 'use-package)
+  (package-refresh-contents)
   (package-install 'use-package)
-  (package-refresh-contents))
+  )
 
 (require 'use-package)
 ;;(setq use-package-verbose t)
