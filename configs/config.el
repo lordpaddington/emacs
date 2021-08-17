@@ -415,7 +415,7 @@
 ;;Org Capture Templates
 (setq org-inbox (concat org-directory "/In"))
 (setq org-projects (concat org-directory "/Projects"))
-(setq deft-directory "~/org/Reference")
+
 ;;(setq org-refile-use-outline-path 'file) - ez lehet kell a refile mukodesehez.
 
 (defvar inbox (expand-file-name "Inbox.org" org-inbox))
