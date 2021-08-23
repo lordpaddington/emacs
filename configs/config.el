@@ -43,6 +43,7 @@
 (setq-default indent-tabs-mode t)   ; nil to use space
 
 (set-terminal-coding-system 'utf-8)
+(setq explicit-shell-file-name "/bin/zsh")
 (set-keyboard-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
