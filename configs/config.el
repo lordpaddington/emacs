@@ -43,6 +43,7 @@
 (setq-default indent-tabs-mode t)   ; nil to use space
 
 (set-terminal-coding-system 'utf-8)
+(setq explicit-shell-file-name "/bin/zsh")
 (set-keyboard-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
@@ -123,10 +124,11 @@
 ;;(setq x-underline-at-descent-line t)
 ;;(setq solarized-high-contrast-mode-line t)
 ;;(load-theme 'solarized-light-high-contrast t)
-;(use-package doom-themes)
-;(require 'doom-themes)
+(use-package doom-themes)
+(require 'doom-themes)
+(load-theme 'doom-nord)
 ;(load-theme 'doom-opera-light) ;Fancy light theme
-(load-theme 'zenburn) ;Nice darkish theme
+;(load-theme 'zenburn) ;Nice darkish theme
 ;(load-theme 'victory) ;Simple light theme
 
 ;;Cursor visibility
