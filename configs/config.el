@@ -124,11 +124,11 @@
 ;;(setq x-underline-at-descent-line t)
 ;;(setq solarized-high-contrast-mode-line t)
 ;;(load-theme 'solarized-light-high-contrast t)
-(use-package doom-themes)
-(require 'doom-themes)
-(load-theme 'doom-nord)
+;(use-package doom-themes)
+;(require 'doom-themes)
+;(load-theme 'doom-nord)
 ;(load-theme 'doom-opera-light) ;Fancy light theme
-;(load-theme 'zenburn) ;Nice darkish theme
+(load-theme 'zenburn) ;Nice darkish theme
 ;(load-theme 'victory) ;Simple light theme
 
 ;;Cursor visibility
@@ -382,7 +382,8 @@
 
 (use-package org
   :config  
-  (add-hook 'org-mode-hook 'variable-pitch-mode 'centered-cursor-mode)
+  (add-hook 'org-mode-hook 'centered-cursor-mode)
+  ;; ^ add 'variable-pitch-mode here if needed!
   :custom
   (org-src-fontify-natively t)
   (org-agenda-span 'day)  
@@ -405,7 +406,7 @@
               )
   )
 
-(add-hook 'org-mode-hook 'variable-pitch-mode 'centered-cursor-mode)
+(add-hook 'org-mode-hook 'centered-cursor-mode)
 ;(setq org-display-inline-images t)
 
 (use-package org-download)
