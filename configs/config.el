@@ -76,7 +76,7 @@
        (use-package ns-auto-titlebar)
        (setq ns-auto-titlebar-mode nil)
        (add-to-list 'default-frame-alist '(ns-transparent-titlebar . nil))
-       (add-to-list 'default-frame-alist '(ns-appearance . light))
+       (add-to-list 'default-frame-alist '(ns-appearance . dark))
        (setq ns-use-proxy-icon nil)
        (global-set-key (kbd "M-h") 'ns-do-hide-emacs)
        (custom-theme-set-faces
