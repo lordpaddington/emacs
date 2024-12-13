@@ -51,14 +51,13 @@
 ;; STYLE
 ;; =====
 (setq custom-safe-themes t) ;;UNSAFE! Set every theme as safe, so there is no confirmation!
-
-;(set-face-attribute 'default nil :font "Menlo 16")
 (delete-selection-mode 1)
 (global-visual-line-mode t)
-(scroll-bar-mode 1)
+(scroll-bar-mode -1)
 (setq window-divider-default-places t
       window-divider-default-bottom-width 2
-      window-divider-default-right-width 2)
+      window-divider-default-right-width 2
+      )
 (window-divider-mode)
 
 ;(setq frame-title-format nil)
@@ -70,20 +69,20 @@
 ;;System-dependent changes (FUCKING KILL/REFACTOR THIS!!!!)
 ;; TODO: Consider moving the system-specific settings into separate files!
 (cond ((eq system-type 'darwin)
-       (set-face-attribute 'default nil :font "Menlo 18")
+       (set-face-attribute 'default nil :font "Fira Code 16")
        (setq mac-command-modifier 'meta)
        (setq mac-option-modifier 'none) ;; alt doesn't work, fucks up special characters.
        (use-package ns-auto-titlebar)
        (setq ns-auto-titlebar-mode nil)
-       (add-to-list 'default-frame-alist '(ns-transparent-titlebar . nil))
+       (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
        (add-to-list 'default-frame-alist '(ns-appearance . dark))
        (setq ns-use-proxy-icon nil)
        (global-set-key (kbd "M-h") 'ns-do-hide-emacs)
        (custom-theme-set-faces
 	'user
-	'(variable-pitch ((t (:family "PT Sans" :height 220))))
+	'(variable-pitch ((t (:family "iA Writer Quattro V" :Height 200))))
 	'(fixed-pitch ((t ( :family "PT Mono" :height 200))))
-        '(egoge-display-time ((t (:inherit modeline :foreground "orange" :weight bold :height 0.9))))
+        '(egoge-display-time ((t (:inherit modeline :foreground "orange" :weight bold :height 1.0))))
        )
        
        )
@@ -124,11 +123,12 @@
 ;;(setq x-underline-at-descent-line t)
 ;;(setq solarized-high-contrast-mode-line t)
 ;;(load-theme 'solarized-light-high-contrast t)
-;(use-package doom-themes)
-;(require 'doom-themes)
+(use-package doom-themes)
+(require 'doom-themes)
 ;(load-theme 'doom-nord)
 ;(load-theme 'doom-opera-light) ;Fancy light theme
-(load-theme 'zenburn) ;Nice darkish theme
+					;(Load-theme 'zenburn) ;Nice darkish theme
+(load-theme 'doom-zenburn) ; zenburn, but doomed.
 ;(load-theme 'victory) ;Simple light theme
 
 ;;Cursor visibility
@@ -187,7 +187,6 @@
 
 ;; PACKAGES:
 ;; =========
-
 ;; adaptive wrapping
 ;;(require 'adaptive-wrap-vp) - this is buggy, fucks up markdown.
 (use-package adaptive-wrap)
@@ -200,7 +199,7 @@
 
 ;;restart emacs easily
 (use-package restart-emacs
-  :bind*
+  :bind
   (("C-x M-c" . restart-emacs)))
 
 ;;typewriter scrolling
@@ -229,26 +228,99 @@
   :config (treemacs-icons-dired-mode)) 
 
 ;;Custom modeline
-(use-package simple-modeline
-  :config (simple-modeline-mode))
 
-(setq simple-modeline-segments
-      '((simple-modeline-segment-modified
-	 simple-modeline-segment-buffer-name)
-	(simple-modeline-segment-minor-modes
-	 simple-modeline-segment-input-method
-	 simple-modeline-segment-vc
-	 simple-modeline-segment-misc-info
-	 simple-modeline-segment-process
-	 simple-modeline-segment-major-mode)))
 
-;; Experimental, leave alone for now.
-;(setq-default header-line-format mode-line-format)
-;(setq-default mode-line-format nil)
 
-(custom-set-faces
- '(simple-modeline-status-modified ((t (:foreground "#ee0000"))))
- )
+
+;; (use-package simple-modeline
+;;   :config (simple-modeline-mode))
+
+;; (setq simple-modeline-segments
+;;       '((simple-modeline-segment-modified
+;; 	 simple-modeline-segment-buffer-name
+;; 	 simple-modeline-segment-position)
+;; 	(simple-modeline-segment-minor-modes
+;; 	 simple-modeline-segment-input-method
+;; 	 simple-modeline-segment-vc
+;; 	 simple-modeline-segment-misc-info
+;; 	 simple-modeline-segment-process
+;; 	 simple-modeline-segment-major-mode)))
+
+;; ;; Experimental, leave alone for now.
+;; ;(setq-default header-line-format mode-line-format)
+;; ;(setq-default mode-line-format nil)
+
+;; (custom-set-faces
+;;  '(simple-modeline-status-modified ((t (:foreground "#ee0000"))))
+;;  )
+
+;;Doom modeline
+;; (use-package doom-modeline
+;;   :ensure t
+;;   :init (doom-modeline-mode 1))
+
+
+
+;; (custom-set-faces
+;;   '(mode-line ((t (:family "Menlo" :height 1.0))))
+;;   '(mode-line-active ((t (:family "Menlo" :height 1.0)))) ; For 29+
+;;   '(mode-line-inactive ((t (:family "Menlo" :height 1.0)))))
+
+
+;; (use-package doom-modeline
+;;   :ensure t
+;;   :init (doom-modeline-mode 1)
+;; (setq nerd-icons-scale-factor 1.0)
+;; (setq doom-modeline-height 25)
+;; (setq doom-modeline-bar-width 4)
+;; (setq doom-modeline-hud nil)
+;; (setq doom-modeline-window-width-limit 85)
+;; (setq doom-modeline-project-detection 'auto)
+;; (setq doom-modeline-buffer-file-name-style 'truncate-nil)
+;; (setq doom-modeline-icon t)
+;; (setq doom-modeline-major-mode-icon t)
+;; (setq doom-modeline-major-mode-color-icon t)
+;; (setq doom-modeline-buffer-state-icon t)
+;; (setq doom-modeline-buffer-modification-icon t)
+;; (setq doom-modeline-time-icon nil)
+;; (setq doom-modeline-buffer-name t)
+;; (setq doom-modeline-highlight-modified-buffer-name t)
+;; (setq doom-modeline-column-zero-based t)
+;; (setq doom-modeline-percent-position '(-3 "%p"))
+;; (setq doom-modeline-position-line-format '("L%l"))
+;; (setq doom-modeline-position-column-format '("C%c"))
+;; (setq doom-modeline-position-column-line-format '("%l:%c"))
+;; (setq doom-modeline-minor-modes nil)
+;; (setq doom-modeline-enable-word-count nil)
+;; (setq doom-modeline-continuous-word-count-modes '(markdown-mode gfm-mode org-mode))
+;; (setq doom-modeline-buffer-encoding nil)
+;; (setq doom-modeline-indent-info nil)
+;; (setq doom-modeline-total-line-number nil)
+;; (setq doom-modeline-vcs-icon t)
+;; (setq doom-modeline-check-icon t)
+;; (setq doom-modeline-check-simple-format nil)
+;; (setq doom-modeline-number-limit 99)
+;; (setq doom-modeline-workspace-name nil)
+;; (setq doom-modeline-persp-name nil)
+;; (setq doom-modeline-display-default-persp-name nil)
+;; (setq doom-modeline-persp-icon nil)
+;; (setq doom-modeline-lsp nil)
+;; (setq doom-modeline-github nil)
+;; (setq doom-modeline-modal t)
+;; (setq doom-modeline-modal-icon t)
+;; (setq doom-modeline-modal-modern-icon t)
+;; (setq doom-modeline-always-show-macro-register nil)
+;; (setq doom-modeline-mu4e nil)
+;; (setq doom-modeline-gnus nil)
+;; (setq doom-modeline-buffer-file-name-function #'identity)
+;; (setq doom-modeline-buffer-file-truename-function #'identity))
+
+;; (use-package nerd-icons
+;;   :custom
+;;   (nerd-icons-font-family "Symbols Nerd Font Mono"))
+  
+
+
 
 ;;Easy window switching
 (use-package windmove
@@ -276,9 +348,17 @@
   :bind ([f7] . writeroom-mode))
 
 ;;Centered Window Mode
-(use-package centered-window :ensure t)
+;(use-package centered-window :ensure t)
 ;(centered-window-mode t)
-;(setq cwm-centered-window-width 80) ;; nem biztos, hogy működik!!!
+					;(setq cwm-centered-window-width 80) ;; nem biztos, hogy működik!!!
+
+;;Better automatic centering
+;; (require 'perfect-margin)
+;; (perfect-margin-mode 1)
+;; (setq perfect-margin-visible-width 100)
+
+;;Olivetti mode for centering nicely
+(use-package olivetti)
 
 ;;IVY Autocompletion (keep recent files in the buffer list)
 (use-package counsel
@@ -311,8 +391,7 @@
   :bind
   ([f8] . deft)
   ("C-c d n" . deft-new-file-named)
-  ("C-c d d" . deft)
-  )
+  ("C-c d d" . deft))
 
 (setq deft-file-naming-rules '((nospace . "_")
                                    (case-fn . downcase)))
@@ -376,14 +455,14 @@
 
 
 
+
 ;;Org Mode
 (load-file "~/.emacs.d/local.el")
 
 
 (use-package org
-  :config  
+  :config
   (add-hook 'org-mode-hook 'centered-cursor-mode)
-  ;; ^ add 'variable-pitch-mode here if needed!
   :custom
   (org-src-fontify-natively t)
   (org-agenda-span 'day)  
@@ -407,14 +486,49 @@
   )
 
 (add-hook 'org-mode-hook 'centered-cursor-mode)
+(add-hook 'org-mode-hook 'variable-pitch-mode)
+(add-hook 'org-mode-hook 'olivetti-mode)
 ;(setq org-display-inline-images t)
+
+;(set-face-attribute 'org-block nil            :foreground nil :inherit 'fixed-pitch :height 0.85)
+;; (set-face-attribute 'org-code nil             :inherit '(shadow fixed-pitch) :height 0.85)
+;; (set-face-attribute 'org-indent nil           :inherit '(org-hide fixed-pitch) :height 0.85)
+;; (set-face-attribute 'org-verbatim nil         :inherit '(shadow fixed-pitch) :height 0.85)
+;; (set-face-attribute 'org-special-keyword nil  :inherit '(font-lock-comment-face
+;; fixed-pitch))
+;; (set-face-attribute 'org-meta-line nil        :inherit '(font-lock-comment-face fixed-pitch))
+;;(set-face-attribute 'org-checkbox nil         :inherit 'fixed-pitch)
+
+(setq org-src-fontify-natively t
+	  org-src-tab-acts-natively t
+      org-edit-src-content-indentation 0)
+
+
+
+(use-package org-appear
+  :commands (org-appear-mode)
+  :hook     (org-mode . org-appear-mode)
+  :config
+  (setq org-hide-emphasis-markers t)  ; Must be activated for org-appear to work
+  (setq org-appear-autoemphasis   t   ; Show bold, italics, verbatim, etc.
+        org-appear-autolinks      t   ; Show links
+		org-appear-autosubmarkers t)) ; Show sub- and superscripts
 
 (use-package org-download)
 (use-package org-bullets  
   :hook
   (org-mode . (lambda () (org-bullets-mode 1)))
   )
- 
+
+
+(setq org-log-done                       t
+	  org-auto-align-tags                t
+	  org-tags-column                    -80
+	  org-fold-catch-invisible-edits     'show-and-error
+	  org-special-ctrl-a/e               t
+	  org-insert-heading-respect-content t)
+
+
 ;;Org Capture Templates
 (setq org-inbox (concat org-directory "/In"))
 (setq org-projects (concat org-directory "/Projects"))
@@ -456,52 +570,104 @@
 
 (setq org-agenda-files (list home scheduled minutes))
 
+(setq org-M-RET-may-split-line '((item . nil))) ;;M-RET to insert a new line anywhere!
+
+
+;;Move focus to new window
+(use-package window
+    :ensure nil
+    :preface
+    (defun hsplit-last-buffer ()
+      "Focus to the last created horizontal window."
+      (interactive)
+      (split-window-horizontally)
+      (other-window 1))
+    (defun vsplit-last-buffer ()
+      "Focus to the last created vertical window."
+      (interactive)
+      (split-window-vertically)
+      (other-window 1)))
+    (global-set-key (kbd "C-x C-1") #'delete-other-windows)
+    (global-set-key (kbd "C-x C-2") #'vsplit-last-buffer)
+    (global-set-key (kbd "C-x C-3") #'hsplit-last-buffer)
+    (global-set-key (kbd "C-x C-0") #'delete-window)
+
+;;Scratch in the current mode:
+(use-package scratch)
+  (global-set-key (kbd "C-c s") 'scratch)
 
 
 
 ;;Org-roam
-;; (use-package org-roam
-;;       :diminish org-roam-mode
-;;       :ensure t
-;;       :hook
-;;       (after-init . org-roam-mode)
-;;       ;;:custom
-;;       ;; (org-roam-directory (file-truename "/path/to/org-files/"))
-;;       ; Take this from the local.el!!!
-;;       :bind (:map org-roam-mode-map
-;;               (("C-c n l" . org-roam)
-;;                ("C-c n f" . org-roam-find-file)
-;;                ("C-c n g" . org-roam-graph)
-;; 	       ("C-c n b" . org-roam-switch-to-buffer)
-;; 	       )
-;;               :map org-mode-map
-;;               (("C-c n i" . org-roam-insert))
-;;               (("C-c n I" . org-roam-insert-immediate))))
+(use-package org-roam
+  :ensure t
+  :custom
+  (org-roam-directory "~/Orgmode")
+  :bind (("C-c n l" . org-roam-buffer-toggle)
+         ("C-c n f" . org-roam-node-find)
+         ("C-c n i" . org-roam-node-insert))
+  :config
+  (org-roam-setup))
+(org-roam-db-autosync-mode)
 
+(add-to-list 'display-buffer-alist
+             '("\\*org-roam\\*"
+               (display-buffer-in-direction)
+               (direction . right)
+               (window-width . 0.33)
+               (window-height . fit-window-to-buffer)))
+
+;; Consult for Org Roam
+(use-package consult-org-roam
+   :ensure t
+   :after org-roam
+   :init
+   (require 'consult-org-roam)
+   ;; Activate the minor mode
+   (consult-org-roam-mode 1)
+   :custom
+   ;; Use `ripgrep' for searching with `consult-org-roam-search'
+   (consult-org-roam-grep-func #'consult-ripgrep)
+   ;; Configure a custom narrow key for `consult-buffer'
+   (consult-org-roam-buffer-narrow-key ?r)
+   ;; Display org-roam buffers right after non-org-roam buffers
+   ;; in consult-buffer (and not down at the bottom)
+   (consult-org-roam-buffer-after-buffers t)
+   :config
+   ;; Eventually suppress previewing for certain functions
+   (consult-customize
+    consult-org-roam-forward-links
+    :preview-key "M-.")
+   :bind
+   ;; Define some convenient keybindings as an addition
+   ("C-c n e" . consult-org-roam-file-find)
+   ("C-c n b" . consult-org-roam-backlinks)
+   ("C-c n B" . consult-org-roam-backlinks-recursive)
+   ("C-c n l" . consult-org-roam-forward-links)
+   ("C-c n r" . consult-org-roam-search))
 
 
 ;; Clean up the modeline
-;(diminish '(auto-revert-mode ivy-mode line-number-mode global-visual-line-mode))
-;(diminish 'visual-line-mode)
+;; (use-package diminish
+;;   :diminish auto-revert-mode
+;;   :diminish visual-line-mode
+;;   :diminish ivy-mode
+;;   :diminish line-number-mode
+;;   :diminish eldoc-mode
+;;   :diminish buffer-face-mode
+;;   :diminish rainbow-mode
+;;   )
 
-(use-package diminish
-  :diminish auto-revert-mode
-  :diminish visual-line-mode
-  :diminish ivy-mode
-  :diminish line-number-mode
-  :diminish eldoc-mode
-  :diminish buffer-face-mode
-  :diminish rainbow-mode
-  )
-
-
-
+;;Hide minor modes in the modeline into a menu:
+(use-package minions)
+(minions-mode)
 
 
 ;; FUNCTIONS
 ;; =========
 
 ;; insert current date
+;; Deprecated, should change it to something that inserts not just the date, but a link to the roam daily!
 (defun vix-insert-current-date () (interactive)
        "Insert todays date in YYYY-MM-DD format."
        (insert (shell-command-to-string "echo -n $(date +%Y-%m-%d)")))
