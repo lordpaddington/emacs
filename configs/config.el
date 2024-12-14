@@ -125,16 +125,16 @@
 ;;(load-theme 'solarized-light-high-contrast t)
 (use-package doom-themes)
 (require 'doom-themes)
-;(load-theme 'doom-nord)
+(load-theme 'doom-nord)
 ;(load-theme 'doom-opera-light) ;Fancy light theme
 					;(Load-theme 'zenburn) ;Nice darkish theme
-(load-theme 'doom-zenburn) ; zenburn, but doomed.
+;(load-theme 'doom-zenburn) ; zenburn, but doomed.
 ;(load-theme 'victory) ;Simple light theme
 
 ;;Cursor visibility
 (setq-default cursor-type '(bar . 3)) ;; Comment this out if using Evil!!!!
 (set-cursor-color "#FF8C00")
-;;(global-hl-line-mode) - if you want line highlighting.
+(global-hl-line-mode) ; line highlighting.
 
 (set-face-attribute 'fringe nil :background nil)
 
@@ -228,9 +228,6 @@
   :config (treemacs-icons-dired-mode)) 
 
 ;;Custom modeline
-
-
-
 
 ;; (use-package simple-modeline
 ;;   :config (simple-modeline-mode))
@@ -333,7 +330,6 @@
 
 ;;Show keybindings!!!!
 (use-package which-key
-  :diminish which-key-mode
   :custom
   (which-key-sort-order 'which-key-key-order-alpha)  
   :bind* (("M-m ?" . which-key-show-top-level))
@@ -347,31 +343,116 @@
 (use-package writeroom-mode
   :bind ([f7] . writeroom-mode))
 
-;;Centered Window Mode
-;(use-package centered-window :ensure t)
-;(centered-window-mode t)
-					;(setq cwm-centered-window-width 80) ;; nem biztos, hogy működik!!!
 
-;;Better automatic centering
-;; (require 'perfect-margin)
-;; (perfect-margin-mode 1)
-;; (setq perfect-margin-visible-width 100)
-
-;;Olivetti mode for centering nicely
+;;For centering nicely
 (use-package olivetti)
 
 ;;IVY Autocompletion (keep recent files in the buffer list)
-(use-package counsel
-  :diminish ivy
-  )
-(ivy-mode 1)
-(setq ivy-use-virtual-buffers t)
-(setq ivy-count-format "(%d/%d) ")
-(when (commandp 'counsel-M-x)
-  (global-set-key [remap execute-extended-command] #'counsel-M-x))
-(global-set-key (kbd "C-x C-b") 'counsel-switch-buffer)
-(setq ivy-initial-inputs-alist: '((counsel-M-x . "")))
+;; TODO Replace this with Vertico and Consult!!!
+;; (use-package counsel)
+;; (ivy-mode 1)
+;; (setq ivy-use-virtual-buffers t)
+;; (setq ivy-count-format "(%d/%d) ")
+;; (when (commandp 'counsel-M-x)
+;;   (global-set-key [remap execute-extended-command] #'counsel-M-x))
+;; (global-set-key (kbd "C-x C-b") 'counsel-switch-buffer)
+;; (setq ivy-initial-inputs-alist: '((counsel-M-x . "")))
 
+
+;; Enable vertico
+(use-package vertico
+  :custom
+  ;; (vertico-scroll-margin 0) ;; Different scroll margin
+  (vertico-count 12) ;; Show more candidates
+  (vertico-resize t) ;; Grow and shrink the Vertico minibuffer
+  ;; (vertico-cycle t) ;; Enable cycling for `vertico-next/previous'
+  :init
+  (vertico-mode))
+
+;; Persist history over Emacs restarts. Vertico sorts by history position.
+(use-package savehist
+  :init
+  (savehist-mode))
+
+;; A few more useful configurations...
+(use-package emacs
+  :custom
+  ;; Support opening new minibuffers from inside existing minibuffers.
+  (enable-recursive-minibuffers t)
+  ;; Hide commands in M-x which do not work in the current mode.  Vertico
+  ;; commands are hidden in normal buffers. This setting is useful beyond
+  ;; Vertico.
+  (read-extended-command-predicate #'command-completion-default-include-p)
+  :init
+  ;; Add prompt indicator to `completing-read-multiple'.
+  ;; We display [CRM<separator>], e.g., [CRM,] if the separator is a comma.
+  (defun crm-indicator (args)
+    (cons (format "[CRM%s] %s"
+                  (replace-regexp-in-string
+                   "\\`\\[.*?]\\*\\|\\[.*?]\\*\\'" ""
+                   crm-separator)
+                  (car args))
+          (cdr args)))
+  (advice-add #'completing-read-multiple :filter-args #'crm-indicator)
+
+  ;; Do not allow the cursor in the minibuffer prompt
+  (setq minibuffer-prompt-properties
+        '(read-only t cursor-intangible t face minibuffer-prompt))
+  (add-hook 'minibuffer-setup-hook #'cursor-intangible-mode))
+
+
+;; Optionally use the `orderless' completion style.
+(use-package orderless
+  :custom
+  ;; Configure a custom style dispatcher (see the Consult wiki)
+  ;; (orderless-style-dispatchers '(+orderless-consult-dispatch orderless-affix-dispatch))
+  ;; (orderless-component-separator #'orderless-escapable-split-on-space)
+  (completion-styles '(orderless basic))
+  (completion-category-defaults nil)
+  (completion-category-overrides '((file (styles partial-completion)) (command (styles partial-completion)))))
+
+;; Annotations in the vertico minibuffer
+(use-package marginalia
+  ;; Bind `marginalia-cycle' locally in the minibuffer.  To make the binding
+  ;; available in the *Completions* buffer, add it to the
+  ;; `completion-list-mode-map'.
+  :bind (:map minibuffer-local-map
+         ("M-A" . marginalia-cycle))
+
+  ;; The :init section is always executed.
+  :init
+
+  ;; Marginalia must be activated in the :init section of use-package such that
+  ;; the mode gets enabled right away. Note that this forces loading the
+  ;; package.
+  (marginalia-mode))
+
+;; Some consult keybindings:
+(global-set-key (kbd "C-x b") 'consult-buffer)
+(global-set-key (kbd "C-x C-b") 'consult-buffer-other-window)
+
+
+
+;; Activate the new window:
+; Not convinced if it works, but the functions definitely do. 
+(use-package window
+  :ensure nil
+  :bind (("C-x 2" . vsplit-last-buffer)
+         ("C-x 3" . hsplit-last-buffer)
+         ;; Don't ask before killing a buffer.
+         ([remap kill-buffer] . kill-this-buffer))
+  :preface
+  (defun hsplit-last-buffer ()
+    "Focus to the last created horizontal window."
+    (interactive)
+    (split-window-horizontally)
+    (other-window 1))
+
+  (defun vsplit-last-buffer ()
+    "Focus to the last created vertical window."
+    (interactive)
+    (split-window-vertically)
+    (other-window 1)))
 
 ;;MAGIT
 (use-package magit)
@@ -379,22 +460,22 @@
 
 
 ;;Zettelkasten implementation
-(use-package deft
-  :init
-    (setq deft-extensions '("org" "md" "txt")
-          deft-use-filename-as-title nil
-	  deft-use-filter-string-for-filename nil
-	  deft-recursive t
-	  deft-text-mode 'org-mode
-	  deft-org-mode-title-prefix t
-	  )       
-  :bind
-  ([f8] . deft)
-  ("C-c d n" . deft-new-file-named)
-  ("C-c d d" . deft))
+;; (use-package deft
+;;   :init
+;;     (setq deft-extensions '("org" "md" "txt")
+;;           deft-use-filename-as-title nil
+;; 	  deft-use-filter-string-for-filename nil
+;; 	  deft-recursive t
+;; 	  deft-text-mode 'org-mode
+;; 	  deft-org-mode-title-prefix t
+;; 	  )       
+;;   :bind
+;;   ([f8] . deft)
+;;   ("C-c d n" . deft-new-file-named)
+;;   ("C-c d d" . deft))
 
-(setq deft-file-naming-rules '((nospace . "_")
-                                   (case-fn . downcase)))
+;; (setq deft-file-naming-rules '((nospace . "_")
+;;                                    (case-fn . downcase)))
 
 
 ;;VTERM
@@ -458,8 +539,6 @@
 
 ;;Org Mode
 (load-file "~/.emacs.d/local.el")
-
-
 (use-package org
   :config
   (add-hook 'org-mode-hook 'centered-cursor-mode)
@@ -647,16 +726,6 @@
    ("C-c n r" . consult-org-roam-search))
 
 
-;; Clean up the modeline
-;; (use-package diminish
-;;   :diminish auto-revert-mode
-;;   :diminish visual-line-mode
-;;   :diminish ivy-mode
-;;   :diminish line-number-mode
-;;   :diminish eldoc-mode
-;;   :diminish buffer-face-mode
-;;   :diminish rainbow-mode
-;;   )
 
 ;;Hide minor modes in the modeline into a menu:
 (use-package minions)
@@ -667,16 +736,17 @@
 ;; =========
 
 ;; insert current date
-;; Deprecated, should change it to something that inserts not just the date, but a link to the roam daily!
+;; TODO Deprecated, change it to something that inserts not just the date, but a link to the org-roam daily note!
 (defun vix-insert-current-date () (interactive)
        "Insert todays date in YYYY-MM-DD format."
        (insert (shell-command-to-string "echo -n $(date +%Y-%m-%d)")))
 
 
-(defun vix-open-todays-journal ()
-  "Display today's journal file."
-  (interactive)
-  (find-file-other-window (concat org-directory (format-time-string "/Journal/%Y-%m-%d %A.org"))))
+;; (defun vix-open-todays-journal ()
+;;   "Display today's journal file."
+;;   (interactive)
+;;   (find-file-other-window (concat org-directory (format-time-string "/Journal/%Y-%m-%d %A.org"))))
+;; Obsolete if I'm using org-roam.
 
 (defun vix-open-home-file ()
   "Open my 'Home.org' file."
@@ -722,6 +792,24 @@
               (kill-buffer)))
       (message "Not a file visiting buffer!"))))
 
+(defun nuke-all-buffers ()
+  "Kill all buffers, leaving *scratch* only."
+  (interactive)
+  (mapc
+   (lambda (buffer)
+     (kill-buffer buffer))
+   (buffer-list))
+  (delete-other-windows))
+
+;; Custom function for full-text search in roam!!!
+(defun bms/org-roam-rg-search ()
+  "Search org-roam directory using consult-ripgrep. With live-preview."
+  (interactive)
+  (let ((consult-ripgrep-command "rg --null --ignore-case --type org --line-buffered --color=always --max-columns=500 --no-heading --line-number . -e ARG OPTS"))
+    (consult-ripgrep org-roam-directory)))
+(global-set-key (kbd "C-c rr") 'bms/org-roam-rg-search)
+
+
 ;;Highlight the active window
 ;; Doesn't work well for some reason, screws up the fonts.
 ;; (defun highlight-selected-window ()
@@ -766,7 +854,7 @@
         (switch-to-buffer (other-buffer))))))
 
 
-
+(setq desktop-restore-forces-onscreen nil)
 ;; LAST
 ;; ====
 
