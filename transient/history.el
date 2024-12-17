@@ -1,4 +1,5 @@
 ((magit-commit nil)
+ (magit-fetch nil)
  (magit-gitignore nil)
  (magit-merge nil)
  (magit-pull nil)

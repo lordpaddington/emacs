@@ -27,3 +27,4 @@ org-roam.db
 init.el
 emacs-libvterm
 transient/*
+transient/history.el
