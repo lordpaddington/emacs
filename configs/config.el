@@ -69,7 +69,7 @@
 ;;System-dependent changes (FUCKING KILL/REFACTOR THIS!!!!)
 ;; TODO: Consider moving the system-specific settings into separate files!
 (cond ((eq system-type 'darwin)
-       (set-face-attribute 'default nil :font "PT Mono 16")
+       (set-face-attribute 'default nil :font "iA Writer Mono S")
        (setq mac-command-modifier 'meta)
        (setq mac-option-modifier 'none) ;; alt doesn't work, fucks up special characters.
        (use-package ns-auto-titlebar)
@@ -80,8 +80,8 @@
        (global-set-key (kbd "M-h") 'ns-do-hide-emacs)
        (custom-theme-set-faces
 	'user
-	'(variable-pitch ((t (:family "iA Writer Quattro V" :Height 220))))
-	'(fixed-pitch ((t ( :family "iA Writer Mono S" :height 220))))
+	'(variable-pitch ((t (:family "iA Writer Duo S" :height 180))))
+	'(fixed-pitch ((t ( :family "iA Writer Mono S" :height 180))))
         '(egoge-display-time ((t (:inherit modeline :foreground "orange" :weight bold :height 1.0))))
        )     
        )
@@ -671,7 +671,7 @@
 ;; Some customized org faces (Dunno why it's not working...)
 ;;(set-face-attribute 'org-block nil            :foreground 'unspecified :inherit 'fixed-pitch :height 0.85)
 ;;(set-face-attribute 'org-code nil             :inherit '(shadow fixed-pitch) :height 0.85)
-(set-face-attribute 'org-indent nil           :inherit '(org-hide fixed-pitch) :height 0.7)
+(set-face-attribute 'org-indent nil           :inherit '(org-hide fixed-pitch) :height 1.0)
 ;(set-face-attribute 'org-verbatim nil         :inherit '(font-lock-number) :height 1)
 ;(set-face-attribute 'org-special-keyword nil  :inherit '(shadow fixed-pitch) :height 0.80)
 ;(set-face-attribute 'org-meta-line nil        :inherit '(shadow fixed-pitch))
