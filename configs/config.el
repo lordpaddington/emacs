@@ -80,8 +80,8 @@
        (global-set-key (kbd "M-h") 'ns-do-hide-emacs)
        (custom-theme-set-faces
 	'user
-	'(variable-pitch ((t (:family "iA Writer Quattro V" :Height 200))))
-	'(fixed-pitch ((t ( :family "PT Mono" :height 200))))
+	'(variable-pitch ((t (:family "iA Writer Duo S" :Height 200))))
+	'(fixed-pitch ((t ( :family "Fira Code" :height 200))))
         '(egoge-display-time ((t (:inherit modeline :foreground "orange" :weight bold :height 1.0))))
        )
        
@@ -181,6 +181,7 @@
 (global-set-key "\C-cb" 'org-iswitchb)
 (global-set-key "\C-xg" 'magit-status)
 (global-set-key (kbd "C-c v j") 'vix-open-todays-journal)
+(global-set-key (kbd "C-c n j") 'org-roam-dailies-goto-today)
 (global-set-key (kbd "C-c v h") 'vix-open-home-file)
 (global-set-key (kbd "C-c K") 'kill-buffer-and-window) ;;Could write a function to this: if one window, 'kill-buffer, if >1: 'kill-buffer-and-window...
 
@@ -243,13 +244,12 @@
 ;; 	 simple-modeline-segment-process
 ;; 	 simple-modeline-segment-major-mode)))
 
-;; ;; Experimental, leave alone for now.
-;; ;(setq-default header-line-format mode-line-format)
-;; ;(setq-default mode-line-format nil)
+;; Experimental, leave alone for now.
+;(setq-default header-line-format mode-line-format)
+;(setq-default mode-line-format nil)
 
 ;; (custom-set-faces
-;;  '(simple-modeline-status-modified ((t (:foreground "#ee0000"))))
-;;  )
+;;   '(simple-modeline-status-modified ((t (:foreground "#ee0000")))))
 
 ;;Doom modeline
 ;; (use-package doom-modeline
@@ -346,6 +346,7 @@
 
 ;;For centering nicely
 (use-package olivetti)
+(olivetti-set-width 80) ; Not sure this works, it's buffer local, no idea how to edit the defaults.
 
 ;;IVY Autocompletion (keep recent files in the buffer list)
 ;; TODO Replace this with Vertico and Consult!!!
@@ -426,6 +427,19 @@
   ;; the mode gets enabled right away. Note that this forces loading the
   ;; package.
   (marginalia-mode))
+
+
+;; Enable vertico-multiform
+(vertico-multiform-mode)
+
+;; Configure the display per completion category.
+;; Use the grid display for files and a buffer
+;; for the consult-grep commands.
+(setq vertico-multiform-categories
+      '((file grid)
+	(consult-buffer buffer)
+        (consult-grep buffer)))
+
 
 ;; Some consult keybindings:
 (global-set-key (kbd "C-x b") 'consult-buffer)
@@ -571,7 +585,7 @@
 
 ;(set-face-attribute 'org-block nil            :foreground nil :inherit 'fixed-pitch :height 0.85)
 ;; (set-face-attribute 'org-code nil             :inherit '(shadow fixed-pitch) :height 0.85)
-;; (set-face-attribute 'org-indent nil           :inherit '(org-hide fixed-pitch) :height 0.85)
+(set-face-attribute 'org-indent nil           :inherit '(org-hide fixed-pitch) :height 0.85)
 ;; (set-face-attribute 'org-verbatim nil         :inherit '(shadow fixed-pitch) :height 0.85)
 ;; (set-face-attribute 'org-special-keyword nil  :inherit '(font-lock-comment-face
 ;; fixed-pitch))
@@ -852,6 +866,35 @@
       (save-selected-window
         (other-window 1)
         (switch-to-buffer (other-buffer))))))
+
+;; Insert date as a link to the daily.
+;; TODO Not working need to check out if I can fix it...
+(defun matt/org-roam-dailies-insert-date ()
+  (interactive)
+  (save-window-excursion (save-excursion
+                            (org-roam-dailies-goto-date)
+                            (save-buffer)
+                            (org-store-link nil 'not-interactive)
+                            (let* ((id (car (car org-stored-links)))
+                                  (description (org-roam--file-keyword-get "TITLE"))
+                                  (updated (list id description)))
+                              (setq org-stored-links (cons updated (cdr org-stored-links))))))
+  (call-interactively 'matt/org-insert-last-stored-link-without-newline))
+
+(defun matt/org-insert-last-stored-link-without-newline (arg)
+  "Insert the last link stored in `org-stored-links' like
+`org-insert-last-stored-link', but without a trailing newline."
+  (interactive "p")
+  (org-insert-all-links arg "" ""))
+
+
+(defun org-roam-node-insert-immediate (arg &rest args)
+  "Insert link to a roam-node without opening the capture window"
+  (interactive "P")
+  (let ((args (cons arg args))
+        (org-roam-capture-templates (list (append (car org-roam-capture-templates)
+                                                  '(:immediate-finish t)))))
+    (apply #'org-roam-node-insert args)))
 
 
 (setq desktop-restore-forces-onscreen nil)
