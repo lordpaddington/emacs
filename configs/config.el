@@ -80,13 +80,8 @@
        (global-set-key (kbd "M-h") 'ns-do-hide-emacs)
        (custom-theme-set-faces
 	'user
-<<<<<<< HEAD
 	'(variable-pitch ((t (:family "iA Writer Quattro V" :Height 220))))
 	'(fixed-pitch ((t ( :family "iA Writer Mono S" :height 220))))
-=======
-	'(variable-pitch ((t (:family "iA Writer Duo S" :Height 200))))
-	'(fixed-pitch ((t ( :family "Fira Code" :height 200))))
->>>>>>> c126a8b36829c258c72377f355a4cc4b3c771160
         '(egoge-display-time ((t (:inherit modeline :foreground "orange" :weight bold :height 1.0))))
        )     
        )
@@ -586,11 +581,9 @@
 (add-hook 'org-mode-hook 'centered-cursor-mode)
 (add-hook 'org-mode-hook 'variable-pitch-mode)
 (add-hook 'org-mode-hook 'olivetti-mode)
-<<<<<<< HEAD
 (setq org-display-inline-images t)
-=======
-;(setq org-display-inline-images t)
 
+(require 'org-indent)
 ;(set-face-attribute 'org-block nil            :foreground nil :inherit 'fixed-pitch :height 0.85)
 ;; (set-face-attribute 'org-code nil             :inherit '(shadow fixed-pitch) :height 0.85)
 (set-face-attribute 'org-indent nil           :inherit '(org-hide fixed-pitch) :height 0.85)
@@ -599,7 +592,6 @@
 ;; fixed-pitch))
 ;; (set-face-attribute 'org-meta-line nil        :inherit '(font-lock-comment-face fixed-pitch))
 ;;(set-face-attribute 'org-checkbox nil         :inherit 'fixed-pitch)
->>>>>>> c126a8b36829c258c72377f355a4cc4b3c771160
 
 (setq org-src-fontify-natively t
 	  org-src-tab-acts-natively t
