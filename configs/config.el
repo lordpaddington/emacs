@@ -794,17 +794,7 @@
 
 
 ;; (defun ladicle/open-org-file (fname)
-;;       (switch-tListe der möglichen Maßnahmen:
-Fachliche "BI&Analytics-Themen", die auch nach Strukturänderung bestehen, übernimmt Viktor (bedeutet weniger Kapa für DS), z. B. bei fachlicher Erarbeitung der Reports, z. B. Sales Stages
-Unterstützung bei RE und Analyse suchen, z.B. Daniel, Martin (bedeutet weniger Kapa für Entwicklung) oder auch beim Controlling
-Christian und Alex gehen Alex Kalender und Aufgaben durch, um einzusparen, Zeitfresser identifizieren
-Teamstruktur-Änderung im Januar anstoßen und vorbereiten, sodass wir das schnellstmöglich umsetzen können
-u.a. wer kann die "koordinierende Stelle" im Data Platform Team übernehmen? (da dies aktuell auch teilweise bei Alex liegt)
-Suche nach einer internen Besetzung für den dritten PO (eigenen PO aufbauen), z. B. aus eigenen Reihen oder Controlling
-Aufgaben ans Controlling abgeben (vor allem aus dem "BI-Reporting"-Bereich)
-z. B. betriebswirtschaftliches Standardreporting
- 
- o-buffer (find-file-other-frame fname)))
+;;       (switch-to-buffer (find-file-other-frame fname)))
 
 ;; archive all done tasks
 
