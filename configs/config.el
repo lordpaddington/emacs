@@ -811,6 +811,13 @@
   (read-only-mode)
   )
 
+(defun vix/kill-and-close ()
+    (interactive)
+    (kill-this-buffer)
+    (delete-window)
+    (global-set-key (kbd "C-x k") 'vix/kill-and-close)
+  )
+
 (defun delete-file-and-buffer ()
   "Kill the current buffer and deletes the file it is visiting."
   (interactive)
