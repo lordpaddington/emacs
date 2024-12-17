@@ -69,7 +69,7 @@
 ;;System-dependent changes (FUCKING KILL/REFACTOR THIS!!!!)
 ;; TODO: Consider moving the system-specific settings into separate files!
 (cond ((eq system-type 'darwin)
-       (set-face-attribute 'default nil :font "Fira Code 16")
+       (set-face-attribute 'default nil :font "PT Mono 16")
        (setq mac-command-modifier 'meta)
        (setq mac-option-modifier 'none) ;; alt doesn't work, fucks up special characters.
        (use-package ns-auto-titlebar)
@@ -80,11 +80,10 @@
        (global-set-key (kbd "M-h") 'ns-do-hide-emacs)
        (custom-theme-set-faces
 	'user
-	'(variable-pitch ((t (:family "iA Writer Quattro V" :Height 200))))
-	'(fixed-pitch ((t ( :family "PT Mono" :height 200))))
+	'(variable-pitch ((t (:family "iA Writer Quattro V" :Height 220))))
+	'(fixed-pitch ((t ( :family "iA Writer Mono S" :height 220))))
         '(egoge-display-time ((t (:inherit modeline :foreground "orange" :weight bold :height 1.0))))
-       )
-       
+       )     
        )
       
       ((eq system-type 'windows)
@@ -514,11 +513,12 @@
   (markdown-enable-wiki-links t)
   :config
   (variable-pitch-mode)
+  (olivetti-mode)
   )
   
   (setq markdown-link-space-sub-char " ")
 
-(add-hook 'markdown-mode-hook 'variable-pitch-mode 'adaptive-wrap-prefix-mode)
+(add-hook 'markdown-mode-hook 'variable-pitch-mode 'adaptive-wrap-prefix-mode 'olivetti-mode)
 (setq markdown-indent-on-enter 'indent-and-new-item
       markdown-make-gfm-checkboxes-buttons t
       markdown-gfm-uppercase-checkbox t)
@@ -567,16 +567,7 @@
 (add-hook 'org-mode-hook 'centered-cursor-mode)
 (add-hook 'org-mode-hook 'variable-pitch-mode)
 (add-hook 'org-mode-hook 'olivetti-mode)
-;(setq org-display-inline-images t)
-
-;(set-face-attribute 'org-block nil            :foreground nil :inherit 'fixed-pitch :height 0.85)
-;; (set-face-attribute 'org-code nil             :inherit '(shadow fixed-pitch) :height 0.85)
-;; (set-face-attribute 'org-indent nil           :inherit '(org-hide fixed-pitch) :height 0.85)
-;; (set-face-attribute 'org-verbatim nil         :inherit '(shadow fixed-pitch) :height 0.85)
-;; (set-face-attribute 'org-special-keyword nil  :inherit '(font-lock-comment-face
-;; fixed-pitch))
-;; (set-face-attribute 'org-meta-line nil        :inherit '(font-lock-comment-face fixed-pitch))
-;;(set-face-attribute 'org-checkbox nil         :inherit 'fixed-pitch)
+(setq org-display-inline-images t)
 
 (setq org-src-fontify-natively t
 	  org-src-tab-acts-natively t
@@ -652,6 +643,21 @@
 (setq org-M-RET-may-split-line '((item . nil))) ;;M-RET to insert a new line anywhere!
 
 
+(require 'org-indent)
+;; Some customized org faces (Dunno why it's not working...)
+;;(set-face-attribute 'org-block nil            :foreground 'unspecified :inherit 'fixed-pitch :height 0.85)
+;;(set-face-attribute 'org-code nil             :inherit '(shadow fixed-pitch) :height 0.85)
+(set-face-attribute 'org-indent nil           :inherit '(org-hide fixed-pitch) :height 0.7)
+;(set-face-attribute 'org-verbatim nil         :inherit '(font-lock-number) :height 1)
+;(set-face-attribute 'org-special-keyword nil  :inherit '(shadow fixed-pitch) :height 0.80)
+;(set-face-attribute 'org-meta-line nil        :inherit '(shadow fixed-pitch))
+(set-face-attribute 'org-checkbox nil         :inherit '(fixed-pitch) :foreground "teal" :height 0.8 :weight 'semibold)
+
+
+
+
+
+
 ;;Move focus to new window
 (use-package window
     :ensure nil
@@ -684,6 +690,8 @@
   (org-roam-directory "~/Orgmode")
   :bind (("C-c n l" . org-roam-buffer-toggle)
          ("C-c n f" . org-roam-node-find)
+	 ("C-c n d" . org-roam-dailies-find-date)
+	 ("C-c n j" . org-roam-dailies-goto-today)
          ("C-c n i" . org-roam-node-insert))
   :config
   (org-roam-setup))
