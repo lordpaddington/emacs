@@ -151,38 +151,8 @@
 	    'face 'egoge-display-time))) ;;Face defined in the theme!
 (display-time-mode t)
 
-;;Kill window when the buffer is killed:
 
 
-;; KEYS
-;; ====
-(global-set-key (kbd "<C-up>") 'scroll-down-command)
-(global-set-key (kbd "<C-down>") 'scroll-up-command)
-(global-set-key (kbd "C-.") 'set-mark-command)
-(global-set-key (kbd "<M-left>") 'beginning-of-line)
-(global-set-key (kbd "<M-right>") 'end-of-line)
-(with-eval-after-load 'dired
-  (define-key dired-mode-map "-" 'dired-up-directory))
-(define-key key-translation-map (kbd "ESC") (kbd "C-g"))
-
-;;(setq ns-function-modifier 'control)
-
-;(with-eval-after-load 'org
-;  (define-key org-mode-map (kbd "<C-S-up>") 'org-move-subtree-up)
-  ;; (define-key org-mode-map (kbd "<C-S-down>") 'org-move-subtree-down)
-  ;; ;(define-key org-mode-map (kbd "<M-left>") 'beginning-of-line)
-  ;; ;(define-key org-mode-map (kbd "<M-right>") 'end-of-line)
-  ;; )
-
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cc" 'org-capture)
-(global-set-key "\C-cb" 'org-iswitchb)
-(global-set-key "\C-xg" 'magit-status)
-(global-set-key (kbd "C-c v j") 'vix-open-todays-journal)
-;;(global-set-key (kbd "C-c n j") 'org-roam-dailies-goto-today)
-(global-set-key (kbd "C-c v h") 'vix-open-home-file)
-(global-set-key (kbd "C-c K") 'kill-buffer-and-window) ;;Could write a function to this: if one window, 'kill-buffer, if >1: 'kill-buffer-and-window...
 
 
 ;; PACKAGES:
@@ -628,15 +598,15 @@
 (setq org-projects (concat org-directory "/Projects"))
 
 ;;(setq org-refile-use-outline-path 'file) - ez lehet kell a refile mukodesehez.
-
+;;FUCKING MOVE THIS INTO LOCAL!!!
 (defvar inbox (expand-file-name "Inbox.org" org-inbox))
-(defvar todo (expand-file-name "Next Actions.org" org-directory))
+(defvar todo (expand-file-name "20241218092003-next_actions.org" org-directory))
 ;(defvar reference (expand-file-name "Reference" org-directory))
 (defvar minutes (expand-file-name "Minutes" org-directory))
-(defvar someday (expand-file-name "Someday.org" org-directory))
-(defvar scheduled (expand-file-name "Scheduled.org" org-directory))
+(defvar someday (expand-file-name "20241218092219-someday_maybe.org" org-directory))
+(defvar scheduled (expand-file-name "20241218093247-upcoming.org" org-directory))
 (defvar reference (expand-file-name "Reference" org-directory))
-(defvar home (expand-file-name "Home.org" org-directory))
+(defvar home (expand-file-name "20241216100616-the_hub.org" org-directory))
 
 (defun my/generate-minute-name ()
   (setq my-minute--name (read-string "Meeting Title: "))
@@ -645,7 +615,7 @@
 
 (setq org-capture-templates
       '(
-        ("t" "Todo" entry (file+headline home "Next Actions")
+        ("t" "Todo" entry (file+headline todo "Next Actions")
          "* TODO %?\n")
         ("n" "Quick Note" entry (file+headline home "Notes")
          "* %?\n\n" :prepend t)
@@ -657,12 +627,12 @@
        )
       )
 
-(setq org-refile-targets (quote ((home :maxlevel . 1)				 
+(setq org-refile-targets (quote ((todo :maxlevel . 1)
                                  (someday :maxlevel . 1)
 				 (scheduled :maxlevel . 1)
 				 )))
 
-(setq org-agenda-files (list home scheduled minutes))
+(setq org-agenda-files (list home todo scheduled))
 
 (setq org-M-RET-may-split-line '((item . nil))) ;;M-RET to insert a new line anywhere!
 
@@ -675,7 +645,7 @@
 ;(set-face-attribute 'org-verbatim nil         :inherit '(font-lock-number) :height 1)
 ;(set-face-attribute 'org-special-keyword nil  :inherit '(shadow fixed-pitch) :height 0.80)
 ;(set-face-attribute 'org-meta-line nil        :inherit '(shadow fixed-pitch))
-(set-face-attribute 'org-checkbox nil         :inherit '(fixed-pitch) :foreground "teal" :height 0.8 :weight 'semibold)
+(set-face-attribute 'org-checkbox nil         :inherit '(fixed-pitch) :foreground "teal" :height 1.0 :weight 'semibold)
 
 
 
@@ -779,10 +749,11 @@
 ;;   (find-file-other-window (concat org-directory (format-time-string "/Journal/%Y-%m-%d %A.org"))))
 ;; Obsolete if I'm using org-roam.
 
-(defun vix-open-home-file ()
-  "Open my 'Home.org' file."
+(defun vix/open-home-file ()
+  "Open the hub file (set as 'home' in orgmode)."
   (interactive)
-  (find-file-other-window (concat org-directory "/Home.org")))
+  (find-file-other-window home))
+
 
 
 ;; (defun ladicle/open-org-file (fname)
@@ -815,7 +786,7 @@
     (interactive)
     (kill-this-buffer)
     (delete-window)
-    (global-set-key (kbd "C-x k") 'vix/kill-and-close)
+    
   )
 
 (defun delete-file-and-buffer ()
@@ -920,8 +891,41 @@
                                                   '(:immediate-finish t)))))
     (apply #'org-roam-node-insert args)))
 
-
 (setq desktop-restore-forces-onscreen nil)
+
+
+;; Custom Keybindings
+;; ==================
+;; Might make more sense at the end when everything is already loaded.
+(global-set-key (kbd "<C-up>") 'scroll-down-command)
+(global-set-key (kbd "<C-down>") 'scroll-up-command)
+(global-set-key (kbd "C-.") 'set-mark-command)
+(global-set-key (kbd "<M-left>") 'beginning-of-line)
+(global-set-key (kbd "<M-right>") 'end-of-line)
+(with-eval-after-load 'dired
+  (define-key dired-mode-map "-" 'dired-up-directory))
+(define-key key-translation-map (kbd "ESC") (kbd "C-g"))
+
+;;(setq ns-function-modifier 'control)
+
+;(with-eval-after-load 'org
+;  (define-key org-mode-map (kbd "<C-S-up>") 'org-move-subtree-up)
+  ;; (define-key org-mode-map (kbd "<C-S-down>") 'org-move-subtree-down)
+  ;; ;(define-key org-mode-map (kbd "<M-left>") 'beginning-of-line)
+  ;; ;(define-key org-mode-map (kbd "<M-right>") 'end-of-line)
+  ;; )
+
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cc" 'org-capture)
+(global-set-key "\C-cb" 'org-iswitchb)
+(global-set-key "\C-xg" 'magit-status)
+;;(global-set-key (kbd "C-c n j") 'org-roam-dailies-goto-today)
+(global-set-key (kbd "C-c v h") 'vix/open-home-file)
+
+(global-set-key (kbd "C-x k") 'vix/kill-and-close)
+
+
 ;; LAST
 ;; ====
 
