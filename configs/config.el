@@ -329,6 +329,16 @@
 ;; (setq ivy-initial-inputs-alist: '((counsel-M-x . "")))
 
 
+;;Ultra-scroll - nice, smooth scrolling
+(use-package ultra-scroll
+  ;:vc (:url "https://github.com/jdtsmith/ultra-scroll") ; if desired (emacs>=v30)
+  :init
+  (setq scroll-conservatively 3 ; or whatever value you prefer, since v0.4
+        scroll-margin 0)        ; important: scroll-margin>0 not yet supported
+  :config
+  (ultra-scroll-mode 1))
+
+
 ;; Enable vertico
 (use-package vertico
   :custom
@@ -338,6 +348,8 @@
   ;; (vertico-cycle t) ;; Enable cycling for `vertico-next/previous'
   :init
   (vertico-mode))
+
+
 
 ;; Persist history over Emacs restarts. Vertico sorts by history position.
 (use-package savehist
