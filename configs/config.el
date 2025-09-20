@@ -98,11 +98,12 @@
       
       ((eq system-type 'gnu/linux)
        (menu-bar-mode 0)
-       (set-face-attribute 'default nil :font "Liberation Mono 16")
+       (set-face-attribute 'default nil :font "Noto Sans Mono 12")
+       ;;This sucks, every distro has a different font set...
        (custom-theme-set-faces
 	'user
-	'(variable-pitch ((t (:family "Ubuntu" :height 180))))
-	'(fixed-pitch ((t ( :family "Liberation Mono" :height 180))))
+	'(variable-pitch ((t (:family "Noto Sans" :height 120))))
+	'(fixed-pitch ((t ( :family "Noto Sans Mono" :height 120))))
 	'(egoge-display-time ((t (:inherit modeline :foreground "orange" :weight bold :height 0.9))))
        )
        )
