@@ -28,3 +28,6 @@ init.el
 emacs-libvterm
 transient/*
 transient/history.el
+.org-id-locations
+eln-cache/*
+history
