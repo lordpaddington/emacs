@@ -453,7 +453,7 @@
 ;;MAGIT
 (use-package magit)
 ;; How to set up the credentials: https://docs.github.com/en/get-started/getting-started-with-git/caching-your-github-credentials-in-git
-
+;; If anything doesn't work, this is the trick!!!
 
 ;;Zettelkasten implementation
 ;; (use-package deft
