@@ -66,12 +66,52 @@
 (setq show-paren-delay 0)
 (show-paren-mode)
 
+
+;;THEME
+;;(Use-package solarized-theme)
+;;(setq solarized-use-variable-pitch nil)
+;;(setq solarized-scaqle-org-headlines nil)
+;;(setq x-underline-at-descent-line t)
+;;(setq solarized-high-contrast-mode-line t)
+;;(load-theme 'solarized-light-high-contrast t)
+(use-package doom-themes)
+(require 'doom-themes)
+;(load-theme 'doom-opera-light) ;Fancy light theme
+					;(Load-theme 'zenburn) ;Nice darkish theme
+;(load-theme 'doom-zenburn) ; zenburn, but doomed.
+;(load-theme 'victory) ;Simple light theme
+
+;;Cursor visibility
+(setq-default cursor-type '(bar . 3)) ;; Comment this out if using Evil!!!!
+(set-cursor-color "#FF8C00")
+(global-hl-line-mode) ; line highlighting.
+
+(set-face-attribute 'fringe nil :background nil)
+
+(defface egoge-display-time
+   '((((type x w32 mac))
+      ;; #060525 is the background colour of my default face.
+      (:foreground "red" :height 0.8))
+     (((type tty))
+      (:foreground "red" :height 0.8)))
+   "Face used to display the time in the mode line.")
+
+
+(setq display-time-string-forms
+      '((propertize (concat " " 24-hours ":" minutes " ")
+	    'face 'egoge-display-time))) ;;Face defined in the theme!
+(display-time-mode t)
+
+
+
+
 ;;System-dependent changes (FUCKING KILL/REFACTOR THIS!!!!)
 ;; TODO: Consider moving the system-specific settings into separate files!
 (cond ((eq system-type 'darwin)
        (set-face-attribute 'default nil :font "iA Writer Mono S 16")
        (setq mac-command-modifier 'meta)
        (setq mac-option-modifier 'none) ;; alt doesn't work, fucks up special characters.
+       (load-theme 'doom-nord)
        (use-package ns-auto-titlebar)
        (setq ns-auto-titlebar-mode nil)
        (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
@@ -98,6 +138,7 @@
       
       ((eq system-type 'gnu/linux)
        (menu-bar-mode 0)
+       (load-theme 'doom-zenburn)
        (set-face-attribute 'default nil :font "Noto Sans Mono 12")
        ;;This sucks, every distro has a different font set...
        (custom-theme-set-faces
@@ -116,41 +157,6 @@
 (set-face-attribute 'fringe nil :background nil)
 (tool-bar-mode -1)
 
-;;THEME
-;;(Use-package solarized-theme)
-;;(setq solarized-use-variable-pitch nil)
-;;(setq solarized-scaqle-org-headlines nil)
-;;(setq x-underline-at-descent-line t)
-;;(setq solarized-high-contrast-mode-line t)
-;;(load-theme 'solarized-light-high-contrast t)
-(use-package doom-themes)
-(require 'doom-themes)
-(load-theme 'doom-nord)
-;(load-theme 'doom-opera-light) ;Fancy light theme
-					;(Load-theme 'zenburn) ;Nice darkish theme
-;(load-theme 'doom-zenburn) ; zenburn, but doomed.
-;(load-theme 'victory) ;Simple light theme
-
-;;Cursor visibility
-(setq-default cursor-type '(bar . 3)) ;; Comment this out if using Evil!!!!
-(set-cursor-color "#FF8C00")
-(global-hl-line-mode) ; line highlighting.
-
-(set-face-attribute 'fringe nil :background nil)
-
-(defface egoge-display-time
-   '((((type x w32 mac))
-      ;; #060525 is the background colour of my default face.
-      (:foreground "red" :height 0.8))
-     (((type tty))
-      (:foreground "red" :height 0.8)))
-   "Face used to display the time in the mode line.")
-
-
-(setq display-time-string-forms
-      '((propertize (concat " " 24-hours ":" minutes " ")
-	    'face 'egoge-display-time))) ;;Face defined in the theme!
-(display-time-mode t)
 
 
 
@@ -452,7 +458,7 @@
 
 ;;MAGIT
 (use-package magit)
-;; How to set up the credentials: https://docs.github.com/en/get-started/getting-started-with-git/caching-your-github-credentials-in-git
+;; How to set up the credentials: https://docs.github.com/en/get-started/getting-started-with-git/caching-your-github-credentials-in-gitq
 ;; If anything doesn't work, this is the trick!!!
 
 ;;Zettelkasten implementation
