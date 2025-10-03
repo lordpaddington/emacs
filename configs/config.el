@@ -137,7 +137,7 @@
 	)
       
       ((eq system-type 'gnu/linux)
-       (menu-bar-mode 0)
+       (menu-bar-mode 1)
        (load-theme 'doom-zenburn)
        (set-face-attribute 'default nil :font "Noto Sans Mono 12")
        ;;This sucks, every distro has a different font set...
@@ -146,7 +146,29 @@
 	'(variable-pitch ((t (:family "Noto Sans" :height 120))))
 	'(fixed-pitch ((t ( :family "Noto Sans Mono" :height 120))))
 	'(egoge-display-time ((t (:inherit modeline :foreground "orange" :weight bold :height 0.9))))
-       )
+	)
+       ;; If using a mac keyboard layout with keyd, this is needed to restore proper modifiers!
+       ;; There seems to be no built-in mechanism to swap modifier keys in
+       ;; Emacs, but it can be accomplished (for the most part) by
+       ;; translating a near-exhaustive list of modifiable keys.  In the case
+       ;; of 'control and 'meta, some keys must be omitted to avoid errors or
+       ;; other undesired effects.
+       (defun my/make-key-string (modsymbol basic-event)
+	 "Convert the combination of MODSYMBOL and BASIC-EVENT. BASIC-EVENT can be a character or a function-key symbol. The return value can be used with `define-key'."
+	 (vector (event-convert-list `(,modsymbol ,basic-event))))
+
+       ;; Escaped chars are:
+       ;; tab return space del backspace (typically translated to del)
+       (dolist (char (append '(up down left right menu print scroll pause
+			insert delete home end prior next
+			tab return space backspace escape
+			f1 f2 f3 f4 f5 f6 f7 f8 f9 f10 f11 f12)
+		      ;; Escape gets translated to `C-\[' in `local-function-key-map'
+		      ;; We want that to keep working, so we don't swap `C-\[' with `M-\['.
+		      (remq ?\[ (number-sequence 33 126))))
+  	 ;; Changing this to use `input-decode-map', as it works for more keys.
+	 (define-key input-decode-map (my/make-key-string 'control char) (my/make-key-string 'meta char))
+ 	 (define-key input-decode-map (my/make-key-string 'super char) (my/make-key-string 'control char)))
        )
       )
 
