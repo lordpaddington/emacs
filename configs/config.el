@@ -594,6 +594,9 @@
 (add-hook 'org-mode-hook 'olivetti-mode)
 (setq org-display-inline-images t)
 
+;;Stop inserting newlines after headings:
+(setf org-blank-before-new-entry '((heading . nil) (plain-list-item . nil)))
+
 (require 'org-indent)
 ;(set-face-attribute 'org-block nil            :foreground nil :inherit 'fixed-pitch :height 0.85)
 ;; (set-face-attribute 'org-code nil             :inherit '(shadow fixed-pitch) :height 0.85)
