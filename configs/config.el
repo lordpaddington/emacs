@@ -137,7 +137,7 @@
 	)
       
       ((eq system-type 'gnu/linux)
-       (menu-bar-mode 1)
+       (menu-bar-mode 0)
        (load-theme 'doom-zenburn)
        (set-face-attribute 'default nil :font "Noto Sans Mono 12")
        ;;This sucks, every distro has a different font set...
