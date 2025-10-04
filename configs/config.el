@@ -781,10 +781,16 @@
 ;; =========
 
 ;; insert current date
-;; TODO Deprecated, change it to something that inserts not just the date, but a link to the org-roam daily note!
-(defun vix-insert-current-date () (interactive)
-       "Insert todays date in YYYY-MM-DD format."
-       (insert (shell-command-to-string "echo -n $(date +%Y-%m-%d)")))
+(defun vix-insert-current-date ()
+  (interactive)
+  "Insert todays date in YYYY-MM-DD format."
+  (insert (shell-command-to-string "echo -n $(date +%Y-%m-%d)")))
+
+;; Insert date as an org heading
+(defun vix-insert-date-heading ()
+  (interactive)
+  "Insert todays date in YYYY-MM-DD format."
+  (insert "\n\n* " (shell-command-to-string "echo -n $(date +'%Y-%m-%d, %A')" ) "\n"))
 
 
 ;; (defun vix-open-todays-journal ()
