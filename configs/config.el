@@ -66,55 +66,6 @@
 (setq show-paren-delay 0)
 (show-paren-mode)
 
-;;System-dependent changes (FUCKING KILL/REFACTOR THIS!!!!)
-;; TODO: Consider moving the system-specific settings into separate files!
-(cond ((eq system-type 'darwin)
-       (set-face-attribute 'default nil :font "iA Writer Mono S 16")
-       (setq mac-command-modifier 'meta)
-       (setq mac-option-modifier 'none) ;; alt doesn't work, fucks up special characters.
-       (use-package ns-auto-titlebar)
-       (setq ns-auto-titlebar-mode nil)
-       (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
-       (add-to-list 'default-frame-alist '(ns-appearance . dark))
-       (setq ns-use-proxy-icon nil)
-       (global-set-key (kbd "M-h") 'ns-do-hide-emacs)
-       (custom-theme-set-faces
-	'user
-	'(variable-pitch ((t (:family "iA Writer Quattro V"))))
-	'(fixed-pitch ((t ( :family "iA Writer Mono S"))))
-        '(egoge-display-time ((t (:inherit modeline :foreground "orange" :weight bold :height 1.0))))
-       )     
-       )
-      
-      ((eq system-type 'windows)
-       (menu-bar-mode 0)       
-       (custom-theme-set-faces
-	'user
-	'(variable-pitch ((t (:family "Tahoma" :height 300))))
-     	;This shit doesn't seem to work on win and don't know why!!!
-	'(fixed-pitch ((t ( :family "Consolas" :height 180)))))
-        '(egoge-display-time ((t (:inherit modeline :foreground "orange" :weight bold :height 0.9))))
-	)
-      
-      ((eq system-type 'gnu/linux)
-       (menu-bar-mode 0)
-       (set-face-attribute 'default nil :font "Noto Sans Mono 12")
-       ;;This sucks, every distro has a different font set...
-       (custom-theme-set-faces
-	'user
-	'(variable-pitch ((t (:family "Noto Sans" :height 120))))
-	'(fixed-pitch ((t ( :family "Noto Sans Mono" :height 120))))
-	'(egoge-display-time ((t (:inherit modeline :foreground "orange" :weight bold :height 0.9))))
-       )
-       )
-      )
-
-
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(add-to-list 'load-path "~/.emacs.d/packages/")
-(fringe-mode 20)
-(set-face-attribute 'fringe nil :background nil)
-(tool-bar-mode -1)
 
 ;;THEME
 ;;(Use-package solarized-theme)
@@ -125,7 +76,6 @@
 ;;(load-theme 'solarized-light-high-contrast t)
 (use-package doom-themes)
 (require 'doom-themes)
-(load-theme 'doom-nord)
 ;(load-theme 'doom-opera-light) ;Fancy light theme
 					;(Load-theme 'zenburn) ;Nice darkish theme
 ;(load-theme 'doom-zenburn) ; zenburn, but doomed.
@@ -151,6 +101,84 @@
       '((propertize (concat " " 24-hours ":" minutes " ")
 	    'face 'egoge-display-time))) ;;Face defined in the theme!
 (display-time-mode t)
+
+
+
+
+;;System-dependent changes (FUCKING KILL/REFACTOR THIS!!!!)
+;; TODO: Consider moving the system-specific settings into separate files!
+(cond ((eq system-type 'darwin)
+       (set-face-attribute 'default nil :font "iA Writer Mono S 16")
+       (setq mac-command-modifier 'meta)
+       (setq mac-option-modifier 'none) ;; alt doesn't work, fucks up special characters.
+       (load-theme 'doom-nord)
+       (use-package ns-auto-titlebar)
+       (setq ns-auto-titlebar-mode nil)
+       (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+       (add-to-list 'default-frame-alist '(ns-appearance . dark))
+       (setq ns-use-proxy-icon nil)
+       (global-set-key (kbd "M-h") 'ns-do-hide-emacs)
+       (custom-theme-set-faces
+	'user
+	'(variable-pitch ((t (:family "iA Writer Quattro V"))))
+	'(fixed-pitch ((t ( :family "iA Writer Mono S"))))
+        '(egoge-display-time ((t (:inherit modeline :foreground "orange" :weight bold :height 1.0))))
+       )     
+       )
+      
+      ((eq system-type 'windows)
+       (menu-bar-mode 0)       
+       (custom-theme-set-faces
+	'user
+	'(variable-pitch ((t (:family "Tahoma" :height 300))))
+     	;This shit doesn't seem to work on win and don't know why!!!
+	'(fixed-pitch ((t ( :family "Consolas" :height 180)))))
+        '(egoge-display-time ((t (:inherit modeline :foreground "orange" :weight bold :height 0.9))))
+	)
+      
+      ((eq system-type 'gnu/linux)
+       (menu-bar-mode 1)
+       (load-theme 'doom-zenburn)
+       (set-face-attribute 'default nil :font "Noto Sans Mono 12")
+       ;;This sucks, every distro has a different font set...
+       (custom-theme-set-faces
+	'user
+	'(variable-pitch ((t (:family "Noto Sans" :height 120))))
+	'(fixed-pitch ((t ( :family "Noto Sans Mono" :height 120))))
+	'(egoge-display-time ((t (:inherit modeline :foreground "orange" :weight bold :height 0.9))))
+	)
+       ;; If using a mac keyboard layout with keyd, this is needed to restore proper modifiers!
+       ;; There seems to be no built-in mechanism to swap modifier keys in
+       ;; Emacs, but it can be accomplished (for the most part) by
+       ;; translating a near-exhaustive list of modifiable keys.  In the case
+       ;; of 'control and 'meta, some keys must be omitted to avoid errors or
+       ;; other undesired effects.
+       (defun my/make-key-string (modsymbol basic-event)
+	 "Convert the combination of MODSYMBOL and BASIC-EVENT. BASIC-EVENT can be a character or a function-key symbol. The return value can be used with `define-key'."
+	 (vector (event-convert-list `(,modsymbol ,basic-event))))
+
+       ;; Escaped chars are:
+       ;; tab return space del backspace (typically translated to del)
+       (dolist (char (append '(up down left right menu print scroll pause
+			insert delete home end prior next
+			tab return space backspace escape
+			f1 f2 f3 f4 f5 f6 f7 f8 f9 f10 f11 f12)
+		      ;; Escape gets translated to `C-\[' in `local-function-key-map'
+		      ;; We want that to keep working, so we don't swap `C-\[' with `M-\['.
+		      (remq ?\[ (number-sequence 33 126))))
+  	 ;; Changing this to use `input-decode-map', as it works for more keys.
+	 (define-key input-decode-map (my/make-key-string 'control char) (my/make-key-string 'meta char))
+ 	 (define-key input-decode-map (my/make-key-string 'super char) (my/make-key-string 'control char)))
+       )
+      )
+
+
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(add-to-list 'load-path "~/.emacs.d/packages/")
+(fringe-mode 20)
+(set-face-attribute 'fringe nil :background nil)
+(tool-bar-mode -1)
+
 
 
 
@@ -452,8 +480,8 @@
 
 ;;MAGIT
 (use-package magit)
-;; How to set up the credentials: https://docs.github.com/en/get-started/getting-started-with-git/caching-your-github-credentials-in-git
-
+;; How to set up the credentials: https://docs.github.com/en/get-started/getting-started-with-git/caching-your-github-credentials-in-gitq
+;; If anything doesn't work, this is the trick!!!
 
 ;;Zettelkasten implementation
 ;; (use-package deft
